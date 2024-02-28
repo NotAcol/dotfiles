@@ -23,7 +23,7 @@ pacman -S stow
 First, check out the dotfiles repo in your $HOME directory using git
 
 ```
-$ git clone git@github.com/dreamsofautonomy/dotfiles.git
+$ git clone git@github.com/NotAcol/dotfiles.git
 $ cd dotfiles
 ```
 
@@ -37,16 +37,15 @@ $ stow .
 
 ## kitty
 
+```
+$ pacman -S kitty
+```
+
 ### font 
 
 ```
 https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
 ```
-
-```
-$ pacman -S kitty
-```
-
 
 ### themes
 
@@ -65,15 +64,26 @@ $ pacman -S zsh
 using oh-my-zsh rn but should replace
 
 ```
-$ pacman -S zoxide mc bat tree fzf
+$ pacman -S zoxide mc bat
 ```
 
-```
 https://github.com/zsh-users/zsh-completions
 https://github.com/zsh-users/zsh-syntax-highlighting
 https://github.com/zsh-users/zsh-autosuggestions
 https://github.com/MichaelAquilina/zsh-you-should-use
+
+## NVIM
+
 ```
+pacman -S nvim
+```
+### NvChad
+
+```
+pacman -S ripgrep
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+```
+
 
 
 
