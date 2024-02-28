@@ -9,6 +9,15 @@ export VISUAL=nvim
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#
+# Uncomment this if removing oh-my-zsh for git auto completion
+#autoload -Uz vcs_info
+#precmd_vcs_info() { vcs_info }
+#precmd_functions+=( precmd_vcs_info )
+#setopt prompt_subst
+#RPROMPT='${vcs_info_msg_0_}'
+## PROMPT='${vcs_info_msg_0_}%# '
+#zstyle ':vcs_info:git:*' formats '%b'
 
 ZSH_THEME="refined"
 
