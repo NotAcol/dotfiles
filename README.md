@@ -54,21 +54,21 @@ kitty +kitten themes
 ## zsh
 
 ```
-$ pacman -S zsh 
+$ pacman -S zsh zap
 ```
 
 ### extensions 
 
-using oh-my-zsh rn but should replace
+in zsh terminal
 
 ```
-$ pacman -S zoxide mc bat btop neofetch
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 ```
 
-https://github.com/zsh-users/zsh-completions
-https://github.com/zsh-users/zsh-syntax-highlighting
-https://github.com/zsh-users/zsh-autosuggestions
-https://github.com/MichaelAquilina/zsh-you-should-use
+```
+$ pacman -S zoxide mc btop neofetch
+```
+
 
 ## NVIM
 

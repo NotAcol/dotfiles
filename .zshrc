@@ -3,9 +3,26 @@
 
 HISTFILE=~/.zsh_history
 
+#exports
+HISTSIZE=1000000
+SAVEHIST=1000000
+export EDITOR="nvim"
+export TERMINAL="kitty"
 
+
+#colors
 alias cat=bat
 alias ls=exa
+alias grep='grep --color=auto'
+
+#-
+alias nvimrc='nvim ~/.config/nvim/'
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
 
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
@@ -19,6 +36,7 @@ plug "zap-zsh/exa"
 plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
+plug "hlissner/zsh-autopair"
 
 
 
