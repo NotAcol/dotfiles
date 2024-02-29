@@ -24,7 +24,7 @@ drop_menus=false
 wrap_mode=false
 old_esc_mode=true
 cd_symlinks=true
-show_all_if_ambiguous=false
+show_all_if_ambiguous=true
 use_file_to_guess_type=true
 alternate_plus_minus=false
 only_leading_plus_minus=true
@@ -88,7 +88,7 @@ filepos_max_saved_entries=1024
 
 [Layout]
 output_lines=0
-left_panel_size=120
+left_panel_size=106
 top_panel_size=0
 message_visible=false
 keybar_visible=true
@@ -119,7 +119,7 @@ color_terminals=
 
 [Panels]
 show_mini_info=true
-kilobyte_si=false
+kilobyte_si=true
 mix_all_files=false
 show_backups=true
 show_dot_files=true
@@ -156,6 +156,6 @@ ignore_dirs=
 
 [Panelize]
 Find SUID and SGID programs=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
+Find rejects after patching=find . -name \\*.rej -print
 Find *.orig after patching=find . -name \\*.orig -print
 Modified git files=git ls-files --modified
-Find rejects after patching=find . -name \\*.rej -print
