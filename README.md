@@ -43,14 +43,12 @@ $ pacman -S kitty
 
 ### font 
 
-```
 https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
-```
 
 ### themes
 
 ```
-https://github.com/dexpota/kitty-themes
+kitty +kitten themes
 ```
 
 ## zsh
@@ -64,7 +62,7 @@ $ pacman -S zsh
 using oh-my-zsh rn but should replace
 
 ```
-$ pacman -S zoxide mc bat
+$ pacman -S zoxide mc bat btop neofetch
 ```
 
 https://github.com/zsh-users/zsh-completions
