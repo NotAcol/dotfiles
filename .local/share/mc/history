@@ -1,9 +1,3 @@
-[inpmc.fm.mkdir]
-0=hypr
-
-[input2]
-0=/home/acol/dotfiles/.config/hypr/
-
 [input-def]
 0=*
 
@@ -20,3 +14,11 @@
 1=/home/acol/dotfiles
 2=/home/acol/dotfiles/.config
 3=/home/acol/dotfiles/.config/hypr
+
+[inpmc.fm.mkdir]
+0=hypr
+1=waybar
+
+[input2]
+0=/home/acol/dotfiles/.config/hypr/
+1=/home/acol/.config/

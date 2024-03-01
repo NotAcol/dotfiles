@@ -54,7 +54,7 @@ kitty +kitten themes
 ## zsh
 
 ```
-$ pacman -S zsh zap
+$ pacman -S zsh
 ```
 
 ### extensions 
@@ -66,7 +66,7 @@ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) 
 ```
 
 ```
-$ pacman -S zoxide thefuck mc btop neofetch
+$ pacman -S zoxide thefuck mc btop neofetch tree
 ```
 
 
@@ -82,9 +82,23 @@ pacman -S ripgrep
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
 
+## BLUETOOTH
+
+sudo pacman -S bluez bluez-utils 
+
+systemctl start bluetooth.service
+
+bluetoothctl
+
+### for tui
+
+yay bluetuith
 
 
+## scuffed brightness fix
 
-
+[acol@archlinux ~]$ sudo -i
+[root@archlinux ~]# echo 75 > /sys/class/backlight/amdgpu_bl1/brightness
+[root@archlinux ~]# echo 90 > /sys/class/backlight/amdgpu_bl1/brightness
 
 

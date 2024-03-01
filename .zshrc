@@ -13,7 +13,7 @@ export TERMINAL="kitty"
 alias mc="mc --nosubshell"
 #colors
 alias cat=bat
-#alias ls=exa
+alias ls=exa
 alias grep='grep --color=auto' #remember to use rg retard >.<
 
 #-
@@ -34,7 +34,7 @@ plug "MichaelAquilina/zsh-you-should-use"
 plug "zap-zsh/fzf"
 plug "zap-zsh/exa"
 #plug "zap-zsh/nvim"
-plug "zap-zsh/vim"
+#plug "zap-zsh/vim"
 plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
