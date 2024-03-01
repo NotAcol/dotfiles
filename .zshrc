@@ -9,11 +9,12 @@ SAVEHIST=1000000
 export EDITOR="nvim"
 export TERMINAL="kitty"
 
-
+#speed hack
+alias mc="mc --nosubshell"
 #colors
 alias cat=bat
-alias ls=exa
-alias grep='grep --color=auto'
+#alias ls=exa
+alias grep='grep --color=auto' #remember to use rg retard >.<
 
 #-
 alias nvimrc='nvim ~/.config/nvim/'
@@ -33,6 +34,7 @@ plug "MichaelAquilina/zsh-you-should-use"
 plug "zap-zsh/fzf"
 plug "zap-zsh/exa"
 #plug "zap-zsh/nvim"
+plug "zap-zsh/vim"
 plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
@@ -47,3 +49,4 @@ compinit
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+eval "$(thefuck --alias)"

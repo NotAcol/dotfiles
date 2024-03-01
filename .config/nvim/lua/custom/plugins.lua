@@ -19,6 +19,28 @@ local plugins = {
     end
   },
   {
+    "michaelrommel/nvim-silicon",
+    lazy = true,
+    cmd = "Silicon",
+    init = function()
+      local wk = require("which-key")
+      wk.register({
+        ["<leader>sc"] = { ":Silicon<CR>", "Snapshot Code" },
+      }, { mode = "v" })
+    end,
+    config = function()
+      require("silicon").setup({
+        font = "JetBrainsMono Nerd Font=34;Noto Color Emoji=34",
+        theme = "OneHalfDark",
+        background = "#c192a5",
+        window_title = function()
+          return vim.fn.fnamemodify(
+            vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t")
+        end,
+      })
+    end,
+  },
+  {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -35,13 +57,13 @@ local plugins = {
       require("core.utils").load_mappings("dap")
     end
   },
---  {
---    "jose-elias-alvarez/null-ls.nvim",
---    event = "VeryLazy",
---    opts = function()
---      return require "custom.configs.null-ls"
---    end,
---  },
+  --  {
+  --    "jose-elias-alvarez/null-ls.nvim",
+  --    event = "VeryLazy",
+  --    opts = function()
+  --      return require "custom.configs.null-ls"
+  --    end,
+  --  },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -59,7 +81,7 @@ local plugins = {
         "clang-format",
         "codelldb",
         "glsl_analyzer",
---        "null-ls.nvim",
+        --        "null-ls.nvim",
       }
     }
   }

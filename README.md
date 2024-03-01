@@ -66,7 +66,7 @@ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) 
 ```
 
 ```
-$ pacman -S zoxide mc btop neofetch
+$ pacman -S zoxide thefuck mc btop neofetch thefuck
 ```
 
 
