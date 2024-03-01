@@ -1,0 +1,22 @@
+[inpmc.fm.mkdir]
+0=hypr
+
+[input2]
+0=/home/acol/dotfiles/.config/hypr/
+
+[input-def]
+0=*
+
+[cmdline]
+0=
+
+[Dir Hist New Right Panel]
+0=/home/acol
+1=/home/acol/.config
+2=/home/acol/.config/hypr
+
+[Dir Hist New Left Panel]
+0=/home/acol
+1=/home/acol/dotfiles
+2=/home/acol/dotfiles/.config
+3=/home/acol/dotfiles/.config/hypr
