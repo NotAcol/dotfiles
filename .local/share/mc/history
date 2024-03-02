@@ -8,12 +8,6 @@
 0=hypr
 1=waybar
 
-[input2]
-0=/home/acol/dotfiles/.config/hypr/
-1=/home/acol/.config/
-2=/home/acol/
-3=/home/acol/Documents
-
 [Dir Hist New Right Panel]
 0=/home/acol/.config
 1=/home/acol/.config/hypr
@@ -42,3 +36,9 @@
 12=/run/media/acol/ARCH_202401
 13=/run/media/acol/ARCH_202401/stikaki
 14=/run/media/acol/ARCH_202401/stikaki/backups
+
+[input2]
+0=/home/acol/.config/
+1=/home/acol/
+2=/home/acol/Documents
+3=/home/acol/dotfiles/.config/hypr/
