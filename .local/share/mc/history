@@ -4,17 +4,6 @@
 [cmdline]
 0=
 
-[Dir Hist New Right Panel]
-0=/home/acol
-1=/home/acol/.config
-2=/home/acol/.config/hypr
-
-[Dir Hist New Left Panel]
-0=/home/acol
-1=/home/acol/dotfiles
-2=/home/acol/dotfiles/.config
-3=/home/acol/dotfiles/.config/hypr
-
 [inpmc.fm.mkdir]
 0=hypr
 1=waybar
@@ -22,3 +11,34 @@
 [input2]
 0=/home/acol/dotfiles/.config/hypr/
 1=/home/acol/.config/
+2=/home/acol/
+3=/home/acol/Documents
+
+[Dir Hist New Right Panel]
+0=/home/acol/.config
+1=/home/acol/.config/hypr
+2=/home/acol/Documents/AcolComplete/AcolComplete
+3=/home/acol/Documents/AcolComplete/CMakeFiles
+4=/home/acol/Documents/AcolComplete/engine
+5=/home/acol/Documents/AcolComplete/shaders
+6=/home/acol/Documents/AcolComplete
+7=/home/acol/Documents
+8=/home/acol
+9=/home
+
+[Dir Hist New Left Panel]
+0=/home/acol/dotfiles
+1=/home/acol/dotfiles/.config
+2=/home/acol/dotfiles/.config/hypr
+3=/home/acol
+4=/home
+5=/
+6=/run/mount
+7=/run
+8=/run/media
+9=/run/media/acol
+10=/run/media/acol/ARCH_202401/.Trash-1000/info
+11=/run/media/acol/ARCH_202401/.Trash-1000
+12=/run/media/acol/ARCH_202401
+13=/run/media/acol/ARCH_202401/stikaki
+14=/run/media/acol/ARCH_202401/stikaki/backups
