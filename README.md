@@ -95,10 +95,14 @@ bluetoothctl
 yay bluetuith
 
 
-## scuffed brightness fix
+# Passoword stuff
 
-[acol@archlinux ~]$ sudo -i
-[root@archlinux ~]# echo 75 > /sys/class/backlight/amdgpu_bl1/brightness
-[root@archlinux ~]# echo 90 > /sys/class/backlight/amdgpu_bl1/brightness
+https://www.youtube.com/watch?v=FhwsfH2TpFA
 
+# Hyprland 
 
+I will probably never finish this >.<
+
+```
+yay wl-clipboard-rs
+```

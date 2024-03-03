@@ -6,12 +6,12 @@ HISTFILE=~/.zsh_history
 #exports
 HISTSIZE=1000000
 SAVEHIST=1000000
-export EDITOR="nvim"
 export TERMINAL="kitty"
-export VISUAL="less"
-export PAGER="less"
 export LESSOPEN="|bat --paging=auto --color=always %s"
+export VIEWER="less"
 export LESS='-R'
+export EDITOR="nvim"
+
 
 
 # Load and initialise completion system
@@ -31,6 +31,10 @@ plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
 plug "zap-zsh/web-search"
+
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 
 #speed hack
 alias mc="mc --nosubshell"
