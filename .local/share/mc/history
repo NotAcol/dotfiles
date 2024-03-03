@@ -16,6 +16,10 @@
 4=/home/acol/Pictures
 5=/home/acol/dotfiles/.config/
 
+[input]
+0=
+1=~
+
 [Dir Hist New Right Panel]
 0=/home/acol/Documents/AcolComplete/AcolComplete
 1=/home/acol/Documents/AcolComplete/CMakeFiles
@@ -29,9 +33,9 @@
 9=/home/acol/dotfiles/.config/hypr
 10=/home/acol/Pictures
 11=/home/acol/.config/hypr
-12=/home/acol
-13=/home/acol/dotfiles
-14=/home/acol/dotfiles/.config
+12=/home/acol/dotfiles
+13=/home/acol/dotfiles/.config
+14=/home/acol
 
 [Dir Hist New Left Panel]
 0=/run/mount
@@ -44,14 +48,23 @@
 7=/run/media/acol/ARCH_202401/stikaki
 8=/run/media/acol/ARCH_202401/stikaki/backups
 9=/home/acol/Downloads
-10=/home/acol/.config
-11=/home/acol/.config/hypr
-12=/home/acol/dotfiles
-13=/home/acol/dotfiles/.config
-14=/home/acol/dotfiles/.config/hypr
-15=/home/acol/Pictures
-16=/home/acol
-17=/home
-18=/
-19=/etc
-20=/etc/xdg
+10=/home/acol/.config/hypr
+11=/home/acol/dotfiles
+12=/home/acol/dotfiles/.config
+13=/home/acol/dotfiles/.config/hypr
+14=/etc
+15=/etc/xdg
+16=/home/acol/Videos
+17=/home/acol/Pictures
+18=/home/acol/.config
+19=/home/acol/.nv
+20=/home/acol/.npm
+21=/home/acol/.pki
+22=/.snapshots
+23=/home
+24=/
+25=/home/acol
+26=/home/acol/Documents
+27=/home/acol/Documents/AcolComplete/engine/source
+28=/home/acol/Documents/AcolComplete/engine
+29=/home/acol/Documents/AcolComplete
