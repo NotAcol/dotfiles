@@ -21,16 +21,16 @@ compinit
 plug "zap-zsh/supercharge"
 plug "wintermi/zsh-starship"
 plug "hlissner/zsh-autopair"
-plug "zap-zsh/vim"
+#plug "zap-zsh/vim"
 plug "MichaelAquilina/zsh-you-should-use"
 plug "zap-zsh/fzf"
 plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
-plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/web-search"
 plug "esc/conda-zsh-completion"
+plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
-plug "zap-zsh/web-search"
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
@@ -42,7 +42,7 @@ alias mc="mc --nosubshell"
 alias cat=bat
 alias ls="eza --color=auto --hyperlink --icons=auto --classify=auto"
 alias grep='rg' #remember to use rg retard >.<
-alias tree="ls -t -l 2"
+alias tree="ls -T -L 2"
 alias treeg="ls -t --git-ignore -l 2"
 
 #-
@@ -54,5 +54,5 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
+eval "$(starship init zsh)"
