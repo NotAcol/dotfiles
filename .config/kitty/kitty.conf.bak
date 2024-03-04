@@ -250,7 +250,8 @@
 #: }}}
 
 #: Cursor customization {{{
-# cursor none
+
+cursor none
 
 #: Default cursor color. If set to the special value none the cursor
 #: will be rendered with a "reverse video" effect. It's color will be
@@ -378,7 +379,8 @@
 #: typing text. Disabled by default on macOS as getting it to work
 #: robustly with the ever-changing sea of bugs that is Cocoa is too
 #: much effort.
-# url_color #0087bd
+
+ url_color #0087bd
  url_style straight
 
 #: The color and style for highlighting URLs on mouse-over. url_style
@@ -1579,7 +1581,8 @@ dynamic_background_opacity yes
 #: }}}
 
 #: OS specific tweaks {{{
-# wayland_titlebar_color background
+
+ wayland_titlebar_color background
 
 #: The color of the kitty window's titlebar on Wayland systems with
 #: client side window decorations such as GNOME. A value of system
@@ -2456,9 +2459,3 @@ map kitty_mod+, set_background_opacity -0.1
 #: }}}
 
 include ./theme.conf
-
-
-# BEGIN_KITTY_THEME
-# Catppuccin-Mocha
-#include current-theme.conf
-# END_KITTY_THEME
