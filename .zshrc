@@ -2,17 +2,14 @@
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
 HISTFILE=~/.zsh_history
-
-#exports
 HISTSIZE=1000000
 SAVEHIST=1000000
-export TERMINAL="kitty"
-export LESSOPEN="|bat --paging=auto --color=always %s"
-export VIEWER="less"
-export LESS='-R'
-export EDITOR="nvim"
 
+#exports
+source ~/.zshenv
 
+#lf file manager integration
+fpath=(~/.config/lf $fpath)
 
 # Load and initialise completion system
 autoload -Uz compinit

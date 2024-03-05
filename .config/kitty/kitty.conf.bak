@@ -250,8 +250,7 @@
 #: }}}
 
 #: Cursor customization {{{
-
-cursor none
+ cursor none
 
 #: Default cursor color. If set to the special value none the cursor
 #: will be rendered with a "reverse video" effect. It's color will be
@@ -260,15 +259,14 @@ cursor none
 #: program running in the terminal sets a cursor color, this takes
 #: precedence. Also, the cursor colors are modified if the cell
 #: background and foreground colors have very low contrast.
-
-# cursor_text_color #111111
+# cursor_text_color background
 
 #: The color of text under the cursor. If you want it rendered with
 #: the background color of the cell underneath instead, use the
 #: special keyword: background. Note that if cursor is set to none
 #: then this option is ignored.
 
-# cursor_shape block
+ cursor_shape block
 
 #: The cursor shape can be one of block, beam, underline. Note that
 #: when reloading the config this will be changed only if the cursor
@@ -379,8 +377,7 @@ cursor none
 #: typing text. Disabled by default on macOS as getting it to work
 #: robustly with the ever-changing sea of bugs that is Cocoa is too
 #: much effort.
-
- url_color #0087bd
+# url_color #0087bd
  url_style straight
 
 #: The color and style for highlighting URLs on mouse-over. url_style
@@ -1119,7 +1116,7 @@ cursor none
 
 #: The foreground and background colors.
 
- background_opacity 0.85
+ #background_opacity 0.85
 
 
 
@@ -1174,7 +1171,7 @@ cursor none
 #: When background image is scaled, whether linear interpolation
 #: should be used.
 
-dynamic_background_opacity yes
+#dynamic_background_opacity yes
 
 #: Allow changing of the background_opacity dynamically, using either
 #: keyboard shortcuts (increase_background_opacity and
@@ -1581,8 +1578,7 @@ dynamic_background_opacity yes
 #: }}}
 
 #: OS specific tweaks {{{
-
- wayland_titlebar_color background
+# wayland_titlebar_color background
 
 #: The color of the kitty window's titlebar on Wayland systems with
 #: client side window decorations such as GNOME. A value of system
@@ -2458,4 +2454,8 @@ map kitty_mod+, set_background_opacity -0.1
 
 #: }}}
 
-include ./theme.conf
+
+# BEGIN_KITTY_THEME
+# One Dark
+include current-theme.conf
+# END_KITTY_THEME
