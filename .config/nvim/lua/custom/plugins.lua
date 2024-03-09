@@ -19,6 +19,18 @@ local plugins = {
     end
   },
   {
+    "epwalsh/obsidian.nvim",
+  version = "*",
+  lazy = true,
+  ft = "markdown",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
+  opts  = function()
+       return require "custom.configs.obsidian"
+     end,
+  },
+  {
     "michaelrommel/nvim-silicon",
     lazy = true,
     cmd = "Silicon",
@@ -81,7 +93,7 @@ local plugins = {
         "clang-format",
         "codelldb",
         "glsl_analyzer",
-        --        "null-ls.nvim",
+--      "null-ls.nvim",
       }
     }
   }

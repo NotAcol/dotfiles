@@ -11,12 +11,12 @@ configuration{
     hide-scrollbar: true;
     display-drun: "   Apps ";
     display-run: "   Run ";
-    display-window: " 﩯  window";
+    display-window: "   window";
     display-Network: " 󰤨  Network";
     sidebar-mode: true;
 }
 
-@theme "~/.config/rofi/themes/onedark.rasi"
+@theme "~/.config/rofi/themes/catpuccin.rasi"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;

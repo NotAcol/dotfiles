@@ -8,17 +8,14 @@ SAVEHIST=1000000
 #exports
 source ~/.zshenv
 
-#lf file manager integration
-fpath=(~/.config/lf $fpath)
-
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
 
-plug "zap-zsh/supercharge"
+#plug "zap-zsh/supercharge" #really good but I already use zoxide fzf and eza
 plug "wintermi/zsh-starship"
 plug "hlissner/zsh-autopair"
-#plug "zap-zsh/vim"
+plug "zap-zsh/vim"
 plug "MichaelAquilina/zsh-you-should-use"
 plug "zap-zsh/fzf"
 plug "Aloxaf/fzf-tab"
@@ -27,7 +24,8 @@ plug "zap-zsh/web-search"
 plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
-plug "zsh-users/zsh-history-substring-search"
+plug "zsh-users/zsh-history-substring-search" #type something and go into normal mode + vim keys
+plug "chmouel/zsh-select-with-lf" # C-x C-l to find dir path with lf
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
