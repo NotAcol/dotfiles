@@ -19,6 +19,10 @@ local plugins = {
     end
   },
   {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
     "epwalsh/obsidian.nvim",
   version = "*",
   lazy = true,
