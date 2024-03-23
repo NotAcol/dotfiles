@@ -58,6 +58,16 @@ plug "chmouel/zsh-select-with-lf" # C-x C-l to find dir path with lf
 # Fix for password store
 export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
 
+# Integration for yazi
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 #colors
 alias cat=bat
 alias ls="eza --color=auto --hyperlink --icons=auto --classify=auto"
