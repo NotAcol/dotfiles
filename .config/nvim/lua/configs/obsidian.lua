@@ -41,13 +41,13 @@ local opts = {
     -- Create a new newsletter issue
     ["<leader>onn"] = {
       action = function()
-        return require("obsidian").commands.new_note("Newsletter-Issue")
+        return require("obsidian").commands.new_note "Newsletter-Issue"
       end,
       opts = { buffer = true },
     },
     ["<leader>ont"] = {
       action = function()
-        return require("obsidian").util.insert_template("Newsletter-Issue")
+        return require("obsidian").util.insert_template "Newsletter-Issue"
       end,
       opts = { buffer = true },
     },
@@ -79,10 +79,10 @@ local opts = {
     return tostring(os.time()) .. "-" .. suffix
   end,
   templates = {
-      subdir = "Templates",
-      date_format = "%Y-%m-%d-%a",
-      time_format = "%H:%M",
-      tags = "",
+    subdir = "Templates",
+    date_format = "%Y-%m-%d-%a",
+    time_format = "%H:%M",
+    tags = "",
   },
 }
 
