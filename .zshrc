@@ -82,6 +82,8 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 
+
+eval "$(zoxide init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 #eval "$(starship init zsh)"
