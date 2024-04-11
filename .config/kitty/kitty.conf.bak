@@ -2458,6 +2458,6 @@ map kitty_mod+, set_background_opacity -0.1
 include Catppuccin-Macchiato.conf
 
 # BEGIN_KITTY_THEME
-# One Dark
-#include current-theme.conf
+# Catppuccin-Mocha
+include current-theme.conf
 # END_KITTY_THEME

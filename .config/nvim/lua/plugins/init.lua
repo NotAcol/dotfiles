@@ -68,6 +68,25 @@ return {
     },
   },
   {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    config = function(_, opts)
+      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(path)
+    end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "configs.null-ls"
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
@@ -83,11 +102,18 @@ return {
         "html-lsp",
         "css-lsp",
         "prettier",
-        "clangd",
-        "clang-format",
-        "codelldb",
         "glsl_analyzer",
+        -- CPP
+        "clang-format",
+        "cmake-language-server",
+        "codelldb",
+        "clangd",
+        -- PYTHON
+        "ruff-lsp",
         "pyright",
+        "mypy",
+        "black",
+        "debugpy",
       },
     },
   },
@@ -100,8 +126,10 @@ return {
         "vimdoc",
         "html",
         "css",
+        "cmake",
         "cpp",
         "glsl",
+        "python",
       },
     },
   },

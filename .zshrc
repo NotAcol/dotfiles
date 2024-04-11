@@ -45,7 +45,6 @@ plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 #plug "zsh-users/zsh-history-substring-search" #type something and go into normal mode + vim keys
-plug "chmouel/zsh-select-with-lf" # C-x C-l to find dir path with lf
 
 #bindkey -M vicmd 'k' history-substring-search-up
 #bindkey -M vicmd 'j' history-substring-search-down
@@ -72,8 +71,8 @@ function yy() {
 alias cat=bat
 alias ls="eza --color=auto --hyperlink --icons=auto --classify=auto"
 alias grep='rg' #remember to use rg retard >.<
-alias tree="ls -T -L 2"
-alias treeg="ls -T --git-ignore -L 2"
+alias tree="ls -T"
+alias treeg="ls -T --git-ignore"
 
 #-
 alias nvimrc='nvim ~/.config/nvim/'
@@ -86,6 +85,16 @@ alias rm='rm -i'
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 #eval "$(starship init zsh)"
+# Integration for yazi
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
 [[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
