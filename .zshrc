@@ -57,22 +57,13 @@ plug "zsh-users/zsh-syntax-highlighting"
 # Fix for password store
 export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
 
-# Integration for yazi
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
 #colors
 alias cat=bat
 alias ls="eza --color=auto --hyperlink --icons=auto --classify=auto"
 alias grep='rg' #remember to use rg retard >.<
 alias tree="ls -T"
 alias treeg="ls -T --git-ignore"
+alias find="fd"
 
 #-
 alias nvimrc='nvim ~/.config/nvim/'
@@ -87,13 +78,13 @@ eval "$(zoxide init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 #eval "$(starship init zsh)"
-# Integration for yazi
 
+# Integration for yazi
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 	yazi "$@" --cwd-file="$tmp"
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
+	   cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
 }
