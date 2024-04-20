@@ -1,4 +1,3 @@
-
 export TERMINAL="kitty"
 export BAT_THEME="Catppuccin Mocha"
 export LESSOPEN="|bat --paging=auto --color=always %s"

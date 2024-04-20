@@ -80,15 +80,7 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 #eval "$(starship init zsh)"
 
-# Integration for yazi
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-	   cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
+export PATH="$PATH:/home/acol/env/"
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
 [[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
