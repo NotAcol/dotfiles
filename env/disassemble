@@ -3,5 +3,4 @@ set -euo pipefail
 
 file="$1"
 
-objdump -M intel -d ./$1 | bat -l asm
-
+objdump -M intel -M amd64 --disassembler-color=on -S --visualize-jumps=color --no-show-raw-insn --no-addresses ./main | bat
