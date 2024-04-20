@@ -73,6 +73,7 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 
+alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
 eval "$(zoxide init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
