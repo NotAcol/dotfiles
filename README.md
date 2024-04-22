@@ -33,31 +33,12 @@ then use GNU stow to create symlinks
 $ stow .
 ```
 
-# Different program setups
-
-## kitty
-
-```
-$ pacman -S kitty
-```
-
-### font 
-
-https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
-
-### themes
-
-```
-kitty +kitten themes
-```
-
-## zsh
+## Zsh
 
 ```
 $ pacman -S zsh
 ```
-
-### extensions 
+#### zap
 
 in zsh terminal
 
@@ -65,8 +46,9 @@ in zsh terminal
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 ```
 
-# CLI
+# APPS
 
+### General
 ```
 paru -S thefuck tealdear fzf bat exa zoxide s yewtube glow epy epv mpv mpd ncmpcpp \
 peaclock duf tmux tmux-plugin-manager nvchad-git  zathura zathura-pdf-mupdf \
@@ -79,7 +61,6 @@ qutebrowser polkit thunar thunar-archive-plugin viewnior perl-image-exiftool
 ```
 
 ### Hyprland
-
 ```
 paru -S hyprnotify hyprcursor hyprlock hypridle hyprpaper \
 xdg-desktop-portal-hyprland waybar rofi-lbonn-wayland-git wl-clip \
