@@ -1,0 +1,5 @@
+# style name or JSON path (default "auto")
+style: ~/.config/glow/catppuccin.json
+# mouse support (TUI-mode only)
+mouse: true
+

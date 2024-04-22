@@ -3,3 +3,44 @@ show_hidden = true
 sort_by = "natural"
 sort_dir_first = true
 linemode = "size"
+
+[opener]
+edit = [
+	{ run = 'nvim "$@"', block = true, desc = "nvim" },
+]
+play = [
+	{ run = 'mpv "$@"', orphan = true, for = "unix", desc = "mpv" },
+]
+image = [
+  { run = 'viewnior "$@"', orphan = true, desc = "viewnior" },
+]
+edit-image = [
+  { run = 'gimp "$@"', orphan = true, desc = "gimp" },
+]
+epub = [
+  { run = 'epy "$@"', block = true, desc = "epy" },
+]
+pdf = [
+  { run = 'zathura "$@"', orphan = true, desc = "zathura" },
+]
+open = [
+  { run = 'xdg-open "$@"', desc = "Open" },
+]
+
+
+[open]
+rules = [
+	{ mime = "text/*", use = "edit" },
+
+	{ mime = "video/*", use = "play" },
+  { mime = "audio/*", use = "play" },
+  
+  { mime = "image/*", use = [ "image" , "edit-image" ] },
+
+  { name = "*.epub", use = "epub" },
+  { name = "*.epub3", use = "epub" },
+
+  { name = "*.pdf", use = "pdf" },
+
+  { mime = "application/*", use = "edit" },
+]

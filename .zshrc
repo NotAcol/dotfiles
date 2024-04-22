@@ -78,9 +78,8 @@ alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {
 eval "$(zoxide init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
-#eval "$(starship init zsh)"
 
-export PATH="$PATH:/home/acol/env/"
+export PATH="$PATH:/home/acol/.scripts"
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
 [[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh

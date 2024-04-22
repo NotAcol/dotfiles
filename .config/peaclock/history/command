@@ -1,0 +1,7 @@
+style active-fg blue
+style active-fg red
+timer 15m:00s
+timer 10s
+timer 1h
+timer 10m
+timer 10s
