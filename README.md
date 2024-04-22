@@ -50,19 +50,72 @@ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) 
 
 ### General
 ```
-paru -S thefuck tealdear fzf bat exa zoxide s yewtube glow epy epv mpv mpd ncmpcpp \
-peaclock duf tmux tmux-plugin-manager nvchad-git  zathura zathura-pdf-mupdf \
-ttf-jetbrains-mono-nerd gimp pamixer pipewire gst-plugin-pipewire pipewire-alsa \
-pipewire-audio pipewire-jack pipewire-pulse wireplumber cava nwg-look kvantum \
-kvantum-theme-catppuccin-git qalculate-gtk btop spotify-adblock yazi ventoy \
-grub-theme-bsol-git less gef fastfetch qbittorrent silicon webcord trashy \
-lld pass ripgrep fd noise-suppression-for-voice update-grub ninja papirus-icon-theme \
-qutebrowser polkit thunar thunar-archive-plugin viewnior perl-image-exiftool
+paru -S thefuck tealdear fzf bat exa zoxide s \
+yewtube glow epy-ereader-git mpv mpd ncmpcpp \
+peaclock duf tmux tmux-plugin-manager nvchad-git \
+zathura zathura-pdf-mupdf ttf-jetbrains-mono-nerd \
+gimp pamixer pipewire gst-plugin-pipewire pipewire-alsa \
+pipewire-audio pipewire-jack pipewire-pulse \
+wireplumber cava nwg-look kvantum \
+kvantum-theme-catppuccin-git qalculate-gtk \
+btop spotify-adblock yazi ventoy \
+grub-theme-bsol-git less gef fastfetch qbittorrent \
+silicon webcord trashy lld pass ripgrep fd \
+noise-suppression-for-voice update-grub ninja \
+papirus-icon-theme qutebrowser polkit thunar \
+thunar-archive-plugin viewnior perl-image-exiftool
 ```
 
 ### Hyprland
+
 ```
-paru -S hyprnotify hyprcursor hyprlock hypridle hyprpaper \
-xdg-desktop-portal-hyprland waybar rofi-lbonn-wayland-git wl-clip \
-polkit-kde-agent qt5-wayland qt6-wayland qtct libva-nvdia-driver-git \
-grimblast-git wf-record 
+paru -S hyprnotify hyprcursor hyprlock \
+hypridle hyprpaper xdg-desktop-portal-hyprland \
+waybar rofi-lbonn-wayland-git wl-clip \
+polkit-kde-agent qt5-wayland qt6-wayland \
+qtct libva-nvdia-driver-git grimblast-git wf-record 
+```
+
+# NVIDIA
+
+```
+$ sudo nvim /etc/default/grub
+```
+
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 amd_pstate=active"
+
+```
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+$ sudo nvim /etc/mkinitcpio.conf
+```
+
+MODULES=(btrfs nvidia nnvidia_modeset nvidia_uvm nvidia_drm)
+
+```
+$ sudo mkinitcpio -p linux
+$ sudo mkdir /etc/pacman.d/hooks/ 
+$ sudo touch /etc/pacman.d/hooks/nvidia.hook
+$ sudo nvim /etc/pacman.d/hooks/nvidia.hook
+```
+
+```
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+# Uncomment the installed NVIDIA package
+Target=nvidia
+#Target=nvidia-open
+#Target=nvidia-lts
+# If running a different kernel, modify below to match
+Target=linux
+
+[Action]
+Description=Updating NVIDIA module in initcpio
+Depends=mkinitcpio
+When=PostTransaction
+NeedsTargets
+Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+```
+
