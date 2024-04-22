@@ -12,7 +12,7 @@ play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix", desc = "mpv" },
 ]
 image = [
-  { run = 'viewnior "$@"', orphan = true, desc = "viewnior" },
+  { run = 'nomacs "$@"', orphan = true, desc = "nomacs" },
 ]
 edit-image = [
   { run = 'gimp "$@"', orphan = true, desc = "gimp" },
