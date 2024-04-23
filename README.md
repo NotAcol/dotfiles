@@ -148,7 +148,7 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 - about:config
 - toolkit.legacyUserProfileCustomizations.stylesheets -> true
 - about:profiles -> Root Directory
-- kill firefoz
+- kill firefox
 - Dump contents of ~/dotfiles/stowignore_firefox here and start firefox
 
 >Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
