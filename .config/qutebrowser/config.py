@@ -679,7 +679,16 @@ c.content.autoplay = False
 ## extracting it from the `location` parameter of the subscribe URL and
 ## URL-decoding it).
 ## Type: List of Url
-# c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt']
+c.content.blocking.adblock.lists = [
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+    "https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt",
+    "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.mini.txt",
+    "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
+    "https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt",
+    "https://raw.githubusercontent.com/yokoffing/filterlists/main/youtube_clear_view.txt",
+    "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/spam-tlds-ublock.txt",
+]
 
 ## Enable the ad/host blocker
 ## Type: Bool
@@ -695,7 +704,9 @@ c.content.blocking.enabled = True
 ## lists.  The file `~/.config/qutebrowser/blocked-hosts` is always read
 ## if it exists.
 ## Type: List of Url
-# c.content.blocking.hosts.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
+c.content.blocking.hosts.lists = [
+    "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+]
 
 ## Which method of blocking ads should be used.  Support for Adblock Plus
 ## (ABP) syntax blocklists using Brave's Rust library requires the
