@@ -24,13 +24,13 @@ $ git clone https://github.com/NotAcol/dotfiles.git
 $ cd dotfiles
 ```
 
-Then use GNU stow to create symlinks
+Stow to create symlinks
 
 ```
 $ stow .
 ```
 
->If stow doesnt work
+If stow doesnt work
 
 
 ```
@@ -39,7 +39,7 @@ $ stow --adopt .
 $ git restore .
 ```
 
-#### zap
+### zap
 
 in zsh terminal
 
@@ -70,6 +70,8 @@ brightnessctl pamixer playerctl python-adblock \
 python-pygments spicetify-cli man man-pages
 ```
 
+Spotify theme
+
 ```
 $ spicetify config current_theme catppuccin
 $ spicetify config color_scheme mocha
@@ -79,20 +81,28 @@ $ sudo chmod a+wr /opt/spotify/Apps -R
 $ spicetify apply
 ```
 
+Bat theme
+
 ```
 $ bat cache --build
 ```
+
+Tmux plugins
 
 ```
 $ tmux
 ctrl+space I
 ```
 
+Nvim setup
+
 ```
 $ nvim
 :MasonInstallAll
 :Lazy sync
 ```
+
+Update tealdear manpages
 
 ```
 $tldr --update
@@ -111,6 +121,12 @@ qt5ct libva-nvdia-driver-git grimblast-git wf-recorder
 ```
 
 # NVIDIA
+
+```
+paru -S nvidia nvidia-utils nvidia-settings\
+libva-nvdia-driver-git libva-utils lib32-nvidia-utils \
+vdpauinfo
+```
 
 ```
 $ sudo nvim /etc/default/grub
@@ -139,11 +155,11 @@ $ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 >Operation=Upgrade
 >Operation=Remove
 >Type=Package
->#### Uncomment the installed NVIDIA package
+>### Uncomment the installed NVIDIA package
 >Target=nvidia
 >#Target=nvidia-open
 >#Target=nvidia-lts
->#### If running a different kernel, modify below to match
+>### If running a different kernel, modify below to match
 >Target=linux
 >
 >[Action]
@@ -152,12 +168,6 @@ $ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 >When=PostTransaction
 >NeedsTargets
 >Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
-
-```
-paru -S nvidia nvidia-utils nvidia-settings\
-libva-nvdia-driver-git libva-utils lib32-nvidia-utils \
-vdpauinfo
-```
 
 ```
 $ vdpauinfo
