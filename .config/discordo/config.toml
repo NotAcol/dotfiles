@@ -4,7 +4,7 @@ timestamps = true
 timestamps_before_author = true
 timestamp_format = "3:04PM"
 
-message_limits = 100
+message_limits = 200
 editor = "default"
 
 [keys]
@@ -37,7 +37,7 @@ cancel = "Esc"
 border = true
 border_color = "#6c7086"
 border_padding = [0, 0, 1, 1]
-title_color = "#f2cdcd"
+title_color = "#f5c2e7"
 background_color = "#1e1e2e"
 
 [theme.guilds_tree]
@@ -45,5 +45,5 @@ auto_expand_folders = true
 graphics = true
 
 [theme.messages_text]
-author_color = "#f2cdcd"
+author_color = "#f5c2e7"
 reply_indicator = "╭ "
