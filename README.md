@@ -16,7 +16,7 @@ pacman -S stow
 
 ## Installation
 
-Get paru from github -> Install all apps bellow ->
+Grab [paru](https://github.com/Morganamilo/paru) -> Install all apps bellow ->
 clone this repo and stow -> do settings described below
 
 ```bash
@@ -69,6 +69,26 @@ papirus-icon-theme qutebrowser polkit thunar \
 thunar-archive-plugin nomacs perl-image-exiftool \
 brightnessctl pamixer playerctl python-adblock \
 python-pygments spicetify-cli man man-pages
+```
+
+Paru settings
+
+```bash
+sudo nvim /etc/pacman.conf
+```
+
+- uncomment Color
+
+```bash
+sudo nvim /etc/paru.conf
+```
+
+- uncomment BottomUp
+- uncomment SudoLoop
+- uncomment NewsOnUpgrade
+
+```bash
+paru --gendb
 ```
 
 Spotify theme
