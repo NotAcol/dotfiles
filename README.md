@@ -180,8 +180,11 @@ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 >Type=Package
 >### Uncomment the installed NVIDIA package
 >Target=nvidia
+>
 >#Target=nvidia-open
+>
 >#Target=nvidia-lts
+>
 >### If running a different kernel, modify below to match
 >Target=linux
 >
