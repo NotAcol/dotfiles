@@ -100,8 +100,8 @@ Nvim setup
 ```bash
 nvim
 ```
->:MasonInstallAll
->:Lazy sync
+- :MasonInstallAll
+- :Lazy sync
 
 Update tealdear manpages
 
@@ -109,7 +109,7 @@ Update tealdear manpages
 tldr --update
 ```
 
->Setup nwg-look
+Setup nwg-look
 
 ### Firefox
 
@@ -118,22 +118,18 @@ tldr --update
 #### Addons
 
 [Ublock Origin](https://github.com/yokoffing/Betterfox), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+
 Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
 
 #### Rice
 
 Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 
->about:config
->toolkit.legacyUserProfileCustomizations.stylesheets -> true
->about:profiles -> Root Directory
-
-
-```bash
-pkill -f firefox
-```
-
-Dump contents of ~/dotfiles/stowignore_firefox here and start firefox
+- about:config
+- toolkit.legacyUserProfileCustomizations.stylesheets -> true
+- about:profiles -> Root Directory
+- kill firefoz
+- Dump contents of ~/dotfiles/stowignore_firefox here and start firefox
 
 >Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
 
@@ -201,7 +197,7 @@ vdpauinfo
 vainfo
 ```
 
->VAEntrypointEncVLD good 👍
+VAEntrypointEncVLD good 👍
 
 ### Vulkan/Dev stuff
 
