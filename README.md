@@ -1,7 +1,6 @@
 
-# My dotfiles
+# Dotfiles
 
-This directory contains the dotfiles for my system
 
 ### Git
 
@@ -17,11 +16,11 @@ pacman -S stow
 
 ## Installation
 
->>Get paru from github -> Install all apps bellow ->
+Get paru from github -> Install all apps bellow ->
 clone this repo and stow -> do settings described below
 
 ```
-$ git clone git@github.com/NotAcol/dotfiles.git
+$ git clone https://github.com/NotAcol/dotfiles.git
 $ cd dotfiles
 ```
 
@@ -78,18 +77,27 @@ $ spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_ass
 $ sudo chmod a+wr /opt/spotify
 $ sudo chmod a+wr /opt/spotify/Apps -R
 $ spicetify apply
+```
 
+```
 $ bat cache --build
+```
 
+```
 $ tmux
 ctrl+space I
+```
 
+```
 $ nvim
 :MasonInstallAll
 :Lazy sync
+```
 
+```
 $tldr --update
 ```
+
 >Setup nwg-look
 
 ### Hyprland
@@ -108,8 +116,9 @@ qt5ct libva-nvdia-driver-git grimblast-git wf-recorder
 $ sudo nvim /etc/default/grub
 ```
 
->>GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.fbdev=1 nvidia_drm.modeset=1 amd_pstate=active"
-GRUB_THEME="/boot/grub/themes/bsol/theme.txt"
+>GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.fbdev=1 nvidia_drm.modeset=1 amd_pstate=active"
+>
+>GRUB_THEME="/boot/grub/themes/bsol/theme.txt"
 
 ```
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -130,11 +139,11 @@ $ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 >Operation=Upgrade
 >Operation=Remove
 >Type=Package
-># Uncomment the installed NVIDIA package
+>#### Uncomment the installed NVIDIA package
 >Target=nvidia
 >#Target=nvidia-open
 >#Target=nvidia-lts
-># If running a different kernel, modify below to match
+>#### If running a different kernel, modify below to match
 >Target=linux
 >
 >[Action]
