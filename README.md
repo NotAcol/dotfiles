@@ -68,7 +68,7 @@ noise-suppression-for-voice update-grub ninja \
 papirus-icon-theme qutebrowser polkit thunar \
 thunar-archive-plugin nomacs perl-image-exiftool \
 brightnessctl pamixer playerctl python-adblock \
-python-pygments spicetify-cli man man-pages
+python-pygments spicetify-cli man man-pages discordo
 ```
 
 Paru settings
@@ -166,7 +166,7 @@ qt5ct libva-nvdia-driver-git grimblast-git wf-recorder
 # NVIDIA
 
 ```bash
-paru -S nvidia nvidia-utils nvidia-settings\
+paru -S nvidia nvidia-utils nvidia-settings \
 libva-nvdia-driver-git libva-utils lib32-nvidia-utils \
 vdpauinfo
 ```
@@ -194,9 +194,13 @@ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 ```
 
 >[Trigger]
+>
 >Operation=Install
+>
 >Operation=Upgrade
+>
 >Operation=Remove
+>
 >Type=Package
 >### Uncomment the installed NVIDIA package
 >Target=nvidia
@@ -209,10 +213,15 @@ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 >Target=linux
 >
 >[Action]
+>
 >Description=Updating NVIDIA module in initcpio
+>
 >Depends=mkinitcpio
+>
 >When=PostTransaction
+>
 >NeedsTargets
+>
 >Exec=/bin/sh -c 'while read -r trg; do case rg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
 
 ```bash
