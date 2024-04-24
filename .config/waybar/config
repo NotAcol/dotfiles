@@ -1,108 +1,92 @@
 {
-  "layer": "top",
-    "modules-left": ["custom/arch", "hyprland/workspaces"],
-    "modules-center": ["hyprland/window", "mpris"],
-    "modules-right": ["memory", "backlight", "pulseaudio", "bluetooth", "network", "battery", "clock", "tray"],
-    "custom/arch": {
-      "format": "  ",
-      "tooltip": false,
-    },
+    "layer": "top",
+    "position": "top",
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top": 10,
+    "spacing": 1,
+
+    "modules-left": ["custom/power", "hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "disk", "pulseaudio", "network", "tray"],
+
     "hyprland/workspaces": {
-      "format": "{name}",
-      "format": "{icon}",
-      "tooltip": false,
-      "all-outputs": true,
-      "format-icons": {
-        "active": "",
-        "default": ""
-      }
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": 5,
+         },
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+         },
     },
-    "custom/spotify": {
-        "exec": "/usr/bin/python3 /home/degra/.config/waybar/scripts/mediaplayer.py --player spotifyd",
-        "format": " {}",
-        "return-type": "json",
-        "on-click": "playerctl -p spotifyd play-pause",
-    },
-    "custom/waybar-media": {
-        "return-type": "json",
-        "exec": "waybar-media.py status",
-        "on-click": "waybar-media.py playpause",
-        "on-scroll-up": "waybar-media.py previous",
-        "on-scroll-down": "waybar-media.py next",
-        "escape": true
-    },
-    "mpris": {
-      "format": "{player_icon} {dynamic}",
-      "format-paused": "{status_icon} {dynamic}",
-      "dynamic-len": 45,
-      "dynamic-importance-order": ["title", "artist", "album", "position", "length"],
-      "player-icons": {
-        "default": "▶",
-        "mpv": "🎵"
-      },
-      "status-icons": {
-        "paused": "⏸"
-      },
-    },
-    "memory": {
-      "interval": 30,
-      "format": "  {}%",
-      "format-alt":" {used:0.1f}G",
-      "max-length": 10
+    "tray": {
+        "icon-size": 18,
+        "spacing": 5,
+        "show-passive-items": true,
     },
     "clock": {
-      "format": "<span color='#ebdbb2'> </span>{:%H:%M}",
+        "interval": 60,
+        "format": "  {:%a %b %d  %I:%M %p}", // %b %d %Y  --Date formatting
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
     },
-    "backlight": {
-      "device": "intel_backlight",
-      "format": "<span color='#ebdbb2'>{icon}</span> {percent}%",
-      "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "cpu": {
+        "interval": 2,
+        "format": "  {usage}%",
+        "tooltip": false
     },
-    "pulseaudio": {
-      "format": "<span color='#ebdbb2'>{icon}</span> {volume}%",
-      "format-muted": "󰝟",
-      "tooltip": false,
-      "format-icons": {
-        "headphone": "",
-        "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
-      },
-      "scroll-step": 1,
-      "on-click": "pavucontrol"
+    "memory": {
+        "interval": 2,
+        "format": "  {}%"
     },
-    "bluetooth": {
-      "format": "<span color='#ebdbb2'></span> {status}",
-      "format-disabled": "󰂲", // an empty format will hide the module
-      "format-connected": "<span color='#458588'></span> {num_connections}",
-      "tooltip-format": "{device_enumerate}",
-      "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
-      "on-click": "blueman-manager",
+   "disk": {
+        "interval": 15,
+        "format": "󰋊 {percentage_used}%",
     },
     "network": {
-      "interface": "wlo1",
-      "format": " {ifname}",
-      "format-wifi": "   {essid}",
-      "format-ethernet": "{ipaddr}/{cidr} ",
-      "format-disconnected": "<span color='#ebdbb2'>󰖪 </span>No Network",
-      "tooltip": false,
+        "format-wifi": " :{ipaddr}",
+        "format-ethernet": "{ipaddr}/{cidr}"  ,
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    "battery": {
-      "format": "<span color='#ebdbb2'>{icon}</span> {capacity}%",
-      "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-      "format-charging": "<span color='#8ec07c'>󰂄</span> {capacity}%",
-      "tooltip": false,
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% 󰂯",
+        "format-bluetooth-muted": "󰖁 {icon} 󰂯",
+        "format-muted": "󰖁 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󱡒",
+            "headset": "󰋎",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
     },
-    "hyprland/window": {
-      "format": "{}",
-      "rewrite": {
-          "(.*) — Mozilla Firefox": " $1",
-          "(.*) - kitty": " [$1]",
-          "(.*) - zsh": " $1", 
-          "(.*) - nvim": " $1",
-          "(.*) - Discord": " $1",
-          "(.*) - Telegram": " $1",
-          "([tmux].*)": " Terminal",   
-          "(.*) - Spotify": " $1",
-      },
-      "separate-outputs": true
-    }
+    "custom/power": {
+      "format": "{icon}",
+      "format-icons": "⚞ ⮝ ⚟",
+      "exec-on-event": "true",
+      "on-click": "rofi -show drun",
+    },
+    "custom/sepp": {
+        "format": "|"
+    },
 }
