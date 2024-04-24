@@ -68,7 +68,8 @@ noise-suppression-for-voice update-grub ninja \
 papirus-icon-theme qutebrowser polkit thunar \
 thunar-archive-plugin nomacs perl-image-exiftool \
 brightnessctl pamixer playerctl python-adblock \
-python-pygments spicetify-cli man man-pages discordo
+python-pygments spicetify-cli man man-pages discordo \
+catppuccinifier-cli-bin webcord
 ```
 
 Paru settings
