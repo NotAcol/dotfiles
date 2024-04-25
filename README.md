@@ -64,7 +64,7 @@ gimp pamixer pipewire gst-plugin-pipewire pipewire-alsa \
 pipewire-audio pipewire-jack pipewire-pulse \
 wireplumber cava nwg-look kvantum zsh \
 kvantum-theme-catppuccin-git qalculate-gtk \
-btop spotify-adblock yazi ventoy \
+btop spotify-launcher yazi ventoy \
 grub-theme-bsol-git less gef fastfetch qbittorrent \
 silicon webcord trashy lld pass ripgrep fd \
 noise-suppression-for-voice update-grub ninja \
@@ -97,19 +97,50 @@ sudo nvim /etc/paru.conf
 ```bash
 paru --gendb
 ```
+Spotify flickering fix
+
+```bash
+sudo nvim /etc/spotify-launcher.conf
+```
+- uncomment extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
+
 
 Spotify theme
 
->login to spotify
+- Login to spotify
 
 ```bash
-sudo chmod a+wr /opt/spotify
-sudo chmod a+wr /opt/spotify/Apps -R
-spicetify config current_theme catppuccin
-spicetify config color_scheme mocha
-spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1
+nvim ~/dotfiles/.config/spicetify/config-xpui.ini
+```
+
+- Edit path to use correct user name
+
+```bash
 spicetify apply
 ```
+
+Block spotify ads
+
+```bash
+sudo nvim /etc/hosts
+```
+
+>127.0.0.1 media-match.com
+>127.0.0.1 adclick.g.doublecklick.net
+>127.0.0.1 www.googleadservices.com
+>127.0.0.1 open.spotify.com
+>127.0.0.1 pagead2.googlesyndication.com
+>127.0.0.1 desktop.spotify.com
+>127.0.0.1 googleads.g.doubleclick.net
+>127.0.0.1 pubads.g.doubleclick.net
+>127.0.0.1 audio2.spotify.com
+>127.0.0.1 www.omaze.com
+>127.0.0.1 omaze.com
+>127.0.0.1 bounceexchange.com
+># 127.0.0.1 spclient.wg.spotify.com
+>127.0.0.1 securepubads.g.doubleclick.net
+>127.0.0.1 8.126.154.104.bc.googleusercontent.com
+>127.0.0.1 104.154.126.8
 
 Bat theme
 
@@ -131,6 +162,7 @@ Nvim setup
 ```bash
 nvim
 ```
+
 - :MasonInstallAll
 - :Lazy sync
 
@@ -178,15 +210,15 @@ qt5ct grimblast-git wf-recorder
 
 ```bash
 paru -S bluez bluez-utils bluetuith
-systemctl enable bluetooth.service
-systemctl start bluetooth.service
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
 ```
 
 # NVIDIA
 
 ```bash
 paru -S nvidia nvidia-utils nvidia-settings \
-libva-nvidia-driver-git libva-utils lib32-nvidia-utils \
+libva-nvidia-driver libva-utils  \
 vdpauinfo
 ```
 
@@ -194,7 +226,7 @@ vdpauinfo
 sudo nvim /etc/default/grub
 ```
 
->GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.fbdev=1 nvidia_drm.modeset=1 amd_pstate=active"
+>GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.fbdev=1 nvidia_drm.modeset=1 amd_pstate=active"
 >
 >GRUB_THEME="/boot/grub/themes/bsol/theme.txt"
 
@@ -226,9 +258,9 @@ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 >
 >#Target=nvidia-open
 >
->#Target=nvidia-lts
->
->### If running a different kernel, modify below to match
+sudo >#Target=nvidia-lts
+sudo >
+sudo >### If running a different kernel, modify below to match
 >Target=linux
 >
 >[Action]
@@ -249,6 +281,12 @@ vainfo
 ```
 
 VAEntrypointEncVLD good 👍
+
+```bash
+sudo systemctl enable nvidia-suspend.service
+sudo systemctl enable nvidia-hibernate.service
+sudo systemctl enable nvidia-resume.service
+```
 
 ### Vulkan/Dev stuff
 
