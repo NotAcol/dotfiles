@@ -46,6 +46,9 @@ in zsh terminal
 ```bash
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 zap update all
+
+
+chsh -s /usr/bin/zsh
 ```
 
 # APPS
@@ -53,9 +56,9 @@ zap update all
 ### General
 
 ```bash
-paru -S thefuck tealdear fzf bat exa zoxide s \
+paru -S thefuck tealdeer fzf bat exa zoxide s \
 yewtube glow epy-ereader-git mpv mpd ncmpcpp \
-peaclock duf tmux tmux-plugin-manager nvchad-git \
+peaclock duf tmux nvchad-git \
 zathura zathura-pdf-mupdf ttf-jetbrains-mono-nerd \
 gimp pamixer pipewire gst-plugin-pipewire pipewire-alsa \
 pipewire-audio pipewire-jack pipewire-pulse \
@@ -69,7 +72,10 @@ papirus-icon-theme qutebrowser polkit thunar \
 thunar-archive-plugin nomacs perl-image-exiftool \
 brightnessctl pamixer playerctl python-adblock \
 python-pygments spicetify-cli man man-pages discordo \
-catppuccinifier-cli-bin webcord
+catppuccinifier-cli-bin pavucontrol \
+catppuccin-gtk-theme-mocha thunar zipa p7zip \
+networkmanager noto-fonts noto-fonts-emoji \
+
 ```
 
 Paru settings
@@ -94,25 +100,29 @@ paru --gendb
 
 Spotify theme
 
+>login to spotify
+
 ```bash
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
 spicetify config current_theme catppuccin
 spicetify config color_scheme mocha
 spicetify config inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1
-sudo chmod a+wr /opt/spotify
-sudo chmod a+wr /opt/spotify/Apps -R
 spicetify apply
 ```
 
 Bat theme
 
 ```bash
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 bat cache --build
 ```
 
 Tmux plugins
 
 ```bash
-tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
 ```
 >ctrl+space I
 
@@ -159,16 +169,22 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 ```bash
 paru -S hyprnotify hyprcursor hyprlock \
 hypridle hyprpaper xdg-desktop-portal-hyprland \
-waybar rofi-lbonn-wayland-git wl-clip \
+waybar rofi-lbonn-wayland-git wl-clipboard \
 polkit-kde-agent qt5-wayland qt6-wayland \
-qt5ct libva-nvdia-driver-git grimblast-git wf-recorder
+qt5ct grimblast-git wf-recorder
+```
+
+### Bluetooth
+
+```bash
+paru -S bluez bluez-utils bluetuith
 ```
 
 # NVIDIA
 
 ```bash
 paru -S nvidia nvidia-utils nvidia-settings \
-libva-nvdia-driver-git libva-utils lib32-nvidia-utils \
+libva-nvidia-driver-git libva-utils lib32-nvidia-utils \
 vdpauinfo
 ```
 
@@ -185,7 +201,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo nvim /etc/mkinitcpio.conf
 ```
 
->MODULES=(btrfs nvidia nnvidia_modeset nvidia_uvm nvidia_drm)
+>MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 
 ```bash
 sudo mkinitcpio -p linux
@@ -236,7 +252,8 @@ VAEntrypointEncVLD good 👍
 
 ```bash
 sudo pacman -S vulkan-devel vulkan-icd-loader \
-lib32-vulkan-icd-loader glm glfw benchmark
+lib32-vulkan-icd-loader glm glfw benchmark \
+clang llvm
 ```
 
 ```bash
