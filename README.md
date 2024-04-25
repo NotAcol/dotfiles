@@ -178,6 +178,8 @@ qt5ct grimblast-git wf-recorder
 
 ```bash
 paru -S bluez bluez-utils bluetuith
+systemctl enable bluetooth.service
+systemctl start bluetooth.service
 ```
 
 # NVIDIA

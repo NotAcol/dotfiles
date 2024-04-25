@@ -13,7 +13,7 @@
     "hyprland/workspaces": {
         "on-click": "activate",
         "persistent-workspaces": {
-            "*": 5,
+            "*": 3,
          },
         "format": "{icon}",
         "format-icons": {
