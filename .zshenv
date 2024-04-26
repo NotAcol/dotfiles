@@ -13,3 +13,4 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 alias clock="peaclock --config-dir ~/.config/peaclock"
 alias wifi="nmtui"
+alias tmux="tmux -2"

@@ -46,8 +46,6 @@ in zsh terminal
 ```bash
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 zap update all
-
-
 chsh -s /usr/bin/zsh
 ```
 
@@ -56,26 +54,35 @@ chsh -s /usr/bin/zsh
 ### General
 
 ```bash
-paru -S thefuck tealdeer fzf bat exa zoxide s \
-yewtube glow epy-ereader-git mpv mpd ncmpcpp \
-peaclock duf tmux nvchad-git \
-zathura zathura-pdf-mupdf ttf-jetbrains-mono-nerd \
-gimp pamixer pipewire gst-plugin-pipewire pipewire-alsa \
-pipewire-audio pipewire-jack pipewire-pulse \
-wireplumber cava nwg-look kvantum zsh \
-kvantum-theme-catppuccin-git qalculate-gtk \
-btop spotify-launcher yazi ventoy \
-grub-theme-bsol-git less gef fastfetch qbittorrent \
-silicon webcord trashy lld pass ripgrep fd \
-noise-suppression-for-voice update-grub ninja \
-papirus-icon-theme polkit thunar \
-thunar-archive-plugin nomacs perl-image-exiftool \
-brightnessctl pamixer playerctl python-adblock \
-python-pygments spicetify-cli man man-pages discordo \
-catppuccinifier-cli-bin pavucontrol \
-catppuccin-gtk-theme-mocha thunar zipa p7zip \
-networkmanager noto-fonts noto-fonts-emoji \
+paru -S thefuck tealdeer fzf bat exa zoxide \
+zsh nvim tmux nvchad-git yazi trashy ripgrep fd \
+man man-pages pass btop duf peaclock zatura \
+zathura-pdf-mupdf s glow epy-ereader-git \
+gimp cava qalculate-gtk spotify-launcher \
+ventoy fastfetch qbittorrent silicon webcord  \
+update-grub polkit thunar thunar-archive-plugin \
+nomacs perl-image-exiftool brightnessctl \
+python-pygments spicetify-cli discordo zipa p7zip \
+ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji \
+obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin \
+networkmanager 
+```
 
+### Audio
+
+```bash
+paru -S pipewire gst-plugin-pipewire pipewire-alsa \
+pamixer pipewire-audio pipewire-jack pipewire-pulse \
+wireplumber pavucontrol playerctl mpv mpd ncmpcpp \
+noise-suppression-for-voice
+```
+
+### Theme stuff
+
+```bash
+paru -S grub-theme-bsol-git catppuccin-gtk-theme-mocha \
+papirus-icon-theme kvantum nwg-look \
+kvantum-theme-catppuccin-git catppuccin-mocha-grub-theme-git
 ```
 
 Paru settings
@@ -130,7 +137,7 @@ spicetify apply
 sudo nvim /etc/hosts
 ```
 
-``````
+```text
 127.0.0.1 media-match.com
 127.0.0.1 adclick.g.doublecklick.net
 127.0.0.1 www.googleadservices.com
@@ -147,7 +154,7 @@ sudo nvim /etc/hosts
 127.0.0.1 securepubads.g.doubleclick.net
 127.0.0.1 8.126.154.104.bc.googleusercontent.com
 127.0.0.1 104.154.126.8
-``````
+```
 
 </details>
 
@@ -171,13 +178,17 @@ tmux source ~/.tmux.conf
 
 - ctrl+space I
 
-#### Tmux keybinds
+#### Tmux changed keybinds
 
 - Prefix = Ctrl + space
 - Prefix + v/h/x to make vertical/horizontal/kill pane
 - Ctrl + vim keys to move around panes
 - Alt + h/l to move to prev/next window
 - Alt + j/k to create/kill window
+- Prefix + r to rename session
+- Prefix + X to kill session
+
+
 </details>
 
 
@@ -242,6 +253,20 @@ sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 ```
 
+### Grub theme
+
+```bash
+sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
+sudo nvim /etc/default/grub
+```
+- uncomment GRUB_THEME
+- GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
+
+```
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+>Can skip making the config here if nvidia gpu
+
 # NVIDIA
 
 ```bash
@@ -253,19 +278,18 @@ linux-headers vdpauinfo
 ```bash
 sudo nvim /etc/default/grub
 ```
-``````
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.fbdev=1 nvidia_drm.modeset=1 amd_pstate=active"
 
-GRUB_THEME="/boot/grub/themes/bsol/theme.txt"
-``````
-
+```text
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.modeset=1 amd_pstate=active"
+```
+>Remove amd_pstate=active if no amd cpu
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo nvim /etc/mkinitcpio.conf
 ```
-``````
+```text
 MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
-``````
+```
 
 ```bash
 sudo mkinitcpio -p linux
@@ -273,7 +297,7 @@ sudo mkdir /etc/pacman.d/hooks/
 sudo touch /etc/pacman.d/hooks/nvidia.hook
 sudo nvim /etc/pacman.d/hooks/nvidia.hook
 ```
-``````
+```text
 [Trigger]
 
 Operation=Install
@@ -293,7 +317,7 @@ Depends=mkinitcpio
 When=PostTransaction
 NeedsTargets
 Exec=/bin/sh -c 'while read -r trg; do case rg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
-``````
+```
 
 ```bash
 vdpauinfo
@@ -308,14 +332,14 @@ sudo systemctl enable nvidia-hibernate.service
 sudo systemctl enable nvidia-resume.service
 ```
 
-maybe install xorg-xwayland-explicit-sync-git if flickerig persists after reboot
+>Maybe install xorg-xwayland-explicit-sync-git if flickerig persists after reboot
 
 ### Vulkan/Dev stuff
 
 ```bash
 sudo pacman -S vulkan-devel vulkan-icd-loader \
 lib32-vulkan-icd-loader glm glfw benchmark \
-clang llvm
+clang llvm ninja gef lld gitui
 ```
 
 ```bash
