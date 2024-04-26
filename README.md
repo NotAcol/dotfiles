@@ -1,4 +1,3 @@
-
 # Dotfiles
 
 
@@ -67,7 +66,7 @@ ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji \
 obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin \
 waybar rofi-lbonn-wayland-git wl-clipboard \
 polkit-kde-agent qt5-wayland qt6-wayland \
-qt5ct networkmanager wf-recorder
+qt5ct networkmanager wf-recorder v4l2loopback-dkms 
 ```
 
 ### Audio
@@ -262,10 +261,23 @@ sudo nvim /etc/default/grub
 - uncomment GRUB_THEME
 - GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
 
-```
+```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
 >Can skip making the config here if nvidia gpu
+
+### Using obs as virtual cam
+
+```bash
+paru -S linux-headers v4l2loopback-dkms
+sudo touch /etc/modules-load.d/v4l2loopback.conf
+sudo nvim /etc/modules-load.d/v4l2loopback.conf
+```
+
+- v4l2loopback
+
+>Will work after reboot
 
 # NVIDIA
 
