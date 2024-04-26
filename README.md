@@ -97,7 +97,12 @@ sudo nvim /etc/paru.conf
 ```bash
 paru --gendb
 ```
-Spotify flickering fix
+
+<details>
+<summary>Spotify</summary>
+<br>
+
+#### Spotify wayland fix
 
 ```bash
 sudo nvim /etc/spotify-launcher.conf
@@ -105,7 +110,7 @@ sudo nvim /etc/spotify-launcher.conf
 - uncomment extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 
 
-Spotify theme
+#### Spotify theme
 
 - Login to spotify
 
@@ -119,30 +124,34 @@ nvim ~/dotfiles/.config/spicetify/config-xpui.ini
 spicetify apply
 ```
 
-Block spotify ads
+#### Block spotify ads
 
 ```bash
 sudo nvim /etc/hosts
 ```
 
->127.0.0.1 media-match.com
->127.0.0.1 adclick.g.doublecklick.net
->127.0.0.1 www.googleadservices.com
->127.0.0.1 open.spotify.com
->127.0.0.1 pagead2.googlesyndication.com
->127.0.0.1 desktop.spotify.com
->127.0.0.1 googleads.g.doubleclick.net
->127.0.0.1 pubads.g.doubleclick.net
->127.0.0.1 audio2.spotify.com
->127.0.0.1 www.omaze.com
->127.0.0.1 omaze.com
->127.0.0.1 bounceexchange.com
-># 127.0.0.1 spclient.wg.spotify.com
->127.0.0.1 securepubads.g.doubleclick.net
->127.0.0.1 8.126.154.104.bc.googleusercontent.com
->127.0.0.1 104.154.126.8
+``````
+127.0.0.1 media-match.com
+127.0.0.1 adclick.g.doublecklick.net
+127.0.0.1 www.googleadservices.com
+127.0.0.1 open.spotify.com
+127.0.0.1 pagead2.googlesyndication.com
+127.0.0.1 desktop.spotify.com
+127.0.0.1 googleads.g.doubleclick.net
+127.0.0.1 pubads.g.doubleclick.net
+127.0.0.1 audio2.spotify.com
+127.0.0.1 www.omaze.com
+127.0.0.1 omaze.com
+127.0.0.1 bounceexchange.com
+# 127.0.0.1 spclient.wg.spotify.com
+127.0.0.1 securepubads.g.doubleclick.net
+127.0.0.1 8.126.154.104.bc.googleusercontent.com
+127.0.0.1 104.154.126.8
+``````
 
-Bat theme
+</details>
+
+#### Bat theme
 
 ```bash
 wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
@@ -153,25 +162,26 @@ bat cache --build
 <summary>Tmux</summary>
 <br>
 
-####Tmux plugins
+#### Tmux plugins
 
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ```
 
->ctrl+space I
+- ctrl+space I
 
+#### Tmux keybinds
 
-Prefix = Ctrl + space
-Prefix + v/h/x to make vertical/horizontal/kill pane
-Ctrl + vim keys to move around panes
-Alt + h/l to move to prev/next window
-Alt + j/k to create/kill window
+- Prefix = Ctrl + space
+- Prefix + v/h/x to make vertical/horizontal/kill pane
+- Ctrl + vim keys to move around panes
+- Alt + h/l to move to prev/next window
+- Alt + j/k to create/kill window
 </details>
 
 
-Nvim setup
+#### Nvim setup
 
 ```bash
 nvim
@@ -180,15 +190,17 @@ nvim
 - :MasonInstallAll
 - :Lazy sync
 
-Update tealdear manpages
+#### Update tealdeer manpages
 
 ```bash
 tldr --update
 ```
 
-Setup nwg-look
+Remember to set up nwg-look and kvantum to catppuccin-mocha-flamingo
 
-### Firefox
+<details>
+<summary>Firefox</summary>
+<br>
 
 [Grab betterfox](https://github.com/yokoffing/Betterfox)
 
@@ -209,6 +221,8 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 - Dump contents of ~/dotfiles/stowignore_firefox here and start firefox
 
 >Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
+
+</details>
 
 ### Hyprland
 
@@ -239,17 +253,19 @@ linux-headers vdpauinfo
 ```bash
 sudo nvim /etc/default/grub
 ```
+``````
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.fbdev=1 nvidia_drm.modeset=1 amd_pstate=active"
 
->GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.fbdev=1 nvidia_drm.modeset=1 amd_pstate=active"
->
->GRUB_THEME="/boot/grub/themes/bsol/theme.txt"
+GRUB_THEME="/boot/grub/themes/bsol/theme.txt"
+``````
 
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo nvim /etc/mkinitcpio.conf
 ```
-
->MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+``````
+MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+``````
 
 ```bash
 sudo mkinitcpio -p linux
@@ -257,37 +273,27 @@ sudo mkdir /etc/pacman.d/hooks/
 sudo touch /etc/pacman.d/hooks/nvidia.hook
 sudo nvim /etc/pacman.d/hooks/nvidia.hook
 ```
+``````
+[Trigger]
 
->[Trigger]
->
->Operation=Install
->
->Operation=Upgrade
->
->Operation=Remove
->
->Type=Package
->### Uncomment the installed NVIDIA package
->Target=nvidia
->
->#Target=nvidia-open
->
->#Target=nvidia-lts
->
->### If running a different kernel, modify below to match
->Target=linux
->
->[Action]
->
->Description=Updating NVIDIA module in initcpio
->
->Depends=mkinitcpio
->
->When=PostTransaction
->
->NeedsTargets
->
->Exec=/bin/sh -c 'while read -r trg; do case rg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+### Uncomment the installed NVIDIA package
+Target=nvidia
+#Target=nvidia-open
+#Target=nvidia-lts
+### If running a different kernel, modify below to match
+Target=linux
+
+[Action]
+Description=Updating NVIDIA module in initcpio
+Depends=mkinitcpio
+When=PostTransaction
+NeedsTargets
+Exec=/bin/sh -c 'while read -r trg; do case rg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+``````
 
 ```bash
 vdpauinfo
@@ -301,7 +307,8 @@ sudo systemctl enable nvidia-suspend.service
 sudo systemctl enable nvidia-hibernate.service
 sudo systemctl enable nvidia-resume.service
 ```
-maybe install xorg-xwayland-explicit-sync-git
+
+maybe install xorg-xwayland-explicit-sync-git if flickerig persists after reboot
 
 ### Vulkan/Dev stuff
 
