@@ -65,7 +65,9 @@ nomacs perl-image-exiftool brightnessctl \
 python-pygments spicetify-cli discordo zipa p7zip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji \
 obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin \
-networkmanager 
+waybar rofi-lbonn-wayland-git wl-clipboard \
+polkit-kde-agent qt5-wayland qt6-wayland \
+qt5ct networkmanager wf-recorder
 ```
 
 ### Audio
@@ -240,9 +242,7 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 ```bash
 paru -S hyprnotify hyprcursor hyprlock \
 hypridle hyprpaper xdg-desktop-portal-hyprland \
-waybar rofi-lbonn-wayland-git wl-clipboard \
-polkit-kde-agent qt5-wayland qt6-wayland \
-qt5ct grimblast-git wf-recorder
+grimblast-git 
 ```
 
 ### Bluetooth
