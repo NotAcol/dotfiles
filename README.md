@@ -68,7 +68,7 @@ btop spotify-launcher yazi ventoy \
 grub-theme-bsol-git less gef fastfetch qbittorrent \
 silicon webcord trashy lld pass ripgrep fd \
 noise-suppression-for-voice update-grub ninja \
-papirus-icon-theme qutebrowser polkit thunar \
+papirus-icon-theme polkit thunar \
 thunar-archive-plugin nomacs perl-image-exiftool \
 brightnessctl pamixer playerctl python-adblock \
 python-pygments spicetify-cli man man-pages discordo \
@@ -217,9 +217,9 @@ sudo systemctl start bluetooth.service
 # NVIDIA
 
 ```bash
-paru -S nvidia nvidia-utils nvidia-settings \
-libva-nvidia-driver libva-utils  \
-vdpauinfo
+paru -S nvidia-dkms nvidia-utils nvidia-settings \
+libva-nvidia-driver libva-utils  lib32-nvidia-utils \
+linux-headers vdpauinfo 
 ```
 
 ```bash
@@ -258,9 +258,9 @@ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 >
 >#Target=nvidia-open
 >
-sudo >#Target=nvidia-lts
-sudo >
-sudo >### If running a different kernel, modify below to match
+>#Target=nvidia-lts
+>
+>### If running a different kernel, modify below to match
 >Target=linux
 >
 >[Action]
@@ -287,6 +287,7 @@ sudo systemctl enable nvidia-suspend.service
 sudo systemctl enable nvidia-hibernate.service
 sudo systemctl enable nvidia-resume.service
 ```
+maybe install xorg-xwayland-explicit-sync-git
 
 ### Vulkan/Dev stuff
 
