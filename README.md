@@ -149,13 +149,27 @@ wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/
 bat cache --build
 ```
 
-Tmux plugins
+<details>
+<summary>Tmux</summary>
+<br>
+
+####Tmux plugins
 
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ```
+
 >ctrl+space I
+
+
+Prefix = Ctrl + space
+Prefix + v/h/x to make vertical/horizontal/kill pane
+Ctrl + vim keys to move around panes
+Alt + h/l to move to prev/next window
+Alt + j/k to create/kill window
+</details>
+
 
 Nvim setup
 
