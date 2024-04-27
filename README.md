@@ -1,7 +1,6 @@
 # Dotfiles
 
 ![](assets/firefox.png)
-<br>
 ![](assets/screenshot.png)
 
 ### Git
@@ -52,26 +51,24 @@ chsh -s /usr/bin/zsh
 
 # APPS
 
-### General
+## General
 
 ```bash
-paru -S thefuck tealdeer fzf bat exa zoxide \
-zsh nvim tmux nvchad-git yazi trashy ripgrep fd \
-man man-pages pass btop duf peaclock zatura \
+paru -S thefuck tealdeer fzf bat exa zoxide ffmpegthumbnailer \
+zsh nvim tmux nvchad-git yazi trashy ripgrep fd unarchiver \
+man man-pages pass btop duf peaclock zatura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
-gimp cava qalculate-gtk spotify-launcher \
-ventoy fastfetch qbittorrent silicon webcord  \
-update-grub polkit thunar thunar-archive-plugin \
-nomacs perl-image-exiftool brightnessctl \
+gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
+qbittorrent silicon webcord update-grub polkit thunar \
+thunar-archive-plugin nomacs perl-image-exiftool brightnessctl \
 python-pygments spicetify-cli discordo zipa p7zip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji \
-obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin \
-waybar rofi-lbonn-wayland-git wl-clipboard \
-polkit-kde-agent qt5-wayland qt6-wayland \
-qt5ct networkmanager wf-recorder v4l2loopback-dkms 
+obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin waybar \
+rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
+qt5-wayland qt6-wayland qt5ct networkmanager wf-recorder \
 ```
 
-### Audio
+## Audio
 
 ```bash
 paru -S pipewire gst-plugin-pipewire pipewire-alsa \
@@ -80,7 +77,7 @@ wireplumber pavucontrol playerctl mpv mpd ncmpcpp \
 noise-suppression-for-voice
 ```
 
-### Theme stuff
+## Theme stuff
 
 ```bash
 paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
@@ -129,9 +126,9 @@ When = PostTransaction
 Exec = /usr/bin/paccache -rvk2
 ```
 
-
+## Spotify
 <details>
-<summary>Spotify</summary>
+<summary> </summary>
 <br>
 
 #### Spotify wayland fix
@@ -183,15 +180,16 @@ sudo nvim /etc/hosts
 
 </details>
 
-#### Bat theme
+## Bat theme
 
 ```bash
 wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 bat cache --build
 ```
 
+## Tmux
 <details>
-<summary>Tmux</summary>
+<summary> </summary>
 <br>
 
 #### Tmux plugins
@@ -217,7 +215,7 @@ tmux source ~/.tmux.conf
 </details>
 
 
-#### Nvim setup
+## Nvim setup
 
 ```bash
 nvim
@@ -226,7 +224,7 @@ nvim
 - :MasonInstallAll
 - :Lazy sync
 
-#### Update tealdeer manpages
+## Update tealdeer manpages
 
 ```bash
 tldr --update
@@ -234,19 +232,20 @@ tldr --update
 
 Remember to set up nwg-look and kvantum to catppuccin-mocha-flamingo
 
+## Firefox
 <details>
-<summary>Firefox</summary>
+<summary> </summary>
 <br>
 
 [Grab betterfox](https://github.com/yokoffing/Betterfox)
 
-#### Addons
+### Addons
 
 [Ublock Origin](https://github.com/yokoffing/Betterfox), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
 
-#### Rice
+### Rice
 
 Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 
@@ -259,7 +258,7 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 
 >Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
 
-#### Custom Home Page
+### Custom Home Page
 
 - Settings -> Home -> New Windows and Tabs
 - Custom URLs...
@@ -269,7 +268,7 @@ you can edit the home page to whatever now
 
 </details>
 
-### Hyprland
+## Hyprland
 
 ```bash
 paru -S hyprcursor hyprlock \
@@ -277,14 +276,14 @@ hypridle hyprpaper xdg-desktop-portal-hyprland \
 grimblast-git 
 ```
 
-### Bluetooth
+## Bluetooth
 
 ```bash
 paru -S bluez bluez-utils bluetuith
 sudo systemctl enable --now bluetooth.service
 ```
 
-### Grub theme
+## Grub theme
 
 ```bash
 sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
@@ -299,7 +298,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 >Can skip making the config here if nvidia gpu
 
-### Using obs as virtual cam
+## Using obs as virtual cam
 
 ```bash
 paru -S linux-headers v4l2loopback-dkms
@@ -329,7 +328,9 @@ sudo nvim /etc/default/grub
 ```text
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.modeset=1 amd_pstate=active"
 ```
+
 >Remove amd_pstate=active if no amd cpu
+
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo nvim /etc/mkinitcpio.conf
@@ -381,7 +382,7 @@ sudo systemctl enable --now nvidia-resume.service
 
 >Maybe install xorg-xwayland-explicit-sync-git if flickerig persists after reboot
 
-## Vulkan/Dev stuff
+# Dev stuff
 
 ```bash
 sudo pacman -S vulkan-devel vulkan-icd-loader \
@@ -397,7 +398,7 @@ vkcube-wayland
 
 There are two gdb configs, the second one is in ~/dotfiles/stowignore_gdb_configs/
 
-#### Some scripts 
+## Some scripts 
 
 > Monitors a file for changes and outputs assembly
 - monitor [cpp file in current dir]
