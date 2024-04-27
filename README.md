@@ -6,7 +6,6 @@
 ```
 pacman -S git
 ```
-
 ### Stow
 
 ```
@@ -81,9 +80,9 @@ noise-suppression-for-voice
 ### Theme stuff
 
 ```bash
-paru -S grub-theme-bsol-git catppuccin-gtk-theme-mocha \
+paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
 papirus-icon-theme kvantum nwg-look \
-kvantum-theme-catppuccin-git catppuccin-mocha-grub-theme-git
+kvantum-theme-catppuccin-git 
 ```
 
 Paru settings
@@ -251,10 +250,19 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 - about:config
 - toolkit.legacyUserProfileCustomizations.stylesheets -> true
 - about:profiles -> Root Directory
-- kill firefox
-- Dump contents of ~/dotfiles/stowignore_firefox here and start firefox
+- pkill -f firefox
+- cp -r ~/dotfiles/stowignore_firefox/startpage ./
+- start firerfox and it should work
 
 >Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
+
+#### Custom Home Page
+
+- Settings -> Home -> New Windows and Tabs
+- Custom URLs...
+- file:///home/YOUR-USERNAME/dotfiles/stowignore_firefox/startpage/index.html
+
+you can edit the home page to whatever now
 
 </details>
 
