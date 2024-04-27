@@ -56,7 +56,7 @@ chsh -s /usr/bin/zsh
 paru -S thefuck tealdeer fzf bat exa zoxide \
 zsh nvim tmux nvchad-git yazi trashy ripgrep fd \
 man man-pages pass btop duf peaclock zatura \
-zathura-pdf-mupdf s glow epy-ereader-git \
+zathura-pdf-mupdf s glow epy-ereader-git dunst \
 gimp cava qalculate-gtk spotify-launcher \
 ventoy fastfetch qbittorrent silicon webcord  \
 update-grub polkit thunar thunar-archive-plugin \
@@ -105,6 +105,28 @@ sudo nvim /etc/paru.conf
 ```bash
 paru --gendb
 ```
+
+Add a pacman hook to clear old cache
+
+```bash
+sudo touch /etc/pacman.d/hooks/paccache.hook
+sudo nvim /etc/pacman.d/hooks/paccache.hook
+```
+
+```text
+[Trigger]
+Operation = Remove
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Keep the last cache and the currently installed.
+When = PostTransaction
+Exec = /usr/bin/paccache -rvk2
+```
+
 
 <details>
 <summary>Spotify</summary>
@@ -239,7 +261,7 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 ### Hyprland
 
 ```bash
-paru -S hyprnotify hyprcursor hyprlock \
+paru -S hyprcursor hyprlock \
 hypridle hyprpaper xdg-desktop-portal-hyprland \
 grimblast-git 
 ```
@@ -274,8 +296,11 @@ paru -S linux-headers v4l2loopback-dkms
 sudo touch /etc/modules-load.d/v4l2loopback.conf
 sudo nvim /etc/modules-load.d/v4l2loopback.conf
 ```
+add
 
-- v4l2loopback
+```text
+v4l2loopback
+```
 
 >Will work after reboot
 
@@ -351,7 +376,7 @@ sudo systemctl enable nvidia-resume.service
 ```bash
 sudo pacman -S vulkan-devel vulkan-icd-loader \
 lib32-vulkan-icd-loader glm glfw benchmark \
-clang llvm ninja gef lld gitui
+clang llvm ninja gef lld gitui openssh
 ```
 
 ```bash
