@@ -113,15 +113,15 @@ press "ctrl+space I" in tmux window to download plugins
 sudo nvim /etc/pacman.conf
 ```
 
-- uncomment Color
+Uncomment Color
 
 ```bash
 sudo nvim /etc/paru.conf
 ```
 
-- uncomment BottomUp
-- uncomment SudoLoop
-- uncomment NewsOnUpgrade
+Uncomment BottomUp
+Uncomment SudoLoop
+Uncomment NewsOnUpgrade
 
 ```bash
 paru --gendb
@@ -212,9 +212,6 @@ tldr --update
 ```
 
 ## Firefox
-<details>
-<summary> </summary>
-<br>
 
 [Grab betterfox](https://github.com/yokoffing/Betterfox)
 
