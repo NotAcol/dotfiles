@@ -45,7 +45,7 @@ git restore .
 ## General
 
 ```bash
-paru -S thefuck tealdeer fzf bat exa zoxide ffmpegthumbnailer \
+paru -S thefuck tealdeer fzf bat exa zoxide \
 zsh nvim tmux nvchad-git yazi trashy ripgrep fd unarchiver \
 man man-pages pass btop duf peaclock zatura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
@@ -57,8 +57,9 @@ ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji \
 obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin waybar \
 rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct networkmanager wf-recorder \
-hyprcursor hyprlock hypridle hyprpaper xdg-desktop-portal-hyprland \
-grimblast-git 
+hyprcursor hyprlock hypridle hyprpaper grimblast-git \
+xdg-desktop-portal-hyprland ffmpegthumbnailer
+ 
 ```
 
 ## Audio
@@ -123,15 +124,15 @@ press "ctrl+space I" in tmux window to download plugins
 sudo nvim /etc/pacman.conf
 ```
 
-Uncomment Color
+- Uncomment Color
 
 ```bash
 sudo nvim /etc/paru.conf
 ```
 
-Uncomment BottomUp
-Uncomment SudoLoop
-Uncomment NewsOnUpgrade
+- Uncomment BottomUp
+- Uncomment SudoLoop
+- Uncomment NewsOnUpgrade
 
 ```bash
 paru --gendb
