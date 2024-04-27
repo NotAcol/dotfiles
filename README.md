@@ -270,8 +270,7 @@ grimblast-git
 
 ```bash
 paru -S bluez bluez-utils bluetuith
-sudo systemctl enable bluetooth.service
-sudo systemctl start bluetooth.service
+sudo systemctl enable --now bluetooth.service
 ```
 
 ### Grub theme
@@ -364,9 +363,9 @@ vainfo
 VAEntrypointEncVLD good 👍
 
 ```bash
-sudo systemctl enable nvidia-suspend.service
-sudo systemctl enable nvidia-hibernate.service
-sudo systemctl enable nvidia-resume.service
+sudo systemctl enable --now nvidia-suspend.service
+sudo systemctl enable --now nvidia-hibernate.service
+sudo systemctl enable --now nvidia-resume.service
 ```
 
 >Maybe install xorg-xwayland-explicit-sync-git if flickerig persists after reboot
