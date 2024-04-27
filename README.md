@@ -1,5 +1,7 @@
 # Dotfiles
 
+![](assets/firefox.png)
+![](assets/screenshot.png)
 
 ### Git
 
@@ -378,7 +380,7 @@ sudo systemctl enable --now nvidia-resume.service
 
 >Maybe install xorg-xwayland-explicit-sync-git if flickerig persists after reboot
 
-### Vulkan/Dev stuff
+## Vulkan/Dev stuff
 
 ```bash
 sudo pacman -S vulkan-devel vulkan-icd-loader \
@@ -391,3 +393,13 @@ vulkaninfo
 vkcube
 vkcube-wayland
 ```
+
+There are two gdb configs, the second one is in ~/dotfiles/stowignore_gdb_configs/
+
+#### Some scripts 
+
+monitor [cpp file in current dir]
+> Monitors a file for changes and outputs assembly
+
+disassemble [file in current dir]
+> Disassembles and prints syntax highlighted assembly with bat

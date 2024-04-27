@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [[ "$1" == "-h" ]]; then
-  echo "Ussage: compile-explorer [filename]"
+  echo "compile-explorer filename"
   exit 0
 fi
 
