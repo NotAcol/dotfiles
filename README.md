@@ -39,15 +39,6 @@ stow --adopt .
 git restore .
 ```
 
-### zap
-
-in zsh terminal
-
-```bash
-zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
-zap update all
-chsh -s /usr/bin/zsh
-```
 
 # APPS
 
@@ -76,14 +67,45 @@ pamixer pipewire-audio pipewire-jack pipewire-pulse \
 wireplumber pavucontrol playerctl mpv mpd ncmpcpp \
 noise-suppression-for-voice
 ```
+## Zsh with zap
 
-## Catppuccinification
+in zsh terminal
 
 ```bash
-paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
-papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+zap update all
+chsh -s /usr/bin/zsh
 ```
-Set up nwg-look and kvantum to catppuccin-mocha-flamingo
+
+## Nvim setup
+
+```bash
+nvim
+```
+
+- :MasonInstallAll
+- :Lazy sync
+
+## Tmux
+
+#### Tmux plugins
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
+```
+
+press "ctrl+space I" in tmux window to download plugins 
+
+#### Tmux changed keybinds
+
+- Prefix = Ctrl + space
+- Prefix + v/h/x to make vertical/horizontal/kill pane
+- Ctrl + vim keys to move around panes
+- Alt + h/l to move to prev/next window
+- Alt + j/k to create/kill window
+- Prefix + r to rename session
+- Prefix + X to kill session
 
 ## Paru 
 
@@ -183,42 +205,11 @@ wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/
 bat cache --build
 ```
 
-## Tmux
-
-#### Tmux plugins
-
-```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux source ~/.tmux.conf
-```
-
-press "ctrl+space I" in tmux window to download plugins 
-
-#### Tmux changed keybinds
-
-- Prefix = Ctrl + space
-- Prefix + v/h/x to make vertical/horizontal/kill pane
-- Ctrl + vim keys to move around panes
-- Alt + h/l to move to prev/next window
-- Alt + j/k to create/kill window
-- Prefix + r to rename session
-- Prefix + X to kill session
-
-## Nvim setup
-
-```bash
-nvim
-```
-
-- :MasonInstallAll
-- :Lazy sync
-
 ## Update tealdeer manpages
 
 ```bash
 tldr --update
 ```
-
 
 ## Firefox
 <details>
@@ -252,16 +243,13 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 - Custom URLs...
 - file:///home/YOUR-USERNAME/dotfiles/stowignore_firefox/startpage/index.html
 
-you can edit the home page to whatever now
-
-</details>
+you can edit the home page to whatever
 
 ## Hyprland
 
 ```bash
-paru -S hyprcursor hyprlock \
-hypridle hyprpaper xdg-desktop-portal-hyprland \
-grimblast-git 
+paru -S hyprcursor hyprlock hypridle hyprpaper \
+xdg-desktop-portal-hyprland grimblast-git 
 ```
 
 ## Bluetooth
@@ -270,6 +258,14 @@ grimblast-git
 paru -S bluez bluez-utils bluetuith
 sudo systemctl enable --now bluetooth.service
 ```
+
+## Catppuccinification
+
+```bash
+paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
+papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
+```
+Set up nwg-look and kvantum to catppuccin-mocha-flamingo
 
 ## Grub theme
 
@@ -293,6 +289,7 @@ paru -S linux-headers v4l2loopback-dkms
 sudo touch /etc/modules-load.d/v4l2loopback.conf
 sudo nvim /etc/modules-load.d/v4l2loopback.conf
 ```
+
 add
 
 ```text
