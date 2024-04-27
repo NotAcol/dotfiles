@@ -59,7 +59,6 @@ rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct networkmanager wf-recorder \
 hyprcursor hyprlock hypridle hyprpaper grimblast-git \
 xdg-desktop-portal-hyprland ffmpegthumbnailer
- 
 ```
 
 ## Audio
@@ -87,6 +86,8 @@ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) 
 zap update all
 chsh -s /usr/bin/zsh
 ```
+
+>This might backup and replace .zshrc, if it does switch them back
 
 ## Nvim setup
 
