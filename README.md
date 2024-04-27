@@ -77,15 +77,15 @@ wireplumber pavucontrol playerctl mpv mpd ncmpcpp \
 noise-suppression-for-voice
 ```
 
-## Theme stuff
+## Catppuccinification
 
 ```bash
 paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
-papirus-icon-theme kvantum nwg-look \
-kvantum-theme-catppuccin-git 
+papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
 ```
+Set up nwg-look and kvantum to catppuccin-mocha-flamingo
 
-Paru settings
+## Paru 
 
 ```bash
 sudo nvim /etc/pacman.conf
@@ -127,27 +127,24 @@ Exec = /usr/bin/paccache -rvk2
 ```
 
 ## Spotify
-<details>
-<summary> </summary>
-<br>
 
 #### Spotify wayland fix
 
 ```bash
 sudo nvim /etc/spotify-launcher.conf
 ```
-- uncomment extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
+uncomment extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 
 
 #### Spotify theme
 
-- Login to spotify
+Login to spotify
 
 ```bash
 nvim ~/dotfiles/.config/spicetify/config-xpui.ini
 ```
 
-- Edit path to use correct user name
+Edit path to use correct user name
 
 ```bash
 spicetify apply
@@ -178,7 +175,6 @@ sudo nvim /etc/hosts
 127.0.0.1 104.154.126.8
 ```
 
-</details>
 
 ## Bat theme
 
@@ -188,9 +184,6 @@ bat cache --build
 ```
 
 ## Tmux
-<details>
-<summary> </summary>
-<br>
 
 #### Tmux plugins
 
@@ -199,7 +192,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ```
 
-- ctrl+space I
+press "ctrl+space I" in tmux window to download plugins 
 
 #### Tmux changed keybinds
 
@@ -210,10 +203,6 @@ tmux source ~/.tmux.conf
 - Alt + j/k to create/kill window
 - Prefix + r to rename session
 - Prefix + X to kill session
-
-
-</details>
-
 
 ## Nvim setup
 
@@ -230,7 +219,6 @@ nvim
 tldr --update
 ```
 
-Remember to set up nwg-look and kvantum to catppuccin-mocha-flamingo
 
 ## Firefox
 <details>
@@ -398,7 +386,7 @@ vkcube-wayland
 
 There are two gdb configs, the second one is in ~/dotfiles/stowignore_gdb_configs/
 
-## Some scripts 
+## Scripts 
 
 > Monitors a file for changes and outputs assembly
 - monitor [cpp file in current dir]
