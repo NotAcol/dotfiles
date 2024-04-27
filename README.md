@@ -57,6 +57,8 @@ ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji \
 obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin waybar \
 rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct networkmanager wf-recorder \
+hyprcursor hyprlock hypridle hyprpaper xdg-desktop-portal-hyprland \
+grimblast-git 
 ```
 
 ## Audio
@@ -67,6 +69,14 @@ pamixer pipewire-audio pipewire-jack pipewire-pulse \
 wireplumber pavucontrol playerctl mpv mpd ncmpcpp \
 noise-suppression-for-voice
 ```
+
+## Bluetooth
+
+```bash
+paru -S bluez bluez-utils bluetuith
+sudo systemctl enable --now bluetooth.service
+```
+
 ## Zsh with zap
 
 in zsh terminal
@@ -148,6 +158,93 @@ When = PostTransaction
 Exec = /usr/bin/paccache -rvk2
 ```
 
+## Update tealdeer manpages
+
+```bash
+tldr --update
+```
+
+## Using obs as virtual cam
+
+```bash
+paru -S linux-headers v4l2loopback-dkms
+sudo touch /etc/modules-load.d/v4l2loopback.conf
+sudo nvim /etc/modules-load.d/v4l2loopback.conf
+```
+
+add
+
+```text
+v4l2loopback
+```
+
+>Will work after reboot
+
+## Catppuccinification
+
+```bash
+paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
+papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
+```
+
+Set up nwg-look and kvantum to catppuccin-mocha-flamingo
+
+## Bat theme
+
+```bash
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+bat cache --build
+```
+
+## Grub theme
+
+```bash
+sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
+sudo nvim /etc/default/grub
+```
+
+GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+>Can skip making the config here if nvidia gpu
+
+## Firefox
+
+[Grab betterfox](https://github.com/yokoffing/Betterfox)
+
+### Addons
+
+[Ublock Origin](https://github.com/yokoffing/Betterfox), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+
+Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
+
+### Rice
+
+Add [Catppuccin theme](https://github.com/catppuccin/firefox)
+
+- about:config
+- toolkit.legacyUserProfileCustomizations.stylesheets -> true
+- about:profiles -> Root Directory
+
+```bash
+pkill -f firefox
+cp -r ~/dotfiles/stowignore_firefox/startpage ./
+start firerfox and it should work
+```
+
+>Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
+
+### Custom Home Page
+
+- Settings -> Home -> New Windows and Tabs
+- Custom URLs...
+- file:///home/YOUR-USERNAME/dotfiles/stowignore_firefox/startpage/index.html
+
+you can edit the home page to whatever
+
 ## Spotify
 
 #### Spotify wayland fix
@@ -196,104 +293,6 @@ sudo nvim /etc/hosts
 127.0.0.1 8.126.154.104.bc.googleusercontent.com
 127.0.0.1 104.154.126.8
 ```
-
-
-## Bat theme
-
-```bash
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-bat cache --build
-```
-
-## Update tealdeer manpages
-
-```bash
-tldr --update
-```
-
-## Firefox
-
-[Grab betterfox](https://github.com/yokoffing/Betterfox)
-
-### Addons
-
-[Ublock Origin](https://github.com/yokoffing/Betterfox), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
-
-Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
-
-### Rice
-
-Add [Catppuccin theme](https://github.com/catppuccin/firefox)
-
-- about:config
-- toolkit.legacyUserProfileCustomizations.stylesheets -> true
-- about:profiles -> Root Directory
-- pkill -f firefox
-- cp -r ~/dotfiles/stowignore_firefox/startpage ./
-- start firerfox and it should work
-
->Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
-
-### Custom Home Page
-
-- Settings -> Home -> New Windows and Tabs
-- Custom URLs...
-- file:///home/YOUR-USERNAME/dotfiles/stowignore_firefox/startpage/index.html
-
-you can edit the home page to whatever
-
-## Hyprland
-
-```bash
-paru -S hyprcursor hyprlock hypridle hyprpaper \
-xdg-desktop-portal-hyprland grimblast-git 
-```
-
-## Bluetooth
-
-```bash
-paru -S bluez bluez-utils bluetuith
-sudo systemctl enable --now bluetooth.service
-```
-
-## Catppuccinification
-
-```bash
-paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
-papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
-```
-Set up nwg-look and kvantum to catppuccin-mocha-flamingo
-
-## Grub theme
-
-```bash
-sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
-sudo nvim /etc/default/grub
-```
-- uncomment GRUB_THEME
-- GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
-
-```bash
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
->Can skip making the config here if nvidia gpu
-
-## Using obs as virtual cam
-
-```bash
-paru -S linux-headers v4l2loopback-dkms
-sudo touch /etc/modules-load.d/v4l2loopback.conf
-sudo nvim /etc/modules-load.d/v4l2loopback.conf
-```
-
-add
-
-```text
-v4l2loopback
-```
-
->Will work after reboot
 
 # NVIDIA
 
