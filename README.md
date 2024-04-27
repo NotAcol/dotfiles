@@ -400,7 +400,7 @@ There are two gdb configs, the second one is in ~/dotfiles/stowignore_gdb_config
 #### Some scripts 
 
 > Monitors a file for changes and outputs assembly
-monitor [cpp file in current dir]
+- monitor [cpp file in current dir]
 
 > Disassembles and prints syntax highlighted assembly with bat
-disassemble [file in current dir]
+- disassemble [file in current dir]
