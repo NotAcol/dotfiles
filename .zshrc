@@ -31,55 +31,44 @@ source ~/.zshenv
 autoload -Uz compinit
 compinit
 
-#plug "zap-zsh/supercharge" #really good but I already use zoxide fzf and eza
 plug "romkatv/powerlevel10k"
-#plug "wintermi/zsh-starship"
 plug "hlissner/zsh-autopair"
 plug "zap-zsh/vim"
+plug "kutsan/zsh-system-clipboard"
 plug "MichaelAquilina/zsh-you-should-use"
-plug "zap-zsh/fzf"
 plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
-#plug "zap-zsh/web-search"
 plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
-#plug "zsh-users/zsh-history-substring-search" #type something and go into normal mode + vim keys
-
-#bindkey -M vicmd 'k' history-substring-search-up
-#bindkey -M vicmd 'j' history-substring-search-down
-
-
-# P10k customizations
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # Fix for password store
 export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
 
+set -o vi # VI-MODE | "set -o emacs" for emacs keybinds and delete/comment the next two lines
+KEYTIMEOUT=1 
+bindkey -M vicmd '^[' undefined-key 
+
 #colors
 alias cat=bat
 alias ls="eza --color=auto --hyperlink --icons=auto --classify=auto"
-alias grep='rg' #remember to use rg retard >.<
+alias grep='rg' 
 alias tree="ls -T"
 alias treeg="ls -T --git-ignore"
 alias find="fd"
 
-#-
-alias nvimrc='nvim ~/.config/nvim/'
-
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
-alias rm='rm -i'
+alias rm='rm -i' #Better to use trashy either way
 
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
-eval "$(zoxide init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
+eval "$(atuin init zsh)"
 
-export PATH="$PATH:/home/acol/.scripts"
+export PATH="$PATH:$HOME/.scripts"
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
 [[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh

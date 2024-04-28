@@ -1,7 +1,7 @@
 # Dotfiles
 
-![](assets/firefox.png)
-![](assets/screenshot.png)
+![](stowignore_assets/firefox.png)
+![](stowignore_assets/screenshot.png)
 
 ### Git
 
@@ -19,21 +19,21 @@ pacman -S stow
 Grab [paru](https://github.com/Morganamilo/paru) -> Install all apps bellow ->
 clone this repo and stow -> do settings described below
 
-```bash
+```console
 git clone https://github.com/NotAcol/dotfiles.git
 cd dotfiles
 ```
 
 Stow to create symlinks
 
-```bash
+```console
 stow .
 ```
 
 If stow doesnt work
 
 
-```bash
+```console
 git add .
 stow --adopt .
 git restore .
@@ -44,8 +44,8 @@ git restore .
 
 ## General
 
-```bash
-paru -S thefuck tealdeer fzf bat exa zoxide \
+```console
+paru -S thefuck tealdeer fzf bat exa zoxide atuin \
 zsh nvim tmux nvchad-git yazi trashy ripgrep fd unarchiver \
 man man-pages pass btop duf peaclock zatura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
@@ -63,7 +63,7 @@ xdg-desktop-portal-hyprland ffmpegthumbnailer
 
 ## Audio
 
-```bash
+```console
 paru -S pipewire gst-plugin-pipewire pipewire-alsa \
 pamixer pipewire-audio pipewire-jack pipewire-pulse \
 wireplumber pavucontrol playerctl mpv mpd ncmpcpp \
@@ -72,7 +72,7 @@ noise-suppression-for-voice
 
 ## Bluetooth
 
-```bash
+```console
 paru -S bluez bluez-utils bluetuith
 sudo systemctl enable --now bluetooth.service
 ```
@@ -81,17 +81,27 @@ sudo systemctl enable --now bluetooth.service
 
 in zsh terminal
 
-```bash
+```console
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
-zap update all
-chsh -s /usr/bin/zsh
 ```
 
->This might backup and replace .zshrc, if it does switch them back
+>This might backup and replace .zshrc if it does switch them back to this repo's version
+
+```console
+zap update all
+chsh -s /usr/bin/zsh
+atuin import auto
+```
+
+better use trashy instead of rm
+
+zsh is set to vi keybinds if you want emac change it at ~/.zshrc line 48
+
+If you want to sync search history across machines with end to end encryption you can trivially do it [here](https://github.com/atuinsh/atuin?tab=readme-ov-file#with-the-default-sync-server)
 
 ## Nvim setup
 
-```bash
+```console
 nvim
 ```
 
@@ -102,7 +112,7 @@ nvim
 
 #### Tmux plugins
 
-```bash
+```console
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ```
@@ -121,27 +131,27 @@ press "ctrl+space I" in tmux window to download plugins
 
 ## Paru 
 
-```bash
+```console
 sudo nvim /etc/pacman.conf
 ```
 
-- Uncomment Color
+- Uncomment: Color
 
-```bash
+```console
 sudo nvim /etc/paru.conf
 ```
 
-- Uncomment BottomUp
-- Uncomment SudoLoop
-- Uncomment NewsOnUpgrade
+- Uncomment: BottomUp
+- Uncomment: SudoLoop
+- Uncomment: NewsOnUpgrade
 
-```bash
+```console
 paru --gendb
 ```
 
 Add a pacman hook to clear old cache
 
-```bash
+```console
 sudo touch /etc/pacman.d/hooks/paccache.hook
 sudo nvim /etc/pacman.d/hooks/paccache.hook
 ```
@@ -162,13 +172,13 @@ Exec = /usr/bin/paccache -rvk2
 
 ## Update tealdeer manpages
 
-```bash
+```console
 tldr --update
 ```
 
 ## Using obs as virtual cam
 
-```bash
+```console
 paru -S linux-headers v4l2loopback-dkms
 sudo touch /etc/modules-load.d/v4l2loopback.conf
 sudo nvim /etc/modules-load.d/v4l2loopback.conf
@@ -184,7 +194,7 @@ v4l2loopback
 
 ## Catppuccinification
 
-```bash
+```console
 paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
 papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
 ```
@@ -193,21 +203,21 @@ Set up nwg-look and kvantum to catppuccin-mocha-flamingo
 
 ## Bat theme
 
-```bash
+```console
 wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 bat cache --build
 ```
 
 ## Grub theme
 
-```bash
+```console
 sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
 sudo nvim /etc/default/grub
 ```
 
 GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
 
-```bash
+```console
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
@@ -231,7 +241,7 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 - toolkit.legacyUserProfileCustomizations.stylesheets -> true
 - about:profiles -> Root Directory
 
-```bash
+```console
 pkill -f firefox
 cp -r ~/dotfiles/stowignore_firefox/startpage ./
 start firerfox and it should work
@@ -251,29 +261,29 @@ you can edit the home page to whatever
 
 #### Spotify wayland fix
 
-```bash
+```console
 sudo nvim /etc/spotify-launcher.conf
 ```
-uncomment extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
+uncomment: extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 
 
 #### Spotify theme
 
 Login to spotify
 
-```bash
+```console
 nvim ~/dotfiles/.config/spicetify/config-xpui.ini
 ```
 
 Edit path to use correct user name
 
-```bash
+```console
 spicetify apply
 ```
 
 #### Block spotify ads
 
-```bash
+```console
 sudo nvim /etc/hosts
 ```
 
@@ -298,13 +308,13 @@ sudo nvim /etc/hosts
 
 # NVIDIA
 
-```bash
+```console
 paru -S nvidia-dkms nvidia-utils nvidia-settings \
 libva-nvidia-driver libva-utils  lib32-nvidia-utils \
 linux-headers vdpauinfo 
 ```
 
-```bash
+```console
 sudo nvim /etc/default/grub
 ```
 
@@ -314,7 +324,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAll
 
 >Remove amd_pstate=active if no amd cpu
 
-```bash
+```console
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo nvim /etc/mkinitcpio.conf
 ```
@@ -322,7 +332,7 @@ sudo nvim /etc/mkinitcpio.conf
 MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 ```
 
-```bash
+```console
 sudo mkinitcpio -p linux
 sudo mkdir /etc/pacman.d/hooks/ 
 sudo touch /etc/pacman.d/hooks/nvidia.hook
@@ -350,14 +360,14 @@ NeedsTargets
 Exec=/bin/sh -c 'while read -r trg; do case rg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
 ```
 
-```bash
+```console
 vdpauinfo
 vainfo
 ```
 
 VAEntrypointEncVLD good 👍
 
-```bash
+```console
 sudo systemctl enable --now nvidia-suspend.service
 sudo systemctl enable --now nvidia-hibernate.service
 sudo systemctl enable --now nvidia-resume.service
@@ -367,13 +377,13 @@ sudo systemctl enable --now nvidia-resume.service
 
 # Dev stuff
 
-```bash
+```console
 sudo pacman -S vulkan-devel vulkan-icd-loader \
 lib32-vulkan-icd-loader glm glfw benchmark \
 clang llvm ninja gef lld gitui openssh
 ```
 
-```bash
+```console
 vulkaninfo
 vkcube
 vkcube-wayland

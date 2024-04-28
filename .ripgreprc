@@ -1,0 +1,8 @@
+--hidden
+--smart-case
+--colors=path:fg:yellow
+--colors=line:fg:blue
+
+--glob=!.git/*
+--glob=!.cargo/*
+--glob=!.cache/*
