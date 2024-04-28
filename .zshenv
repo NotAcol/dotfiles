@@ -4,7 +4,7 @@ export LESSOPEN="|bat --paging=auto --color=always %s"
 export PAGER="less"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-c"
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 export LESS='-R'
 export EDITOR="nvim"
 export VISUAL="nvim"

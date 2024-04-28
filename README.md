@@ -19,6 +19,8 @@ $ pacman -S stow
 Grab [paru](https://github.com/Morganamilo/paru) -> Install all apps bellow ->
 clone this repo and stow -> do settings described below
 
+>If you want to game do "$ paru -S arch-gaming-meta" after being done with everything else
+
 ### Clone and stow
 
 ```console
@@ -99,7 +101,7 @@ better use trashy instead of rm
 
 zsh is set to vi keybinds if you want emac change it at ~/.zshrc line 48
 
-If you want to sync search history across machines with end to end encryption you can trivially do it [here](https://github.com/atuinsh/atuin?tab=readme-ov-file#with-the-default-sync-server)
+If you want to sync search history across machines with end to end encryption you can trivially do it [here](https://docs.atuin.sh/guide/sync/)
 
 ## Nvim setup
 

@@ -20,9 +20,10 @@ fi
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
-HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+## Using atuin for history, if you dont want that just unccomment next 3 lines
+# HISTFILE=~/.zsh_history 
+# HISTSIZE=1000000
+# SAVEHIST=1000000
 
 #exports
 source ~/.zshenv
@@ -33,20 +34,20 @@ compinit
 
 plug "romkatv/powerlevel10k"
 plug "hlissner/zsh-autopair"
-plug "zap-zsh/vim"
-plug "kutsan/zsh-system-clipboard"
 plug "MichaelAquilina/zsh-you-should-use"
 plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
 plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
+plug "jeffreytse/zsh-vi-mode"
+plug "kutsan/zsh-system-clipboard"
 
 # Fix for password store
 export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
 
 set -o vi # VI-MODE | "set -o emacs" for emacs keybinds and delete/comment the next two lines
-KEYTIMEOUT=1 
+KEYTIMEOUT=1  # and zsh-vi-mode zsh-system-clipboard blugins
 bindkey -M vicmd '^[' undefined-key 
 
 #colors
