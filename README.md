@@ -57,8 +57,7 @@ gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
 qbittorrent silicon webcord update-grub polkit thunar \
 thunar-archive-plugin nomacs perl-image-exiftool brightnessctl \
 python-pygments spicetify-cli discordo zip p7zip \
-ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji \
- waybar \
+ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct networkmanager wf-recorder \
 hyprcursor hyprlock hypridle hyprpaper grimblast-git \
