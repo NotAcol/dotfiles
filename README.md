@@ -11,7 +11,7 @@ $ pacman -S git
 ### Stow
 
 ```console
-pacman -S stow
+$ pacman -S stow
 ```
 
 ## Installation
