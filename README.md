@@ -50,7 +50,7 @@ $ git restore .
 
 ```console
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
-zsh neovim tmux nvchad-git yazi trashy ripgrep fd unarchiver \
+zsh neovim tmux yazi trashy ripgrep fd unarchiver \
 man man-pages pass btop duf peaclock zathura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
 gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
@@ -58,7 +58,7 @@ qbittorrent silicon webcord update-grub polkit thunar \
 thunar-archive-plugin nomacs perl-image-exiftool brightnessctl \
 python-pygments spicetify-cli discordo zip p7zip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji \
-obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin waybar \
+ waybar \
 rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct networkmanager wf-recorder \
 hyprcursor hyprlock hypridle hyprpaper grimblast-git \
@@ -80,6 +80,29 @@ noise-suppression-for-voice
 $ paru -S bluez bluez-utils bluetuith
 $ sudo systemctl enable --now bluetooth.service
 ```
+
+## Obs 
+
+```console
+$ paru -S obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin
+```
+
+### Using obs for virtual cam
+
+```console
+$ paru -S linux-headers v4l2loopback-dkms
+$ sudo touch /etc/modules-load.d/v4l2loopback.conf
+$ sudo nvim /etc/modules-load.d/v4l2loopback.conf
+```
+
+add
+
+```text
+v4l2loopback
+```
+
+>Will work after reboot
+
 
 ## Zsh with zap
 
@@ -109,8 +132,8 @@ If you want to sync search history across machines with end to end encryption yo
 $ nvim
 ```
 
-- :MasonInstallAll
 - :Lazy sync
+- :MasonInstallAll
 
 ## Tmux
 
@@ -179,22 +202,6 @@ Exec = /usr/bin/paccache -rvk2
 ```console
 $ tldr --update
 ```
-
-## Using obs as virtual cam
-
-```console
-$ paru -S linux-headers v4l2loopback-dkms
-$ sudo touch /etc/modules-load.d/v4l2loopback.conf
-$ sudo nvim /etc/modules-load.d/v4l2loopback.conf
-```
-
-add
-
-```text
-v4l2loopback
-```
-
->Will work after reboot
 
 ## Catppuccinification
 
