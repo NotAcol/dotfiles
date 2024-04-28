@@ -17,7 +17,7 @@ $ pacman -S stow
 ## Installation
 
 Grab [paru](https://github.com/Morganamilo/paru) -> Install all apps bellow ->
-clone this repo and stow -> do settings described below
+clone this repo and stow -> do settings described below 
 
 >If you want to game do "$ paru -S arch-gaming-meta" after being done with everything else
 
@@ -380,9 +380,9 @@ $ vainfo
 VAEntrypointEncVLD good 👍
 
 ```console
-$ sudo systemctl enable --now nvidia-suspend.service
-$ sudo systemctl enable --now nvidia-hibernate.service
-$ sudo systemctl enable --now nvidia-resume.service
+$ sudo systemctl enable nvidia-suspend.service
+$ sudo systemctl enable nvidia-hibernate.service
+$ sudo systemctl enable nvidia-resume.service
 ```
 
 >Maybe install xorg-xwayland-explicit-sync-git if flickerig persists after reboot
