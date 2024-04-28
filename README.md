@@ -50,13 +50,13 @@ $ git restore .
 
 ```console
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
-zsh nvim tmux nvchad-git yazi trashy ripgrep fd unarchiver \
-man man-pages pass btop duf peaclock zatura jq poppler \
+zsh neovim tmux nvchad-git yazi trashy ripgrep fd unarchiver \
+man man-pages pass btop duf peaclock zathura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
 gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
 qbittorrent silicon webcord update-grub polkit thunar \
 thunar-archive-plugin nomacs perl-image-exiftool brightnessctl \
-python-pygments spicetify-cli discordo zipa p7zip \
+python-pygments spicetify-cli discordo zip p7zip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji \
 obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin waybar \
 rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
