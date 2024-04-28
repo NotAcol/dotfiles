@@ -5,12 +5,12 @@
 
 ### Git
 
-```
-pacman -S git
+```console
+$ pacman -S git
 ```
 ### Stow
 
-```
+```console
 pacman -S stow
 ```
 
@@ -19,24 +19,26 @@ pacman -S stow
 Grab [paru](https://github.com/Morganamilo/paru) -> Install all apps bellow ->
 clone this repo and stow -> do settings described below
 
+### Clone and stow
+
 ```console
-git clone https://github.com/NotAcol/dotfiles.git
-cd dotfiles
+$ git clone https://github.com/NotAcol/dotfiles.git
+$ cd dotfiles
 ```
 
 Stow to create symlinks
 
 ```console
-stow .
+$ stow .
 ```
 
 If stow doesnt work
 
 
 ```console
-git add .
-stow --adopt .
-git restore .
+$ git add .
+$ stow --adopt .
+$ git restore .
 ```
 
 
