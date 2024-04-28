@@ -200,7 +200,7 @@ v4l2loopback
 
 ```console
 $ paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
-$ papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
+papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
 ```
 
 Set up nwg-look and kvantum to catppuccin-mocha-flamingo
