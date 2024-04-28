@@ -47,7 +47,7 @@ $ git restore .
 ## General
 
 ```console
-paru -S thefuck tealdeer fzf bat exa zoxide atuin \
+$ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
 zsh nvim tmux nvchad-git yazi trashy ripgrep fd unarchiver \
 man man-pages pass btop duf peaclock zatura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
@@ -66,7 +66,7 @@ xdg-desktop-portal-hyprland ffmpegthumbnailer
 ## Audio
 
 ```console
-paru -S pipewire gst-plugin-pipewire pipewire-alsa \
+$ paru -S pipewire gst-plugin-pipewire pipewire-alsa \
 pamixer pipewire-audio pipewire-jack pipewire-pulse \
 wireplumber pavucontrol playerctl mpv mpd ncmpcpp \
 noise-suppression-for-voice
@@ -75,8 +75,8 @@ noise-suppression-for-voice
 ## Bluetooth
 
 ```console
-paru -S bluez bluez-utils bluetuith
-sudo systemctl enable --now bluetooth.service
+$ paru -S bluez bluez-utils bluetuith
+$ sudo systemctl enable --now bluetooth.service
 ```
 
 ## Zsh with zap
@@ -84,15 +84,15 @@ sudo systemctl enable --now bluetooth.service
 in zsh terminal
 
 ```console
-zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+$ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 ```
 
 >This might backup and replace .zshrc if it does switch them back to this repo's version
 
 ```console
-zap update all
-chsh -s /usr/bin/zsh
-atuin import auto
+$ zap update all
+$ chsh -s /usr/bin/zsh
+$ atuin import auto
 ```
 
 better use trashy instead of rm
@@ -104,7 +104,7 @@ If you want to sync search history across machines with end to end encryption yo
 ## Nvim setup
 
 ```console
-nvim
+$ nvim
 ```
 
 - :MasonInstallAll
@@ -115,8 +115,8 @@ nvim
 #### Tmux plugins
 
 ```console
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux source ~/.tmux.conf
+$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+$ tmux source ~/.tmux.conf
 ```
 
 press "ctrl+space I" in tmux window to download plugins 
@@ -134,13 +134,13 @@ press "ctrl+space I" in tmux window to download plugins
 ## Paru 
 
 ```console
-sudo nvim /etc/pacman.conf
+$ sudo nvim /etc/pacman.conf
 ```
 
 - Uncomment: Color
 
 ```console
-sudo nvim /etc/paru.conf
+$ sudo nvim /etc/paru.conf
 ```
 
 - Uncomment: BottomUp
@@ -148,14 +148,14 @@ sudo nvim /etc/paru.conf
 - Uncomment: NewsOnUpgrade
 
 ```console
-paru --gendb
+$ paru --gendb
 ```
 
 Add a pacman hook to clear old cache
 
 ```console
-sudo touch /etc/pacman.d/hooks/paccache.hook
-sudo nvim /etc/pacman.d/hooks/paccache.hook
+$ sudo touch /etc/pacman.d/hooks/paccache.hook
+$ sudo nvim /etc/pacman.d/hooks/paccache.hook
 ```
 
 ```text
@@ -175,15 +175,15 @@ Exec = /usr/bin/paccache -rvk2
 ## Update tealdeer manpages
 
 ```console
-tldr --update
+$ tldr --update
 ```
 
 ## Using obs as virtual cam
 
 ```console
-paru -S linux-headers v4l2loopback-dkms
-sudo touch /etc/modules-load.d/v4l2loopback.conf
-sudo nvim /etc/modules-load.d/v4l2loopback.conf
+$ paru -S linux-headers v4l2loopback-dkms
+$ sudo touch /etc/modules-load.d/v4l2loopback.conf
+$ sudo nvim /etc/modules-load.d/v4l2loopback.conf
 ```
 
 add
@@ -197,8 +197,8 @@ v4l2loopback
 ## Catppuccinification
 
 ```console
-paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
-papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
+$ paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
+$ papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
 ```
 
 Set up nwg-look and kvantum to catppuccin-mocha-flamingo
@@ -206,21 +206,21 @@ Set up nwg-look and kvantum to catppuccin-mocha-flamingo
 ## Bat theme
 
 ```console
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-bat cache --build
+$ wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+$ bat cache --build
 ```
 
 ## Grub theme
 
 ```console
-sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
-sudo nvim /etc/default/grub
+$ sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
+$ sudo nvim /etc/default/grub
 ```
 
 GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
 
 ```console
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 >Can skip making the config here if nvidia gpu
@@ -244,9 +244,9 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 - about:profiles -> Root Directory
 
 ```console
-pkill -f firefox
-cp -r ~/dotfiles/stowignore_firefox/startpage ./
-start firerfox and it should work
+$ pkill -f firefox
+$ cp -r ~/dotfiles/stowignore_firefox/startpage ./
+$ start firerfox and it should work
 ```
 
 >Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
@@ -264,7 +264,7 @@ you can edit the home page to whatever
 #### Spotify wayland fix
 
 ```console
-sudo nvim /etc/spotify-launcher.conf
+$ sudo nvim /etc/spotify-launcher.conf
 ```
 uncomment: extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 
@@ -274,19 +274,19 @@ uncomment: extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-pla
 Login to spotify
 
 ```console
-nvim ~/dotfiles/.config/spicetify/config-xpui.ini
+$ nvim ~/dotfiles/.config/spicetify/config-xpui.ini
 ```
 
 Edit path to use correct user name
 
 ```console
-spicetify apply
+$ spicetify apply
 ```
 
 #### Block spotify ads
 
 ```console
-sudo nvim /etc/hosts
+$ sudo nvim /etc/hosts
 ```
 
 ```text
@@ -311,13 +311,13 @@ sudo nvim /etc/hosts
 # NVIDIA
 
 ```console
-paru -S nvidia-dkms nvidia-utils nvidia-settings \
+$ paru -S nvidia-dkms nvidia-utils nvidia-settings \
 libva-nvidia-driver libva-utils  lib32-nvidia-utils \
 linux-headers vdpauinfo 
 ```
 
 ```console
-sudo nvim /etc/default/grub
+$ sudo nvim /etc/default/grub
 ```
 
 ```text
@@ -327,18 +327,18 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAll
 >Remove amd_pstate=active if no amd cpu
 
 ```console
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-sudo nvim /etc/mkinitcpio.conf
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+$ sudo nvim /etc/mkinitcpio.conf
 ```
 ```text
 MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 ```
 
 ```console
-sudo mkinitcpio -p linux
-sudo mkdir /etc/pacman.d/hooks/ 
-sudo touch /etc/pacman.d/hooks/nvidia.hook
-sudo nvim /etc/pacman.d/hooks/nvidia.hook
+$ sudo mkinitcpio -p linux
+$ sudo mkdir /etc/pacman.d/hooks/ 
+$ sudo touch /etc/pacman.d/hooks/nvidia.hook
+$ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 ```
 ```text
 [Trigger]
@@ -362,17 +362,19 @@ NeedsTargets
 Exec=/bin/sh -c 'while read -r trg; do case rg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
 ```
 
+Tests after reboot
+
 ```console
-vdpauinfo
-vainfo
+$ vdpauinfo
+$ vainfo
 ```
 
 VAEntrypointEncVLD good 👍
 
 ```console
-sudo systemctl enable --now nvidia-suspend.service
-sudo systemctl enable --now nvidia-hibernate.service
-sudo systemctl enable --now nvidia-resume.service
+$ sudo systemctl enable --now nvidia-suspend.service
+$ sudo systemctl enable --now nvidia-hibernate.service
+$ sudo systemctl enable --now nvidia-resume.service
 ```
 
 >Maybe install xorg-xwayland-explicit-sync-git if flickerig persists after reboot
@@ -380,15 +382,17 @@ sudo systemctl enable --now nvidia-resume.service
 # Dev stuff
 
 ```console
-sudo pacman -S vulkan-devel vulkan-icd-loader \
+$ sudo pacman -S vulkan-devel vulkan-icd-loader \
 lib32-vulkan-icd-loader glm glfw benchmark \
 clang llvm ninja gef lld gitui openssh
 ```
 
+Tests
+
 ```console
-vulkaninfo
-vkcube
-vkcube-wayland
+$ vulkaninfo
+$ vkcube
+$ vkcube-wayland
 ```
 
 There are two gdb configs, the second one is in ~/dotfiles/stowignore_gdb_configs/
