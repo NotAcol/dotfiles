@@ -7,3 +7,6 @@ local o = vim.o
 o.conceallevel = 1
 o.relativenumber = 1
 o.cursorlineopt = "both" -- to enable cursorline!
+o.tabstop = 4
+o.shiftwidth = 4
+o.expandtab = 1

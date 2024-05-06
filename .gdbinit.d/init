@@ -1,8 +1,0 @@
-set print pretty on
-set disassembly-flavor intel
-set confirm off
-
-dashboard -layout breakpoints expressions history memory registers assembly source stack threads variables
-dashboard -style syntax_highlighting 'one-dark'
-dashboard registers -style column-major True
-dashboard source -style height 15

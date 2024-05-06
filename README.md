@@ -1,7 +1,7 @@
 # Dotfiles
 
-![](stowignore_assets/firefox.png)
-![](stowignore_assets/screenshot.png)
+![](_assets/firefox.png)
+![](_assets/screenshot.png)
 
 ### Git
 
@@ -51,12 +51,12 @@ $ git restore .
 ```console
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
 zsh neovim tmux yazi trashy ripgrep fd unarchiver \
-man man-pages pass btop duf peaclock zathura jq poppler \
+man bat-extras man-pages pass btop duf peaclock zathura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
 gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
 qbittorrent silicon webcord update-grub polkit thunar \
-thunar-archive-plugin nomacs perl-image-exiftool brightnessctl \
-python-pygments spicetify-cli discordo zip p7zip \
+thunar-archive-plugin nomacs perl-image-exiftool \
+python-pygments spicetify-cli zip p7zip brightnessctl \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct networkmanager wf-recorder \
@@ -253,7 +253,7 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 
 ```console
 $ pkill -f firefox
-$ cp -r ~/dotfiles/stowignore_firefox/startpage ./
+$ cp -r ~/dotfiles/_firefox/startpage ./
 $ start firerfox and it should work
 ```
 
@@ -263,7 +263,7 @@ $ start firerfox and it should work
 
 - Settings -> Home -> New Windows and Tabs
 - Custom URLs...
-- file:///home/YOUR-USERNAME/dotfiles/stowignore_firefox/startpage/index.html
+- file:///home/YOUR-USERNAME/dotfiles/_firefox/startpage/index.html
 
 you can edit the home page to whatever
 
@@ -392,18 +392,14 @@ $ sudo systemctl enable nvidia-resume.service
 ```console
 $ sudo pacman -S vulkan-devel vulkan-icd-loader \
 lib32-vulkan-icd-loader glm glfw benchmark \
-clang llvm ninja gef lld gitui openssh
+clang llvm ninja pwndbg lld gitui openssh python-pygments \
 ```
 
-Tests
+GDB
 
-```console
-$ vulkaninfo
-$ vkcube
-$ vkcube-wayland
-```
+>In ~/.gdbinit change path in second line to correct username
 
-There are two gdb configs, the second one is in ~/dotfiles/stowignore_gdb_configs/
+![](_assets/gdb.png)
 
 ## Scripts 
 
