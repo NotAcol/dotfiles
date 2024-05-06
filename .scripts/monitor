@@ -16,14 +16,12 @@ else
   file="$1"
 fi
 
-#clang++ $file -O2 -c -S -o - -masm=intel | llvm-cxxfilt -t | rg -v '\s+\.' | bat -l Assembly\ \(x86_64\)
-
-$compiler ./$file -O2 -c -S -o - -masm=intel | $filt | rg -v '\s+\.' | bat -l Assembly\ \(x86_64\)
+$compiler ./$file -O2 -c -S -o - -masm=intel | $filt | rg -v '\s+\.' | prettybat -l Assembly\ \(x86_64\)
 
 inotifywait -e close_write,moved_to -m . |
   while read -r directory events filename; do
     if [[ "$filename" = "$file" ]] ; then
       clear
-    $compiler ./$file -O2 -c -S -o - -masm=intel | $filt | rg -v '\s+\.' | bat -l Assembly\ \(x86_64\)
+    $compiler ./$file -O2 -c -S -o - -masm=intel | $filt | rg -v '\s+\.' | prettybat -l Assembly\ \(x86_64\)
     fi
   done
