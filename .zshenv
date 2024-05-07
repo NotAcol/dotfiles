@@ -28,7 +28,6 @@ alias treeg="ls -T --git-ignore"
 alias find="fd"
 alias man="batman"
 alias clock="peaclock --config-dir ~/.config/peaclock"
-alias wifi="nmtui"
 alias tmux="tmux -2"
 
 # confirm before overwriting something

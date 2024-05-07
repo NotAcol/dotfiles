@@ -1,6 +1,7 @@
 # Dotfiles
 
 ![](_assets/firefox.png)
+
 ![](_assets/screenshot.png)
 
 ### Git
@@ -15,7 +16,6 @@ $ pacman -S stow
 ```
 
 ## Installation
-
 Grab [paru](https://github.com/Morganamilo/paru) -> Install all apps bellow ->
 clone this repo and stow -> do settings described below 
 
@@ -50,8 +50,8 @@ $ git restore .
 
 ```console
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
-zsh neovim tmux yazi trashy ripgrep fd unarchiver \
-man bat-extras man-pages pass btop duf peaclock zathura jq poppler \
+zsh neovim tmux yazi trashy ripgrep fd unarchiver duf gdu \
+man bat-extras man-pages pass btop peaclock zathura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
 gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
 qbittorrent silicon webcord update-grub polkit thunar \
@@ -59,7 +59,7 @@ thunar-archive-plugin nomacs perl-image-exiftool \
 python-pygments spicetify-cli zip p7zip brightnessctl \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
-qt5-wayland qt6-wayland qt5ct networkmanager wf-recorder \
+qt5-wayland qt6-wayland qt5ct wf-recorder \
 hyprcursor hyprlock hypridle hyprpaper grimblast-git \
 xdg-desktop-portal-hyprland ffmpegthumbnailer
 ```
@@ -72,6 +72,14 @@ pamixer pipewire-audio pipewire-jack pipewire-pulse \
 wireplumber pavucontrol playerctl mpv mpd ncmpcpp \
 noise-suppression-for-voice
 ```
+## Network
+
+```console
+$ paru -S networkmanager
+$ sudo systemctl enable --now NetworkManager.service
+```
+
+>$ nmtui
 
 ## Bluetooth
 
@@ -239,7 +247,7 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 ### Addons
 
-[Ublock Origin](https://github.com/yokoffing/Betterfox), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+[Ublock Origin](https://github.com/yokoffing/Betterfox), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
 
 Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
 
