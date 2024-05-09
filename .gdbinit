@@ -6,7 +6,7 @@ set memory-heap-color green
 set syntax-highlight-style one-dark
 
 set context-code-lines 15
-set context-source-code-lines 30
+set context-source-code-lines 25
 set context-clear-screen on
 set follow-fork-mode parent
 set context-stack-lines 10
@@ -19,7 +19,7 @@ import splitmind
   .tell_splitter(set_title="Main")
   .right(display="backtrace", size="21%")
   .left(of="main", display="disasm", size="39%")
-  .below(display="code", size="31")
+  .below(display="code", size="26")
   .above(of="main", display="stack", size="85%")
   .above(display="legend", size="22")
   .show("regs", on="legend")

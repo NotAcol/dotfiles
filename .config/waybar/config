@@ -8,12 +8,12 @@
 
     "modules-left": ["custom/power", "hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "disk", "pulseaudio", "network", "tray"],
+    "modules-right": ["cpu", "memory" ,"disk", "pulseaudio", "network", "tray"],
 
     "hyprland/workspaces": {
         "on-click": "activate",
         "persistent-workspaces": {
-            "*": 3,
+            "*": 2,
          },
         "format": "{icon}",
         "format-icons": {
