@@ -247,7 +247,7 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 ### Addons
 
-[Ublock Origin](https://github.com/yokoffing/Betterfox), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
+[Ublock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
 
 Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
 
@@ -261,7 +261,7 @@ Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 
 ```console
 $ pkill -f firefox
-$ cp -r ~/dotfiles/_firefox/startpage ./
+$ cp -r ~/dotfiles/_firefox/chrome ./
 $ start firerfox and it should work
 ```
 
