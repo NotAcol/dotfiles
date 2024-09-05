@@ -37,3 +37,5 @@ alias rm='rm -i' #Better use trash
 
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
+# grimblast for screenshot
+alias sc='grimblast copy area'
