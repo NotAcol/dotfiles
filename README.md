@@ -59,7 +59,7 @@ thunar-archive-plugin nomacs perl-image-exiftool \
 python-pygments spicetify-cli zip p7zip brightnessctl \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
-qt5-wayland qt6-wayland qt5ct wf-recorder \
+qt5-wayland qt6-wayland qt5ct wf-recorder tui-journal\
 hyprcursor hyprlock hypridle hyprpaper grimblast-git \
 xdg-desktop-portal-hyprland ffmpegthumbnailer krita
 ```

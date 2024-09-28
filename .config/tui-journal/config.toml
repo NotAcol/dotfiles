@@ -10,7 +10,7 @@ show_confirmation = true
 
 [external_editor]
 command = "nvim"
-auto_save = false
+auto_save = true
 
 [json_backend]
 file_path = "/home/acol/Documents/tui-journal/entries.json"
