@@ -4,7 +4,6 @@ local options = {
     -- css = { "prettier" },
     -- html = { "prettier" },
     cpp = { "clang-format" },
-    python = { "black" },
   },
 
   format_on_save = {
@@ -14,4 +13,4 @@ local options = {
   },
 }
 
-require("conform").setup(options)
+return options

@@ -29,6 +29,7 @@ alias find="fd"
 alias man="batman"
 alias clock="peaclock --config-dir ~/.config/peaclock"
 alias tmux="tmux -2"
+alias notes="tjournal"
 
 # confirm before overwriting something
 alias cp="cp -i"
