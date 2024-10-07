@@ -51,7 +51,7 @@ $ git restore .
 ```console
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
 zsh neovim tmux yazi trashy ripgrep fd unarchiver duf gdu \
-man bat-extras man-pages pass btop peaclock zathura jq poppler \
+man bat-extras man-pages pass bottom peaclock zathura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
 gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
 qbittorrent silicon webcord update-grub polkit thunar \

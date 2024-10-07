@@ -1,0 +1,12 @@
+h
+stopwtch 0h20m
+h
+timer 00h:20m:00s
+start
+h
+timer start
+stopwatch stop
+timer 10m
+timer 00h:10m:00s
+timer start
+timer 00m:10s

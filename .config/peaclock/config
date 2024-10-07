@@ -1,5 +1,5 @@
 # peaclock
-# binary config
+# digital config
 #
 # The config file in the config directory must be named 'config'.
 # It is a plain text file that can contain any of the commands listed
@@ -16,13 +16,13 @@
 
 # set the x y block size, the width and height of an individual block composing
 # the clock
-block 2 1
+block 3 3
 # block-x 2
 # block-y 1
 
 # set the x y padding size, the width and height of the space between each
 # individual block composing the clock
-padding 2 1
+padding 1 1
 # padding-x 2
 # padding-y 1
 
@@ -57,7 +57,7 @@ locale ''
 timezone ''
 
 # set the date format string, an empty string clears the value
-date '%a %d %b - %I:%M:%S %P'
+date '%a %b %d %p'
 
 # set the mode type
 # select one of:
@@ -67,7 +67,7 @@ mode clock
 # set the view type
 # select one of:
 # date, ascii, digital, binary, or icon
-view binary
+view digital
 
 # set the value to adjust with the hjkl;' keys
 # select one of:
@@ -91,7 +91,7 @@ timer-exec 'notify-send -a peaclock "timer complete"'
 rate-input 50
 
 # set the duration in milliseconds between redrawing the output
-rate-refresh 1000
+rate-refresh 250
 
 # set the duration in milliseconds to display status messages
 rate-status 5000
@@ -142,7 +142,7 @@ set auto-ratio on
 
 # set the style of the text set by the command 'fill' used to draw active
 # blocks in the clock
-style active-fg red
+style active-fg clear
 
 # set the style of the text set by the command 'fill' used to draw inactive
 # blocks in the clock
@@ -153,16 +153,16 @@ style inactive-fg clear
 style colon-fg clear
 
 # set the style of the background used to draw active blocks in the clock
-style active-bg reverse
+style active-bg #eba0ac
 
 # set the style of the background used to draw inactive blocks in the clock
-style inactive-bg #2c323c
+style inactive-bg clear
 
 # set the style of the background used to draw colon blocks in the clock
 style colon-bg clear
 
 # set the style of the date
-style date yellow
+style date clear
 
 # set the style of the background
 style background clear
