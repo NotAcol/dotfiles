@@ -50,11 +50,11 @@ $ git restore .
 
 ```console
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
-zsh neovim tmux yazi trashy ripgrep fd unarchiver duf gdu \
+zsh neovim zellij yazi trashy ripgrep fd unarchiver duf gdu \
 man bat-extras man-pages pass bottom peaclock zathura jq poppler \
 zathura-pdf-mupdf s glow epy-ereader-git dunst \
 gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
-qbittorrent silicon webcord update-grub polkit thunar \
+qbittorrent silicon vesktop update-grub polkit thunar \
 thunar-archive-plugin nomacs perl-image-exiftool \
 python-pygments spicetify-cli zip p7zip brightnessctl \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
@@ -142,27 +142,6 @@ $ nvim
 - :Lazy sync
 - :MasonInstallAll
 
-## Tmux
-
-#### Tmux plugins
-
-```console
-$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-$ tmux source ~/.tmux.conf
-```
-
-press "ctrl+space I" in tmux window to download plugins 
-
-#### Tmux changed keybinds
-
-- Prefix = Ctrl + space
-- Prefix + v/h/x to make vertical/horizontal/kill pane
-- Ctrl + vim keys to move around panes
-- Alt + h/l to move to prev/next window
-- Alt + j/k to create/kill window
-- Prefix + r to rename session
-- Prefix + X to kill session
-
 ## Paru 
 
 ```console
@@ -218,6 +197,7 @@ papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git
 ```
 
 Set up nwg-look and kvantum to catppuccin-mocha-flamingo
+theme css link for vesktop https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css
 
 ## Bat theme
 

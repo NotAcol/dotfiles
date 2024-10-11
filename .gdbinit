@@ -1,29 +1,16 @@
-source /usr/share/pwndbg/gdbinit.py
-source /home/acol/splitmind/gdbinit.py
+set auto-load safe-path /
+
+source /home/acol/pwndbg/gdbinit.py
 
 set memory-code-color gray
 set memory-heap-color green
 set syntax-highlight-style one-dark
+set disassembly-flavor intel
 
-set context-code-lines 15
-set context-source-code-lines 25
-set context-clear-screen on
-set follow-fork-mode parent
-set context-stack-lines 10
-set show-flags on
+set debuginfod enabled on
 
-python
-import splitmind
-(splitmind.Mind()
-  .tell_splitter(show_titles=True)
-  .tell_splitter(set_title="Main")
-  .right(display="backtrace", size="21%")
-  .left(of="main", display="disasm", size="39%")
-  .below(display="code", size="26")
-  .above(of="main", display="stack", size="85%")
-  .above(display="legend", size="22")
-  .show("regs", on="legend")
-  .below(of="backtrace", display="expressions", size="40%")
-  .below(of="stack", size="6")
-).build(nobanner=True)
-end
+tui new-layout pwndbg_custom {-horizontal { { -horizontal { pwndbg_code 1 pwndbg_disasm 1 } 2 { {-horizontal pwndbg_legend 8 pwndbg_control 2 } 1 pwndbg_regs 6 pwndbg_stack 6 } 3 } 7 cmd 3 } 3 { pwndbg_backtrace 1 pwndbg_threads 1 pwndbg_expressions 2 } 1 } 1 status 1
+
+layout pwndbg_custom
+
+focus cmd
