@@ -197,7 +197,7 @@ papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git
 ```
 
 Set up nwg-look and kvantum to catppuccin-mocha-flamingo
-theme css link for vesktop https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css
+https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css
 
 ## Bat theme
 
@@ -317,7 +317,7 @@ $ sudo nvim /etc/default/grub
 ```
 
 ```text
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.modeset=1 amd_pstate=active"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.modeset=1 nvidia_drm.fbdev=1 amd_pstate=active"
 ```
 
 >Remove amd_pstate=active if no amd cpu

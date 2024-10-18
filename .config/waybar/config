@@ -6,9 +6,9 @@
     "margin-top": 10,
     "spacing": 1,
 
-    "modules-left": ["custom/power", "hyprland/workspaces"],
+    "modules-left": ["custom/icon", "hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory" ,"disk", "pulseaudio", "network", "tray"],
+    "modules-right": ["cpu", "memory" ,"disk", "pulseaudio", "tray"],
 
     "hyprland/workspaces": {
         "on-click": "activate",
@@ -63,6 +63,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
+        "interval": 30,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% 󰂯",
         "format-bluetooth-muted": "󰖁 {icon} 󰂯",
@@ -80,14 +81,11 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/power": {
+    "custom/icon": {
       "format": "{icon}",
       "format-icons": "⚞ ⮝ ⚟",
       "exec-on-event": "true",
       "on-click": "rofi -show drun",
-      "on-click-right": "grimblast copy",
-    },
-    "custom/sepp": {
-        "format": "|"
+      "on-click-right": "grimblast copy area",
     },
 }

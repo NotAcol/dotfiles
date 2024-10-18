@@ -1,0 +1,11 @@
+no-color: true
+# style:
+#     selected-row:
+#         text-color: black
+#         background-color: "#f2cdcd"
+#     progress-modal:
+#         current-item-path-max-len: 0
+#     use-old-size-bar: false
+sorting:
+    by: size
+    order: desc
