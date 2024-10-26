@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [[ "$1" == "--release" ]] || [[ "$1" == "-r" ]]; then
-  echo -n '-O2 -flto -fuse-ld=lld :fno-rtti -fno-exceptions -pthreads'
-else
-  echo -n '-O2 -g -flto -fuse-ld=lld -Wall -Wextra -pthreads -Werror -pedantic -fno-exceptions  -masm=intel -fno-rtti -fno-omit-frame-pointer' #last two for perf
-fi

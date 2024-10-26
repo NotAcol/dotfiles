@@ -379,7 +379,7 @@ $ sudo systemctl enable nvidia-resume.service
 
 ```console
 $ sudo pacman -S vulkan-devel vulkan-icd-loader \
-lib32-vulkan-icd-loader glm glfw benchmark \
+lib32-vulkan-icd-loader glm glfw benchmark linux-tools \
 clang llvm ninja pwndbg lld gitui openssh python-pygments \
 ```
 
@@ -391,8 +391,15 @@ GDB
 
 ## Scripts 
 
-> Monitors a file for changes and outputs assembly
-- monitor [cpp file in current dir]
+- flags.sh
+>> makes two flag files in pwd which you can "clang++ $(<flags) [cpp file in current dir]"
+cause fuck make
 
+- analyse.sh [file in current dir]
+> Perf record and perf records executable, can "perf anotate -M intel" after as well
+
+- monitor.sh [cpp file in current dir]
+> Monitors a file for changes and outputs assembly
+
+- disassemble.sh [file in current dir]
 > Disassembles and prints syntax highlighted assembly with bat
-- disassemble [file in current dir]
