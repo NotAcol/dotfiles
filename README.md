@@ -148,7 +148,8 @@ $ nvim
 $ sudo nvim /etc/pacman.conf
 ```
 
-- Uncomment: Color
+- Uncomment: Color, VerbosePkgLists
+- Add ILoveCandy
 
 ```console
 $ sudo nvim /etc/paru.conf
@@ -392,8 +393,7 @@ GDB
 ## Scripts 
 
 - flags.sh
->> makes two flag files in pwd which you can "clang++ $(<flags) [cpp file in current dir]"
-cause fuck make
+> makes two flag files in pwd which you can "clang++ $(<flags) [cpp file in current dir]" cause fuck make
 
 - analyse.sh [file in current dir]
 > Perf record and perf records executable, can "perf anotate -M intel" after as well
