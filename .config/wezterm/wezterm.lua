@@ -47,7 +47,7 @@ config.hide_tab_bar_if_only_one_tab = true
 -- Keybinds
 config.keys = {
 	{
-		key = "V",
+		key = "A",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},

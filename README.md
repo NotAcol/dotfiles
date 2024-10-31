@@ -52,10 +52,10 @@ $ git restore .
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
 zsh neovim zellij yazi trashy ripgrep fd unarchiver duf gdu \
 man bat-extras man-pages pass bottom peaclock zathura jq poppler \
-zathura-pdf-mupdf s glow epy-ereader-git dunst \
+wezterm zathura-pdf-mupdf s glow epy-ereader-git dunst \
 gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
 qbittorrent silicon vesktop update-grub polkit thunar \
-thunar-archive-plugin nomacs perl-image-exiftool \
+tmux thunar-archive-plugin nomacs perl-image-exiftool \
 python-pygments spicetify-cli zip p7zip brightnessctl \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
@@ -131,7 +131,36 @@ better use trashy instead of rm
 
 zsh is set to vi keybinds if you want emac change it at ~/.zshrc line 48
 
-If you want to sync search history across machines with end to end encryption you can trivially do it [here](https://docs.atuin.sh/guide/sync/)
+If you want to sync search history across machines you can trivially do it [here](https://docs.atuin.sh/guide/sync/)
+
+## tmux
+
+grab TPM
+
+```console
+$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+$ tmux
+```
+press ctrl+space+I
+
+### tmux keybinds
+
+prefix is ctrl+space
+
+- alt + hl navigate left right windows
+- alt + jk close open windows
+- ctrl+space + vhx vetrical horizontal kill pane
+- ctrl + hjkl go to left up down right pane
+
+## WezTerm keybinds
+ctrl + shift + 
+- S horizontal split
+- A vertical split
+- T new tab
+- Z zooming into a pane
+- HJKL select left up down right pane
+- X kill pane
+- {} left right tab
 
 ## Nvim setup
 
