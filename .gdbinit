@@ -1,6 +1,6 @@
 set auto-load safe-path /
 
-source /home/acol/pwndbg/gdbinit.py
+source /usr/share/pwndbg/gdbinit.py
 
 set memory-code-color gray
 set memory-heap-color green

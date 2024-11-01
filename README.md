@@ -410,13 +410,10 @@ $ sudo systemctl enable nvidia-resume.service
 ```console
 $ sudo pacman -S vulkan-devel vulkan-icd-loader \
 lib32-vulkan-icd-loader glm glfw benchmark linux-tools \
-clang llvm ninja pwndbg lld gitui openssh python-pygments \
+clang llvm ninja lld pwndbg-git gitui openssh python-pygments \
 ```
 
 GDB
-
->In ~/.gdbinit change path in second line to correct username
-
 ![](_assets/gdb.png)
 
 ## Scripts 
