@@ -16,8 +16,8 @@ $ pacman -S stow
 ```
 
 ## Installation
-Grab [paru](https://github.com/Morganamilo/paru) -> Install all apps bellow ->
-clone this repo and stow -> do settings described below 
+Grab [paru](https://github.com/Morganamilo/paru) → Install all apps bellow →
+clone this repo and stow → do settings described below 
 
 >If you want to game do "$ paru -S arch-gaming-meta" after being done with everything else
 
@@ -34,7 +34,7 @@ Stow to create symlinks
 $ stow .
 ```
 
-If stow doesnt work
+If stow doesn't work
 
 
 ```console
@@ -58,7 +58,7 @@ qbittorrent silicon vesktop update-grub polkit thunar \
 tmux thunar-archive-plugin nomacs perl-image-exiftool \
 python-pygments spicetify-cli zip p7zip brightnessctl \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
-rofi-lbonn-wayland-git wl-clipboard polkit-kde-agent \
+rofi-lbonn-wayland-git wl-clipboard clipse polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct wf-recorder tui-journal\
 hyprcursor hyprlock hypridle hyprpaper grimblast-git \
 xdg-desktop-portal-hyprland ffmpegthumbnailer krita
@@ -119,7 +119,7 @@ in zsh terminal
 $ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 ```
 
->This might backup and replace .zshrc if it does switch them back to this repo's version
+>This might back up and replace .zshrc if it does switch them back to this repo's version
 
 ```console
 $ zap update all
@@ -129,7 +129,7 @@ $ atuin import auto
 
 better use trashy instead of rm
 
-zsh is set to vi keybinds if you want emac change it at ~/.zshrc line 48
+zsh is set to vi key binds if you want emacs change it at ~/.zshrc line 48
 
 If you want to sync search history across machines you can trivially do it [here](https://docs.atuin.sh/guide/sync/)
 
@@ -143,16 +143,16 @@ $ tmux
 ```
 press ctrl+space+I
 
-### tmux keybinds
+### tmux key binds
 
 prefix is ctrl+space
 
 - alt + hl navigate left right windows
 - alt + jk close open windows
-- ctrl+space + vhx vetrical horizontal kill pane
+- ctrl+space + vhx vertical horizontal kill pane
 - ctrl + hjkl go to left up down right pane
 
-## WezTerm keybinds
+## WezTerm key binds
 ctrl + shift + 
 - S horizontal split
 - A vertical split
@@ -255,7 +255,7 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 [Grab betterfox](https://github.com/yokoffing/Betterfox)
 
-### Addons
+### Add-ons
 
 [Ublock Origin](https://github.com/yokoffing/Betterfox), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
 
@@ -266,8 +266,8 @@ Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
 Add [Catppuccin theme](https://github.com/catppuccin/firefox)
 
 - about:config
-- toolkit.legacyUserProfileCustomizations.stylesheets -> true
-- about:profiles -> Root Directory
+- toolkit.legacyUserProfileCustomizations.stylesheets → true
+- about:profiles → Root Directory
 
 ```console
 $ pkill -f firefox
@@ -279,9 +279,9 @@ $ start firerfox and it should work
 
 ### Custom Home Page
 
-- Settings -> Home -> New Windows and Tabs
+- Settings → Home → New Windows and Tabs
 - Custom URLs...
-- file:///home/YOUR-USERNAME/dotfiles/_firefox/startpage/index.html
+- File:///home/YOUR-USERNAME/dotfiles/_firefox/startpage/index.html
 
 you can edit the home page to whatever
 
@@ -303,7 +303,7 @@ Login to spotify
 $ nvim ~/dotfiles/.config/spicetify/config-xpui.ini
 ```
 
-Edit path to use correct user name
+Edit path to use correct username
 
 ```console
 $ spicetify apply
@@ -403,15 +403,22 @@ $ sudo systemctl enable nvidia-hibernate.service
 $ sudo systemctl enable nvidia-resume.service
 ```
 
->Maybe install xorg-xwayland-explicit-sync-git if flickerig persists after reboot
+>Maybe install xorg-xwayland-explicit-sync-git if flickering persists after reboot
 
 # Dev stuff
 
 ```console
-$ sudo pacman -S vulkan-devel vulkan-icd-loader \
+$ paru -S vulkan-devel vulkan-icd-loader \
 lib32-vulkan-icd-loader glm glfw benchmark linux-tools \
-clang llvm ninja lld pwndbg-git gitui openssh python-pygments \
+clang llvm ninja lld pwndbg-git gitui openssh python-pygments
 ```
+
+## LaTeX
+```console
+paru -S texlive-latexrecommended texlive-latexextra texlive-mathscience \
+texlive-binextra texlive-fontsrecommended texlive-langgreek python-catppuccin
+```
+
 
 GDB
 ![](_assets/gdb.png)
@@ -422,7 +429,7 @@ GDB
 > makes two flag files in pwd which you can "clang++ $(<flags) [cpp file in current dir]" cause fuck make
 
 - analyse.sh [file in current dir]
-> Perf record and perf records executable, can "perf anotate -M intel" after as well
+> Perf record and perf records executable, can "perf annotate -M intel" after as well
 
 - monitor.sh [cpp file in current dir]
 > Monitors a file for changes and outputs assembly
