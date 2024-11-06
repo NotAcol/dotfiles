@@ -446,7 +446,7 @@ GDB
 > makes two flag files in pwd which you can "clang++ $(<flags) [cpp file in current dir]" cause fuck make
 
 - analyse.sh [file in current dir]
-> Perf record and perf records executable, can "perf annotate -M intel" after as well
+> Perf record and perf reports executable, can "perf annotate -M intel" after as well for assembly
 
 - monitor.sh [cpp file in current dir]
 > Monitors a file for changes and outputs assembly

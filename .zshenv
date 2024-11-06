@@ -14,6 +14,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
+# keeping this in separate file cause it's aids
+export LS_COLORS="$(<.ls_colors)"
+
 export PATH="$PATH:$HOME/.scripts"
 
 # Fix for password store
@@ -40,3 +43,4 @@ alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {
 
 # grimblast for screenshot
 alias sc='grimblast copy area'
+
