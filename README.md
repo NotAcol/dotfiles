@@ -285,6 +285,15 @@ $ start firerfox and it should work
 
 you can edit the home page to whatever
 
+### Nvidia + firefox
+
+- about:config
+- media.ffmpeg.vaapi.enabled 	true
+- media.rdd-ffmpeg.enabled 	    true
+- media.av1.enabled             false
+- gfx.x11-egl.force-enabled 	true
+- widget.dmabuf.force-enabled 	true
+
 ## Spotify
 
 #### Spotify wayland fix
@@ -337,9 +346,8 @@ $ sudo nvim /etc/hosts
 # NVIDIA
 
 ```console
-$ paru -S nvidia-dkms nvidia-utils nvidia-settings \
-libva-nvidia-driver libva-utils  lib32-nvidia-utils \
-linux-headers vdpauinfo 
+$ paru -S nvidia-dkms nvidia-utils nvidia-settings egl-wayland\
+libva-nvidia-driver libva-utils vdpauinfo linux-headers\
 ```
 
 ```console
@@ -357,11 +365,20 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 $ sudo nvim /etc/mkinitcpio.conf
 ```
 ```text
-MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
 
 ```console
-$ sudo mkinitcpio -p linux
+$ sudo touch /etc/modprobe.d/nvidia.conf
+$ sudo nvim /etc/modprobe.d/nvidia.conf
+```
+
+```text
+options nvidia_drm modeset=1 fbdev=1
+```
+
+```console
+$ sudo mkinitcpio -P
 $ sudo mkdir /etc/pacman.d/hooks/ 
 $ sudo touch /etc/pacman.d/hooks/nvidia.hook
 $ sudo nvim /etc/pacman.d/hooks/nvidia.hook
