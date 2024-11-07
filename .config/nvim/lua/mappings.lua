@@ -11,4 +11,27 @@ map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Window up" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
+map("n", "<leader>ln", function()
+  vim.o.spell = false
+  vim.cmd "echo 'Stopped spellchecker'"
+end, { desc = "Turn off spellchecking" })
+
+map("n", "<leader>le", function()
+  vim.o.spelllang = "en_us"
+  vim.o.spell = true
+  vim.cmd "echo 'Spellchecking langugae set to English'"
+end, { desc = "Set English language spellchecking" })
+
+map("n", "<leader>lg", function()
+  vim.o.spelllang = "el_GR"
+  vim.o.spell = true
+  vim.cmd "echo 'Spellchecking langugae set to Greek'"
+end, { desc = "Set Greek language spellchecking" })
+
+map("n", "<leader>lb", function()
+  vim.o.spelllang = "en_us,el_GR"
+  vim.o.spell = true
+  vim.cmd "echo 'Spellchecking langugae set to English and Greek'"
+end, { desc = "Set English and Greek language spellchecking" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

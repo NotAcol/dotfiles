@@ -9,7 +9,7 @@ config.font = wezterm.font("JetBrainsMono NF", { weight = "DemiBold" })
 config.font_size = 10.0
 
 -- NOTE(acol): it's bugged on wayland so need to use xwayland for now
-config.enable_wayland = false
+config.enable_wayland = true
 
 -- Color scheme:
 config.color_scheme = "Catppuccin Mocha"

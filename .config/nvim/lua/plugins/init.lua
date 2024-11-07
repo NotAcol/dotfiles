@@ -33,8 +33,8 @@ return {
     config = function()
       require("silicon").setup {
         font = "JetBrainsMono Nerd Font=24;Noto Color Emoji=24",
-        theme = "OneHalfDark",
-        background = "#c192a5",
+        theme = "Dracula",
+        background = "#b4befe",
         window_title = function()
           return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t")
         end,

@@ -348,7 +348,9 @@ $ sudo nvim /etc/hosts
 ```console
 $ paru -S nvidia-dkms nvidia-utils nvidia-settings egl-wayland\
 libva-nvidia-driver libva-utils vdpauinfo linux-headers\
+cuda
 ```
+> cuda package kinda big, but it helped with davinci resolve 👍
 
 ```console
 $ sudo nvim /etc/default/grub

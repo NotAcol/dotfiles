@@ -10,3 +10,4 @@ o.cursorlineopt = "both" -- to enable cursorline!
 o.tabstop = 4
 o.shiftwidth = 4
 o.expandtab = true
+o.spellsuggest = fast
