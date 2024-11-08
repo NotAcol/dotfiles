@@ -15,7 +15,7 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # keeping this in separate file cause it's aids
-export LS_COLORS="$(<.ls_colors)"
+export LS_COLORS="$(<$HOME/.ls_colors)"
 
 export PATH="$PATH:$HOME/.scripts"
 
