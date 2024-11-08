@@ -9,7 +9,7 @@ config.font = wezterm.font("JetBrainsMono NF", { weight = "DemiBold" })
 config.font_size = 10.0
 
 -- NOTE(acol): it's bugged on wayland so need to use xwayland for now
-config.enable_wayland = true
+config.enable_wayland = false
 
 -- Color scheme:
 config.color_scheme = "Catppuccin Mocha"
@@ -46,6 +46,16 @@ config.hide_tab_bar_if_only_one_tab = true
 
 -- Keybinds
 config.keys = {
+	-- {
+	-- 	key = "V",
+	-- 	mods = "CTRL",
+	-- 	action = wezterm.action.PasteFrom("Clipboard"),
+	-- },
+	-- {
+	-- 	key = "V",
+	-- 	mods = "CTRL",
+	-- 	action = wezterm.action.PasteFrom("PrimarySelection"),
+	-- },
 	{
 		key = "A",
 		mods = "CTRL|SHIFT",
