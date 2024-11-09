@@ -427,10 +427,11 @@ $ sudo systemctl enable nvidia-resume.service
 # Dev stuff
 
 ```console
-$ paru -S vulkan-devel vulkan-icd-loader \
+$ paru -S vulkan-devel vulkan-icd-loader git-delta\
 lib32-vulkan-icd-loader glm glfw benchmark linux-tools \
 clang llvm ninja lld pwndbg-git gitui openssh python-pygments
 ```
+> In grab template .gitconfig file from _gitstuff for delta integration
 
 ## LaTeX
 ```console
