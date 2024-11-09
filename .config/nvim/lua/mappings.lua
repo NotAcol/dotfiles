@@ -11,6 +11,7 @@ map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Window up" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
+--------------------- Spell checking -------------------------------------------
 map("n", "<leader>ln", function()
   vim.o.spell = false
   vim.cmd "echo 'Stopped spellchecker'"
@@ -33,5 +34,9 @@ map("n", "<leader>lb", function()
   vim.o.spell = true
   vim.cmd "echo 'Spellchecking langugae set to English and Greek'"
 end, { desc = "Set English and Greek language spellchecking" })
+
+----------------- Yazi pluggin -------------------------------------------
+
+map("n", "<C-n>", "<cmd>Yazi<cr>", { desc = "Yazi" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

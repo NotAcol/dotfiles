@@ -35,10 +35,10 @@
         "show-passive-items": true,
     },
     "clock": {
-        "interval": 60,
-        "format": "  {:%a %b %d  %I:%M %p}", // %b %d %Y  --Date formatting
+        "interval": 1,
+        "format-alt": "  {:%a %b %d}", // %b %d %Y  --Date formatting
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "  {:%T}"
     },
     "cpu": {
         "interval": 2,
