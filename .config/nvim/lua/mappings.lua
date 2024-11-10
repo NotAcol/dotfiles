@@ -39,4 +39,19 @@ end, { desc = "Set English and Greek language spellchecking" })
 
 map("n", "<C-n>", "<cmd>Yazi<cr>", { desc = "Yazi" })
 
+map({ "n", "t" }, "<A-l>", function()
+  require("nvchad.term").toggle {
+    pos = "float",
+    id = "floatLazygit",
+    cmd = "lazygit",
+    float_opts = {
+      relative = "editor",
+      row = 0.06,
+      col = 0.018,
+      width = 0.95,
+      height = 0.8,
+      border = "",
+    },
+  }
+end, { desc = "Toggle floating term with Lazygit" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

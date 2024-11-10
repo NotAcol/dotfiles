@@ -19,14 +19,6 @@ return {
     -- end,
   },
   {
-    "pimalaya/himalaya-vim",
-    lazy = false,
-    init = function()
-      vim.g.himalaya_folder_picker = "telescope"
-      --vim.g.himalaya_folder_picker_telescope_preview = 1
-    end,
-  },
-  {
     "lervag/vimtex",
     lazy = false, -- we don't want to lazy load VimTeX
     init = function()
