@@ -24,7 +24,7 @@ M.ui = {
     },
   },
 
-  telescope = { style = "borderless" }, -- borderless / bordered
+  --  telescope = { style = "borderless" }, -- borderless / bordered
 
   statusline = {
     enabled = true,
@@ -45,19 +45,19 @@ M.ui = {
   },
 }
 
-M.nvdash = {
-  load_on_startup = true,
-}
+-- M.nvdash = {
+--   load_on_startup = true,
+-- }
 
 M.term = {
   winopts = { number = false, relativenumber = false },
   sizes = { sp = 0.35, vsp = 0.35, ["bo sp"] = 0.35, ["bo vsp"] = 0.35 },
   float = {
     relative = "editor",
-    row = 0.3,
-    col = 0.25,
-    width = 0.5,
-    height = 0.4,
+    row = 0.15,
+    col = 0.12,
+    width = 0.75,
+    height = 0.65,
     border = "single",
   },
 }

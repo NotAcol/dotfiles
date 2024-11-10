@@ -5,8 +5,18 @@ return {
     opts = require "configs.conform",
   },
   {
+    "folke/which-key.nvim",
+    lazy = false,
+  },
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function()
+      return require "configs.telescope"
+    end,
   },
   {
     "pimalaya/himalaya-vim",
