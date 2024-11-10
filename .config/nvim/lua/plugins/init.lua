@@ -14,9 +14,9 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    opts = function()
-      return require "configs.telescope"
-    end,
+    -- opts = function()
+    --   return require "configs.telescope"
+    -- end,
   },
   {
     "pimalaya/himalaya-vim",

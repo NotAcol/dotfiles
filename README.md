@@ -429,9 +429,10 @@ $ sudo systemctl enable nvidia-resume.service
 ```console
 $ paru -S vulkan-devel vulkan-icd-loader git-delta\
 lib32-vulkan-icd-loader glm glfw benchmark linux-tools \
-clang llvm ninja lld pwndbg-git gitui openssh python-pygments
+clang llvm ninja lld pwndbg-git lazygit openssh python-pygments
 ```
-> In grab template .gitconfig file from _gitstuff for delta integration
+
+> Grab the template for .gitconfig from dotfiles/_gitstuff for delta integration, you also need the bad theme
 
 ## LaTeX
 ```console
