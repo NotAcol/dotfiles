@@ -113,7 +113,7 @@ v4l2loopback
 
 ## Zsh with zap
 
-in zsh terminal
+In zsh terminal
 
 ```console
 $ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
@@ -135,7 +135,7 @@ If you want to sync search history across machines you can trivially do it [here
 
 ## tmux
 
-grab TPM
+Grab TPM
 
 ```console
 $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
@@ -145,12 +145,13 @@ press ctrl+space+I
 
 ### tmux key binds
 
-prefix is ctrl+space
+Prefix is ctrl+space
 
-- alt + hl navigate left right windows
-- alt + jk close open windows
-- ctrl+space + vhx vertical horizontal kill pane
-- ctrl + hjkl go to left up down right pane
+- prefix + []   navigate left right windows
+- prefix + dt   close open windows
+- prefix + vhx  vertical horizontal kill pane
+- prefix + X    kill session
+- ctrl + hjkl   go to left up down right pane
 
 ## WezTerm key binds
 ctrl + shift + 
@@ -441,13 +442,17 @@ texlive-binextra texlive-fontsrecommended texlive-langgreek
 ```
 
 
-GDB
+## GDB
+- Added gdb support for nvim with dup and dupui for quick and dirty debug. Can do :enew | r !a.out to get an obj dump in a new buffer. 
+- In cli gdb try ```setup [0-3]``` for different layouts
+> Nvim-dapui blows massive dick tho better just do pwndbg in different terminal window.
 ![](_assets/gdb.png)
+
 
 ## Scripts 
 
 - flags.sh
-> makes two flag files in pwd which you can "clang++ $(<flags) [cpp file in current dir]" cause fuck make
+> Creates two flag files in pwd which you can ```clang++ $(<.flags) [cpp file in current dir]``` cause fuck make
 
 - analyse.sh [file in current dir]
 > Perf record and perf reports executable, can "perf annotate -M intel" after as well for assembly

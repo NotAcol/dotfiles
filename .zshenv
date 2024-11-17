@@ -44,4 +44,4 @@ alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {
 alias sc='grimblast copy area'
 
 # quick and dirty disassembly
-alias disasm="objdump -M intel,amd64 -g -C -S --visualize-jumps --no-show-raw-insn"
+alias disasm="objdump -M intel,amd64 -g -C -S --visualize-jumps --no-addresses --no-show-raw-insn"

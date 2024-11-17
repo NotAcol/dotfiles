@@ -85,6 +85,7 @@ return {
         "python",
         "comment",
         "regex",
+        "objdump",
       },
     },
   },
