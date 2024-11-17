@@ -41,50 +41,30 @@ return {
     lazy = true,
     cmd = "Silicon",
     config = function()
-      require("silicon").setup {
-        font = "JetBrainsMono Nerd Font=24;Noto Color Emoji=24",
-        theme = "Dracula",
-        background = "#b4befe",
-        window_title = function()
-          return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t")
-        end,
-      }
+      require "configs.silicon"
     end,
-  },
-  {
-    "mikavilpas/yazi.nvim",
-    event = "VeryLazy",
-    keys = {
-      -- 👇 in this section, choose your own keymappings!
-      {
-        "<leader>-",
-        "<cmd>Yazi<cr>",
-        desc = "Open yazi at the current file",
-      },
-      {
-        -- Open in the current working directory
-        "<leader>cw",
-        "<cmd>Yazi cwd<cr>",
-        desc = "Open the file manager in nvim's working directory",
-      },
-    },
-    ---@type YaziConfig
-    opts = {
-      -- if you want to open yazi instead of netrw, see below for more info
-      open_for_directories = false,
-      keymaps = {
-        show_help = "<f1>",
-      },
-    },
-  },
-  { -- killing this while using yazi plugin
-    "nvim-tree/nvim-tree.lua",
-    enabled = false,
   },
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require "configs.dap-conf"
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      require "configs.dapui-conf"
     end,
   },
   {
@@ -94,8 +74,8 @@ return {
         "vim",
         "lua",
         "vimdoc",
-        "html",
-        "css",
+        -- "html",
+        -- "css",
         "cpp",
         "bash",
         "asm",
@@ -104,7 +84,40 @@ return {
         "glsl",
         "python",
         "comment",
+        "regex",
       },
     },
   },
+  -------------------------------------------------------------------------------------
+  -- uncomment all the following to use yazi instead of nvim tree (also look at mappings.lua)
+  -- {
+  --   "mikavilpas/yazi.nvim",
+  --   event = "VeryLazy",
+  --   keys = {
+  --     -- 👇 in this section, choose your own keymappings!
+  --     {
+  --       "<leader>-",
+  --       "<cmd>Yazi<cr>",
+  --       desc = "Open yazi at the current file",
+  --     },
+  --     {
+  --       -- Open in the current working directory
+  --       "<leader>cw",
+  --       "<cmd>Yazi cwd<cr>",
+  --       desc = "Open the file manager in nvim's working directory",
+  --     },
+  --   },
+  --   ---@type YaziConfig
+  --   opts = {
+  --     -- if you want to open yazi instead of netrw, see below for more info
+  --     open_for_directories = false,
+  --     keymaps = {
+  --       show_help = "<f1>",
+  --     },
+  --   },
+  -- },
+  -- { -- killing this while using yazi plugin
+  --   "nvim-tree/nvim-tree.lua",
+  --   enabled = false,
+  -- },
 }

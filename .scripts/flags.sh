@@ -10,7 +10,7 @@ echo "-O2
 -Wall 
 -pthreads 
 -flto=thin
--fuse-ld=lld" > ./flags
+-fuse-ld=lld" > ./.flags
 
 echo "-O2
 -stdlib=libc++ 
@@ -22,4 +22,7 @@ echo "-O2
 -flto=thin
 -fuse-ld=lld 
 -fno-omit-frame-pointer  
--g" > ./debug-flags #fno-omit-frame-pointer is for perf
+-fsanitize=address
+-g" > ./.debug-flags #fno-omit-frame-pointer is for perf
+
+echo -e "\033[1;33m                     remember to use tsan as well retard (-fsanitize=thread)"

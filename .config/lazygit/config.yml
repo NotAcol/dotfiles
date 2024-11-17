@@ -1,4 +1,5 @@
 gui:
+  nerdFontsVersion: "3"
   showFileIcons: true
  # Use the mocha catppuccin theme
   theme:
@@ -28,3 +29,10 @@ git:
   paging:
     colorArg: always
     pager: "delta --paging=never"
+    parseEmoji: true
+os:
+  edit: 'nvim {{filename}}'
+  editAtLine: 'nvim --line={{line}} {{filename}}'
+  editAtLineAndWait: 'nvim --block --line={{line}} {{filename}}'
+  editInTerminal: true
+  openDirInEditor: 'nvim {{dir}}'

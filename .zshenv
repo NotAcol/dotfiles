@@ -24,10 +24,9 @@ export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
 
 #colors
 alias cat=bat
-alias ls="eza --color=auto --hyperlink --icons=auto --classify=auto"
+alias ls="eza -lrMs size --hyperlink --classify=auto --smart-group --git --group-directories-first"
 alias grep='rg' 
-alias tree="ls -T"
-alias treeg="ls -T --git-ignore"
+alias tree='eza -T --group-directories-first --hyperlink'
 alias find="fd"
 alias man="batman"
 alias clock="peaclock --config-dir ~/.config/peaclock"
@@ -44,3 +43,5 @@ alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {
 # grimblast for screenshot
 alias sc='grimblast copy area'
 
+# quick and dirty disassembly
+alias disasm="objdump -M intel,amd64 -g -C -S --visualize-jumps --no-show-raw-insn"

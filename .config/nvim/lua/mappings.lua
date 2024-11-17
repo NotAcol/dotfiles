@@ -10,6 +10,11 @@ map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Window down" })
 map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Window up" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+--------------------- nvim dap -----------------------------------------------
+
+map({ "n" }, "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Dap toggle breakpoint" })
+map({ "n" }, "<leader>dc", "<cmd> DapContinue <cr>", { desc = "Dap continue" })
 
 --------------------- Spell checking -------------------------------------------
 map("n", "<leader>ln", function()
@@ -37,9 +42,11 @@ end, { desc = "Set English and Greek language spellchecking" })
 
 ----------------- Yazi pluggin -------------------------------------------
 
-map("n", "<C-n>", "<cmd>Yazi<cr>", { desc = "Yazi" })
+-- map("n", "<C-n>", "<cmd>Yazi<cr>", { desc = "Yazi" })
 
-map({ "n", "t" }, "<A-l>", function()
+------------------ Lazy git -----------------------------------------------
+
+map({ "n", "t" }, "<A-g>", function()
   require("nvchad.term").toggle {
     pos = "float",
     id = "floatLazygit",
@@ -54,4 +61,3 @@ map({ "n", "t" }, "<A-l>", function()
     },
   }
 end, { desc = "Toggle floating term with Lazygit" })
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

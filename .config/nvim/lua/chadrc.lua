@@ -8,10 +8,10 @@ local M = {}
 M.base46 = {
   theme = "catppuccin",
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+  },
 }
 M.ui = {
   cmp = {
@@ -69,6 +69,10 @@ M.cheatsheet = {
   excluded_groups = { "terminal (t)", "autopairs", "Nvim" }, -- can add group name or with mode
 }
 
-M.mason = { cmd = true, pkgs = {} }
+M.mason = { cmd = true, pkgs = {
+  "clangd",
+  "clang-format",
+  "codelldb",
+} }
 
 return M

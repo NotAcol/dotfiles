@@ -55,13 +55,13 @@ man bat-extras man-pages pass bottom peaclock zathura jq poppler \
 wezterm zathura-pdf-mupdf s glow epy-ereader-git dunst \
 gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
 qbittorrent silicon vesktop update-grub polkit thunar \
-tmux thunar-archive-plugin nomacs perl-image-exiftool \
+tmux thunar-archive-plugin gvfs nomacs perl-image-exiftool \
 python-pygments spicetify-cli zip p7zip brightnessctl \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct wf-recorder tui-journal\
 hyprcursor hyprlock hypridle hyprpaper grimblast-git \
-xdg-desktop-portal-hyprland ffmpegthumbnailer krita
+xdg-desktop-portal-hyprland ffmpegthumbnailer
 ```
 
 ## Audio
@@ -91,7 +91,7 @@ $ sudo systemctl enable --now bluetooth.service
 ## Obs 
 
 ```console
-$ paru -S obs-studio-rc ffmpeg-obs cef-minimal-obs-rc-bin
+$ paru -S obs-studio ffmpeg-obs cef-minimal-obs-rc-bin xdg-desktop-portal-wlr
 ```
 
 ### Using obs for virtual cam
@@ -427,8 +427,8 @@ $ sudo systemctl enable nvidia-resume.service
 # Dev stuff
 
 ```console
-$ paru -S vulkan-devel vulkan-icd-loader git-delta\
-lib32-vulkan-icd-loader glm glfw benchmark linux-tools \
+$ paru -S vulkan-devel vulkan-icd-loader git-delta inotify-tools \
+lib32-vulkan-icd-loader glm glfw benchmark linux-tools python-catppuccin \
 clang llvm ninja lld pwndbg-git lazygit openssh python-pygments
 ```
 
@@ -437,7 +437,7 @@ clang llvm ninja lld pwndbg-git lazygit openssh python-pygments
 ## LaTeX
 ```console
 paru -S texlive-latexrecommended texlive-latexextra texlive-mathscience \
-texlive-binextra texlive-fontsrecommended texlive-langgreek python-catppuccin
+texlive-binextra texlive-fontsrecommended texlive-langgreek 
 ```
 
 
@@ -453,7 +453,7 @@ GDB
 > Perf record and perf reports executable, can "perf annotate -M intel" after as well for assembly
 
 - monitor.sh [cpp file in current dir]
-> Monitors a file for changes and outputs assembly
+> Monitors a C or C++ file for changes and outputs assembly, refreshing every time the file gets changed. You can make a .flags file to provide it your own flags clang++
 
 - disassemble.sh [file in current dir]
-> Disassembles and prints syntax highlighted assembly with bat
+> Disassembles and prints syntax highlighted assembly with pygmentize
