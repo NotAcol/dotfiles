@@ -95,24 +95,15 @@ return {
     end,
   },
   {
-    "epwalsh/obsidian.nvim",
-    version = "*",
-    lazy = true,
-    ft = "markdown",
+    "OXY2DEV/markview.nvim",
+    --lazy = false,
+    ft = "markdown", -- If you decide to lazy-load anyway
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
     opts = function()
-      return require "configs.obsidian"
-    end,
-  },
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-    ft = { "markdown", "quarto" },
-    opts = function()
-      return require "configs.rendermarkdown"
+      return require "configs.markview"
     end,
   },
   -------------------------------------------------------------------------------------

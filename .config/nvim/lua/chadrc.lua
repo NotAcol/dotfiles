@@ -73,6 +73,7 @@ M.mason = { cmd = true, pkgs = {
   "clangd",
   "clang-format",
   "codelldb",
+  "markdown-oxide",
 } }
 
 return M
