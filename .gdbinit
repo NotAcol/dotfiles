@@ -19,7 +19,7 @@ tui new-layout pwn_simple -horizontal cmd 8 { pwndbg_expressions 7 pwndbg_backtr
 define setup
     if $arg0 == 0
         tui disable
-        set context-sections backtrace threads args stack regs disasm code expressions
+        set context-sections backtrace threads stack regs disasm code args  expressions
     end
 
     if $arg0 == 1
@@ -41,4 +41,4 @@ define setup
     end 
 end
 
-setup 1
+setup 0

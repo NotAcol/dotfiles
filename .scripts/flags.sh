@@ -3,6 +3,7 @@
 set -euo pipefail
 
 echo "-O2
+-march=native
 -stdlib=libc++ 
 -lc++abi 
 -fno-exceptions 
@@ -13,6 +14,7 @@ echo "-O2
 -fuse-ld=lld" > ./.flags
 
 echo "-O2
+-march=native
 -stdlib=libc++ 
 -lc++abi 
 -fno-exceptions 

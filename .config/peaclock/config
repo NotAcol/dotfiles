@@ -1,5 +1,5 @@
 # peaclock
-# digital config
+# default config
 #
 # The config file in the config directory must be named 'config'.
 # It is a plain text file that can contain any of the commands listed
@@ -16,21 +16,21 @@
 
 # set the x y block size, the width and height of an individual block composing
 # the clock
-block 3 3
+block 2 1
 # block-x 2
 # block-y 1
 
 # set the x y padding size, the width and height of the space between each
 # individual block composing the clock
-padding 1 1
-# padding-x 2
-# padding-y 1
+padding 0 0
+# padding-x 0
+# padding-y 0
 
 # set the x y margin size, the space around the outside of the clock from the
 # edge of the terminal
-margin 2 1
-# margin-x 2
-# margin-y 1
+margin 0 0
+# margin-x 0
+# margin-y 0
 
 # set the x y ratio size, auto adjust the clock to conform to a specific
 # aspect ratio, keep in mind that a square ratio would be '2 1' due to a
@@ -57,7 +57,7 @@ locale ''
 timezone ''
 
 # set the date format string, an empty string clears the value
-date '%a %b %d %p'
+date '%a %b %d'
 
 # set the mode type
 # select one of:
@@ -73,7 +73,7 @@ view digital
 # select one of:
 # block, padding, margin, ratio, active-fg, inactive-fg, colon-fg,
 # active-bg, inactive-bg, colon-bg, background, or date
-toggle padding
+toggle active-bg
 
 # set the stopwatch to start
 # clear, stop, start, 00h:00m:00s
@@ -91,7 +91,7 @@ timer-exec 'notify-send -a peaclock "timer complete"'
 rate-input 50
 
 # set the duration in milliseconds between redrawing the output
-rate-refresh 250
+rate-refresh 1000
 
 # set the duration in milliseconds to display status messages
 rate-status 5000
@@ -112,7 +112,7 @@ set seconds on
 set date on
 
 # auto size the clock to fill the screen, overrides the current x y block size
-set auto-size on
+set auto-size off
 
 # auto size the clock to use the aspect ratio set by the command 'ratio',
 # overrides the current x y block size and auto-size
@@ -153,7 +153,7 @@ style inactive-fg clear
 style colon-fg clear
 
 # set the style of the background used to draw active blocks in the clock
-style active-bg #eba0ac
+style active-bg red
 
 # set the style of the background used to draw inactive blocks in the clock
 style inactive-bg clear
@@ -162,7 +162,7 @@ style inactive-bg clear
 style colon-bg clear
 
 # set the style of the date
-style date clear
+style date yellow
 
 # set the style of the background
 style background clear

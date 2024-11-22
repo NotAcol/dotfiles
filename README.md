@@ -61,7 +61,7 @@ ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct wf-recorder tui-journal\
 hyprcursor hyprlock hypridle hyprpaper grimblast-git \
-xdg-desktop-portal-hyprland ffmpegthumbnailer
+xdg-desktop-portal-hyprland ffmpegthumbnailer zen-browser-bin
 ```
 
 ## Audio
@@ -220,6 +220,9 @@ Exec = /usr/bin/paccache -rvk2
 $ tldr --update
 ```
 
+## GIMP
+Using [PhotGIMP](https://github.com/Diolinux/PhotoGIMP/tree/master), it might need update if 3.0 ever comes out XD
+
 ## Catppuccinification
 
 ```console
@@ -253,6 +256,9 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 >Can skip making the config here if nvidia gpu
 
 ## Firefox
+
+### MOVED TO ZEN FROM FIREFOX
+same things apply
 
 [Grab betterfox](https://github.com/yokoffing/Betterfox)
 
@@ -288,12 +294,17 @@ you can edit the home page to whatever
 
 ### Nvidia + firefox
 
-- about:config
-- media.ffmpeg.vaapi.enabled 	true
-- media.rdd-ffmpeg.enabled 	    true
-- media.av1.enabled             false
-- gfx.x11-egl.force-enabled 	true
-- widget.dmabuf.force-enabled 	true
+|  about:config |                                       |
+| :-----------: | :-------------------------------: |
+| media.ffmpeg.vaapi.enabled |true|
+| media.rdd-ffmpeg.enabled |true|
+| media.av1.enabled |false|
+| gfx.x11-egl.force-enabled |true |
+| widget.dmabuf.force-enabled |true|
+| gfx.webrender.all |true|
+| gfx.webrender.enabled |true|
+| layers.acceleration.force-enabled |true|
+| media.hardware-video-decoding.force-enabled |true |
 
 ## Spotify
 

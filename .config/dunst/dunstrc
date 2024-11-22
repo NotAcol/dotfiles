@@ -53,3 +53,7 @@
   background = "#181825"
   foreground = "#f2cdcd"
   timeout = 20
+
+[clock_alarm]
+  appname = peaclock
+  script = "$HOME/.config/dunst/notification.sh"

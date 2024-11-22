@@ -2,7 +2,8 @@ export TERMINAL="kitty"
 export BAT_THEME="Catppuccin Mocha"
 export LESSOPEN="|bat --paging=auto --color=always %s"
 export PAGER="less"
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+#export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANPAGER='nvim +Man!'
 export MANROFFOPT="-c"
 export BATPIPE="color"
 export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
@@ -12,10 +13,13 @@ export VISUAL="nvim"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
 
 # keeping this in separate file cause it's aids
 export LS_COLORS="$(<$HOME/.ls_colors)"
+
 
 export PATH="$PATH:$HOME/.scripts"
 
@@ -28,7 +32,7 @@ alias ls="eza -lrMs size --hyperlink --classify=auto --smart-group --git --group
 alias grep='rg' 
 alias tree='eza -T --group-directories-first --hyperlink'
 alias find="fd"
-alias man="batman"
+#alias man="batman"
 alias clock="peaclock --config-dir ~/.config/peaclock"
 alias tmux="tmux -2"
 alias notes="tjournal"

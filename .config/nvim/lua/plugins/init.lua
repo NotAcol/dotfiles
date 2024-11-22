@@ -20,11 +20,9 @@ return {
   },
   {
     "lervag/vimtex",
-    lazy = false, -- we don't want to lazy load VimTeX
+    lazy = false,
     init = function()
-      -- VimTeX configuration goes here, e.g.
       vim.g.vimtex_view_method = "zathura"
-      -- let maplocalleader = "," -- change the leader key, default is \
       vim.g.vimtex_compiler_latexmk = {
         options = {
           "-verbose",
@@ -37,14 +35,6 @@ return {
     end,
   },
   {
-    "michaelrommel/nvim-silicon",
-    lazy = true,
-    cmd = "Silicon",
-    config = function()
-      require "configs.silicon"
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
@@ -53,7 +43,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require "configs.dap-conf"
+      require "configs.dap"
     end,
   },
   {
@@ -64,7 +54,14 @@ return {
       "nvim-neotest/nvim-nio",
     },
     config = function()
-      require "configs.dapui-conf"
+      require "configs.dapui"
+    end,
+  },
+  {
+    "p00f/godbolt.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "configs.godbolt"
     end,
   },
   {
@@ -74,12 +71,11 @@ return {
         "vim",
         "lua",
         "vimdoc",
-        -- "html",
-        -- "css",
         "cpp",
         "bash",
         "asm",
         "markdown",
+        "markdown_inline",
         "cmake",
         "glsl",
         "python",
@@ -88,6 +84,36 @@ return {
         "objdump",
       },
     },
+  },
+  {
+    "michaelrommel/nvim-silicon",
+    lazy = true,
+    cmd = "Silicon",
+    main = "nvim-silicon",
+    opts = function()
+      return require "configs.silicon"
+    end,
+  },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    opts = function()
+      return require "configs.obsidian"
+    end,
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    ft = { "markdown", "quarto" },
+    opts = function()
+      return require "configs.rendermarkdown"
+    end,
   },
   -------------------------------------------------------------------------------------
   -- uncomment all the following to use yazi instead of nvim tree (also look at mappings.lua)
