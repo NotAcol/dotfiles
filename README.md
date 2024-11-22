@@ -4,9 +4,6 @@
 
 ![](_assets/screenshot.png)
 
-test
-----
-
 ### Git
 
 ```console
@@ -17,6 +14,9 @@ $ pacman -S git
 ```console
 $ pacman -S stow
 ```
+
+BLAH
+----
 
 ## Installation
 Grab [paru](https://github.com/Morganamilo/paru) → Install all apps bellow →
