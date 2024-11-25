@@ -15,8 +15,6 @@ $ pacman -S git
 $ pacman -S stow
 ```
 
-BLAH
-----
 
 ## Installation
 Grab [paru](https://github.com/Morganamilo/paru) → Install all apps bellow →
@@ -56,7 +54,7 @@ $ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
 zsh neovim zellij yazi trashy ripgrep fd unarchiver duf gdu \
 man bat-extras man-pages pass bottom peaclock zathura jq poppler \
 wezterm zathura-pdf-mupdf s glow epy-ereader-git dunst \
-gimp cava qalculate-gtk spotify-launcher ventoy fastfetch \
+krita cava qalculate-gtk spotify-launcher ventoy fastfetch \
 qbittorrent silicon vesktop update-grub polkit thunar \
 tmux thunar-archive-plugin gvfs nomacs perl-image-exiftool \
 python-pygments spicetify-cli zip p7zip brightnessctl \
@@ -66,6 +64,9 @@ qt5-wayland qt6-wayland qt5ct wf-recorder tui-journal\
 hyprcursor hyprlock hypridle hyprpaper grimblast-git \
 xdg-desktop-portal-hyprland ffmpegthumbnailer zen-browser-bin
 ```
+
+> [!WARNING]
+> if there are issues with missing font icons do `paru -S nerd-fonts-complete-mono-glyphs`
 
 ## Audio
 
@@ -105,7 +106,7 @@ $ sudo touch /etc/modules-load.d/v4l2loopback.conf
 $ sudo nvim /etc/modules-load.d/v4l2loopback.conf
 ```
 
-add
+Add
 
 ```text
 v4l2loopback
@@ -130,7 +131,7 @@ $ chsh -s /usr/bin/zsh
 $ atuin import auto
 ```
 
-better use trashy instead of rm
+Better use trashy instead of rm
 
 zsh is set to vi key binds if you want emacs change it at ~/.zshrc line 48
 
@@ -225,6 +226,8 @@ $ tldr --update
 
 ## GIMP
 Using [PhotGIMP](https://github.com/Diolinux/PhotoGIMP/tree/master), it might need update if 3.0 ever comes out XD
+> [!DANGER]
+> Scratch that, gimp blows too much dick it's unusable. Maybe use krita?
 
 ## Catppuccinification
 
@@ -256,7 +259,7 @@ GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
->Can skip making the config here if nvidia gpu
+>Can skip making the config here if nvidia GPU
 
 ## Firefox
 
@@ -267,9 +270,16 @@ same things apply
 
 ### Add-ons
 
-[Ublock Origin](https://github.com/yokoffing/Betterfox), [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/), [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
+- [Ublock Origin](https://github.com/yokoffing/Betterfox)
+- [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+- [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/)
+- [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+- [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
 
 Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
+
+> [!NOTE] 
+> if you are gonna use zen and trydactil do `bind: J tabnext` and `bind: K tabprev` to get more sane behavior
 
 ### Rice
 
@@ -297,7 +307,7 @@ you can edit the home page to whatever
 
 ### Nvidia + firefox
 
-|  about:config |                                       |
+|  about:config |  |
 | :-----------: | :-------------------------------: |
 | media.ffmpeg.vaapi.enabled |true|
 | media.rdd-ffmpeg.enabled |true|
@@ -458,7 +468,8 @@ texlive-binextra texlive-fontsrecommended texlive-langgreek
 
 ## GDB
 - Added gdb support for nvim with dup and dupui for quick and dirty debug. Can do :enew | r !a.out to get an obj dump in a new buffer. 
-- In cli gdb try ```setup [0-3]``` for different layouts
+- In cli gdb try `setup [0-3]` for different layouts
+>[!NOTE]
 > Nvim-dapui blows massive dick tho better just do pwndbg in different terminal window.
 ![](_assets/gdb.png)
 
