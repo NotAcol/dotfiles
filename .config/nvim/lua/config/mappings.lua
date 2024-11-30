@@ -26,7 +26,60 @@ map("n", "<leader>x", "<cmd>bd!<cr>", { desc = "Close Current Buffer" })
 
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
---------------------- nvim dap -----------------------------------------------
+------------ yazi ---------------------
+map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })
+
+--------------- harpoon stuff ------------------------------------
+-- this is basically better marks
+local harpoon = require("harpoon")
+
+vim.keymap.set("n", "<C-a>", function()
+	harpoon:list():add()
+end)
+vim.keymap.set("n", "<C-s>", function()
+	harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
+local conf = require("telescope.config").values
+local function toggle_telescope(harpoon_files)
+	local file_paths = {}
+	for _, item in ipairs(harpoon_files.items) do
+		table.insert(file_paths, item.value)
+	end
+
+	require("telescope.pickers")
+		.new({}, {
+			prompt_title = "Harpoon",
+			finder = require("telescope.finders").new_table({
+				results = file_paths,
+			}),
+			previewer = conf.file_previewer({}),
+			sorter = conf.generic_sorter({}),
+		})
+		:find()
+end
+vim.keymap.set("n", "<C-q>", function()
+	harpoon:list():select(1)
+end, { nowait = true, silent = true, desc = "Harpoon select 1" })
+vim.keymap.set("n", "<C-w>", function()
+	harpoon:list():select(2)
+end, { nowait = true, silent = true, desc = "Harpoon select 2" })
+vim.keymap.set("n", "<C-e>", function()
+	harpoon:list():select(3)
+end, { nowait = true, silent = true, desc = "Harpoon select 3" })
+
+vim.keymap.set("n", "<leader>s", function()
+	toggle_telescope(harpoon:list())
+end, { desc = "Open harpoon window" })
+
+-------- lsp stuff----------------
+
+map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+map("n", "<leader>h", vim.lsp.buf.signature_help, { desc = "Show signature help" })
+map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+
+-------------------- nvim dap -----------------------------------------------
 
 map({ "n" }, "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Dap toggle breakpoint" })
 map({ "n" }, "<leader>dc", "<cmd> DapContinue <cr>", { desc = "Dap continue" })
@@ -76,8 +129,6 @@ map("n", "<leader>m", "<cmd>Telescope marks initial_mode=normal<CR>", { desc = "
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map("n", "<leader>th", "<cmd>Telescope colorscheme<cr>", { desc = "telescope change theme" })
-map("n", "<leader>fn", "<cmd>Telescope file_browser initial_mode=normal<cr>", { desc = "telescope file browser" })
-map("n", "<C-n>", "<cmd>Telescope file_browser initial_mode=normal<cr>", { desc = "telescope file browser" })
 map("n", "<leader>:", "<cmd>Telescope command_history initial_mode=normal<cr>", { desc = "telescope command history" })
 map("n", "<leader>fq", "<cmd>Telescope quickfix initial_mode=normal<cr>", { desc = "telescope quickfix list" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics initial_mode=normal<cr>", { desc = "telescope lsp diagonstics" })
@@ -122,3 +173,4 @@ function _Bottom_toggle()
 	bottom:toggle()
 end
 map({ "n", "t" }, "<A-b>", "<cmd>lua _Bottom_toggle()<cr>", { desc = "Toggle floating term with system monitor" })
+--------------------------

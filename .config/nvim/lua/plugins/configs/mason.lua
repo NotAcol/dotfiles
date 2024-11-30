@@ -1,9 +1,13 @@
 return {
 	ensure_installed = {
+		--lsp
 		"clangd",
-		"clang-format",
-		"codelldb",
+		"texlab",
 		"markdown-oxide",
+		"lua-language-server",
+		--formaters
+		"clang-format",
 		"stylua",
+		"codelldb",
 	},
 }

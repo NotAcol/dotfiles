@@ -43,7 +43,7 @@ return {
 					},
 				},
 				extensions_list = {
-					"file_browser",
+					-- "file_browser",
 				},
 			}
 		end,
@@ -57,8 +57,8 @@ return {
 			end
 		end,
 	},
-	{
-		"nvim-telescope/telescope-file-browser.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-	},
+	-- {
+	-- 	"nvim-telescope/telescope-file-browser.nvim",
+	-- 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	-- },
 }

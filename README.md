@@ -226,7 +226,7 @@ $ tldr --update
 
 ## GIMP
 Using [PhotGIMP](https://github.com/Diolinux/PhotoGIMP/tree/master), it might need update if 3.0 ever comes out XD
-> [!DANGER]
+> [!WARNING]
 > Scratch that, gimp blows too much dick it's unusable. Maybe use krita?
 
 ## Catppuccinification
@@ -391,6 +391,8 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAll
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 $ sudo nvim /etc/mkinitcpio.conf
 ```
+
+
 ```text
 MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
@@ -410,6 +412,7 @@ $ sudo mkdir /etc/pacman.d/hooks/
 $ sudo touch /etc/pacman.d/hooks/nvidia.hook
 $ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 ```
+
 ```text
 [Trigger]
 
