@@ -20,7 +20,8 @@ $ pacman -S stow
 Grab [paru](https://github.com/Morganamilo/paru) → Install all apps bellow →
 clone this repo and stow → do settings described below 
 
->If you want to game do "$ paru -S arch-gaming-meta" after being done with everything else
+>[!NOTE] 
+>If you want to game do "$ paru -S arch-gaming-meta proton-ge-custom-bin" after being done with everything else and enable Proton-Ge as default in steam launcher compatibility options and make sure GPU acceleration rendering in web views is off in interface settings
 
 ### Clone and stow
 
@@ -44,8 +45,41 @@ $ stow --adopt .
 $ git restore .
 ```
 
+# New kernel
+
+I use the linux-zen kernel cause it's faster :).
+
+```console
+$ paru -S linux-zen linux-zen-headers update-grub
+$ update-grub
+```
+you will also have to change `Target=linux` to `Target=linux-zen` in the [nvidia pacman hook](<README#Pacman hook>)
+
 
 # APPS
+
+
+## Before installing apps 
+
+```console
+$ su -
+# pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+# pacman-key --lsign-key 3056513887B78AEB
+# pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+# nvim /etc/pacman.conf
+```
+then under multilib add
+```text
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+```
+> [!NOTE]
+> more info [here](https://github.com/chaotic-aur)
+
+```
+$ pacman -S reflector
+$ reflector --sort rate --latest 20 --protocol https --save /etc/pacman.d/mirrorlist
+```
 
 ## General
 
@@ -61,12 +95,13 @@ python-pygments spicetify-cli zip p7zip brightnessctl \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct wf-recorder tui-journal\
-hyprcursor hyprlock hypridle hyprpaper grimblast-git \
+hyprcursor hyprlock hypridle hyprpaper grimblast-git  \
 xdg-desktop-portal-hyprland ffmpegthumbnailer zen-browser-bin
 ```
 
 > [!WARNING]
 > if there are issues with missing font icons do `paru -S nerd-fonts-complete-mono-glyphs`
+
 
 ## Audio
 
@@ -95,8 +130,12 @@ $ sudo systemctl enable --now bluetooth.service
 ## Obs 
 
 ```console
-$ paru -S obs-studio ffmpeg-obs cef-minimal-obs-rc-bin xdg-desktop-portal-wlr
+$ paru -S obs-studio obs-vaapi obs-vkcapture-git lib32-obs-vkcapture-git \
+obs-rtspserver obs-gstreamer ffmpeg-obs cef-minimal-obs-rc-bin xdg-desktop-portal-wlr
 ```
+For image editing use [affinity](https://github.com/Twig6943/AffinityOnLinux) products (adobe straight up doesnt work) and for video use davinci but not aur version it perma breaks
+> [!note]
+> You can install affinity products using just a script from [here](https://github.com/ryzendew/AffinityOnLinux) just check if it's up to date
 
 ### Using obs for virtual cam
 
@@ -174,7 +213,7 @@ $ nvim
 ```
 
 - :Lazy sync
-- :MasonInstallAll
+- :MasonToolsInstallsync
 
 ## Paru 
 
@@ -182,7 +221,7 @@ $ nvim
 $ sudo nvim /etc/pacman.conf
 ```
 
-- Uncomment: Color, VerbosePkgLists
+- Uncomment: Color, VerbosePkgLists, ParallelDownloads
 - Add ILoveCandy
 
 ```console
@@ -263,8 +302,7 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 ## Firefox
 
-### MOVED TO ZEN FROM FIREFOX
-same things apply
+#### Moved to zen from firefox but same things apply just change firefox to zen in paths
 
 [Grab betterfox](https://github.com/yokoffing/Betterfox)
 
@@ -276,24 +314,25 @@ same things apply
 - [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 - [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
 
-Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
+##### Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
 
 > [!NOTE] 
 > if you are gonna use zen and trydactil do `bind: J tabnext` and `bind: K tabprev` to get more sane behavior
 
 ### Rice
 
-Add [Catppuccin theme](https://github.com/catppuccin/firefox)
+##### Add [Catppuccin theme](https://github.com/catppuccin/firefox) (only needed for firefox)
 
+##### Add custom css
 - about:config
 - toolkit.legacyUserProfileCustomizations.stylesheets → true
 - about:profiles → Root Directory
 
 ```console
 $ pkill -f firefox
-$ cp -r ~/dotfiles/_firefox/startpage ./
-$ start firerfox and it should work
+$ cp -r ~/dotfiles/_firefox/chrome ./
 ```
+Start firerfox and it should work
 
 >Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
 
@@ -303,7 +342,6 @@ $ start firerfox and it should work
 - Custom URLs...
 - File:///home/YOUR-USERNAME/dotfiles/_firefox/startpage/index.html
 
-you can edit the home page to whatever
 
 ### Nvidia + firefox
 
@@ -340,7 +378,7 @@ $ nvim ~/dotfiles/.config/spicetify/config-xpui.ini
 Edit path to use correct username
 
 ```console
-$ spicetify apply
+$ spicetify backup apply
 ```
 
 #### Block spotify ads
@@ -413,26 +451,27 @@ $ sudo touch /etc/pacman.d/hooks/nvidia.hook
 $ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 ```
 
+### Pacman hook
+
 ```text
 [Trigger]
-
 Operation=Install
 Operation=Upgrade
 Operation=Remove
 Type=Package
-### Uncomment the installed NVIDIA package
-Target=nvidia
+# Uncomment the installed NVIDIA package
+Target=nvidia-dkms
 #Target=nvidia-open
 #Target=nvidia-lts
-### If running a different kernel, modify below to match
-Target=linux
+# If running a different kernel, modify below to match
+Target=linux-zen
 
 [Action]
 Description=Updating NVIDIA module in initcpio
 Depends=mkinitcpio
 When=PostTransaction
 NeedsTargets
-Exec=/bin/sh -c 'while read -r trg; do case rg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
 ```
 
 Tests after reboot
@@ -472,8 +511,10 @@ texlive-binextra texlive-fontsrecommended texlive-langgreek
 ## GDB
 - Added gdb support for nvim with dup and dupui for quick and dirty debug. Can do :enew | r !a.out to get an obj dump in a new buffer. 
 - In cli gdb try `setup [0-3]` for different layouts
+
 >[!NOTE]
-> Nvim-dapui blows massive dick tho better just do pwndbg in different terminal window.
+> Nvim-dapui blows massive dick tho better just use pwndbg in different terminal window.
+
 ![](_assets/gdb.png)
 
 

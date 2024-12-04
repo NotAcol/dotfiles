@@ -1,7 +1,8 @@
 return {
 	{
 		"ej-shafran/compile-mode.nvim",
-		lazy = false,
+		-- lazy = false,
+		cmd = "Compile",
 		branch = "latest",
 		dependencies = {
 			--"m00qek/baleia.nvim",

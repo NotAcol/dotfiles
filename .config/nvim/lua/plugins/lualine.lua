@@ -6,12 +6,11 @@ return {
 		opts = {
 			options = {
 				icons_enabled = true,
-				theme = "auto",
+				theme = "catppuccin",
 				component_separators = "|",
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
 					statusline = {},
-					winbar = {},
 				},
 				ignore_focus = {},
 				always_divide_middle = true,
@@ -25,11 +24,11 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { { "branch", icon = "" }, "diff", "diagnostics" },
-				lualine_c = { "filename" },
-				lualine_x = {},
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_b = { { "branch", icon = "" }, "diff" },
+				lualine_c = { { "filename", path = 1, file_status = false } },
+				lualine_x = { { "diagnostics", sources = { "nvim_lsp" } } },
+				lualine_y = { { "filetype", icon_only = false, icon = { align = "left" } } },
+				lualine_z = { "progress" },
 			},
 			inactive_sections = {
 				lualine_a = {},
@@ -39,7 +38,25 @@ return {
 				lualine_y = {},
 				lualine_z = {},
 			},
-			tabline = {},
+			tabline = {
+				lualine_a = {},
+				lualine_b = {
+					{
+						"buffers",
+						use_mode_colors = true,
+						mode = 0,
+						section_separators = { left = "", right = "" },
+						component_separators = { right = " ", left = " " },
+						symbols = {
+							alternate_file = "",
+						},
+					},
+				},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
 			winbar = {},
 			inactive_winbar = {},
 			extensions = {},

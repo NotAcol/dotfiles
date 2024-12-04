@@ -7,6 +7,10 @@ return {
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
 	formatting = {
 		format = function(entry, vim_item)
 			if vim.tbl_contains({ "path" }, entry.source.name) then
@@ -17,7 +21,17 @@ return {
 					return vim_item
 				end
 			end
-			return require("lspkind").cmp_format({ with_text = false })(entry, vim_item)
+			return require("lspkind").cmp_format({
+				mode = "symbol_text",
+				maxwidth = {
+					menu = 0,
+					addr = function()
+						return math.floor(0.45 * vim.o.columns)
+					end,
+				},
+				ellipsis_char = "",
+				show_labelDetails = false,
+			})(entry, vim_item)
 		end,
 	},
 	mapping = {
