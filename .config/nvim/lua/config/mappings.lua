@@ -30,9 +30,12 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic locli
 
 map("n", "<leader>co", "<CMD>Compile<CR>", { desc = "Compilation mode" })
 
------------------------------ yazi ---------------------
+----------------------------- file browser ---------------------
 
-map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })
+-- map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })
+map("n", "<C-n>", function()
+	require("oil").toggle_float()
+end, { desc = "Open file browser" })
 
 --------------- harpoon stuff ------------------------------------
 -- this is basically better marks
@@ -176,9 +179,9 @@ end
 map({ "n", "t" }, "<A-g>", "<cmd>lua _Lazygit_toggle()<cr>", { desc = "Toggle floating term with Lazygit" })
 
 -- bottom
-local bottom = Terminal:new({ cmd = "btm", display_name = "Bottom", direction = "float", hidden = true })
-function _Bottom_toggle()
+local bottom = Terminal:new({ cmd = "btop", display_name = "Btop", direction = "float", hidden = true })
+function _Btop_toggle()
 	bottom:toggle()
 end
-map({ "n", "t" }, "<A-b>", "<cmd>lua _Bottom_toggle()<cr>", { desc = "Toggle floating term with system monitor" })
+map({ "n", "t" }, "<A-b>", "<cmd>lua _Btop_toggle()<cr>", { desc = "Toggle floating term with system monitor" })
 --------------------------

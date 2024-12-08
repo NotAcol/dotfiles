@@ -24,7 +24,7 @@ return {
 				-- miscs = {}, -- Uncomment to turn off hard-coded styles
 			},
 			integrations = {
-				cmp = true,
+				blink_cmp = true,
 				alpha = true,
 				gitsigns = true,
 				harpoon = true,

@@ -16,7 +16,7 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
 --multi --preview 'bat --color=always -n --line-range :500 {}'\
---border=rounded"
+--border=rounded --reverse"
 export FZF_DEFAULT_COMMAND="fd --hidden --max-depth=5 --strip-cwd-prefix --exclude .git"
 export FZF_TMUX_OPTS=" -p90%,70% "
 
@@ -31,14 +31,13 @@ export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
 
 #colors
 alias cat=bat
-alias ls="eza -lrMs size --hyperlink --classify=auto --smart-group --git --group-directories-first"
+alias ls="eza -lhrMs size --classify=auto --smart-group --group-directories-first"
 alias grep='rg' 
-alias tree='eza -T --group-directories-first --hyperlink'
+alias tree='eza -T --group-directories-first '
 alias find="fd"
-#alias man="batman"
 alias clock="peaclock --config-dir ~/.config/peaclock"
 alias tmux="tmux -2"
-alias notes="tjournal"
+alias manpages='man -k . | fzf | awk '\''{print $1$2}'\'' | xargs man'
 
 # confirm before overwriting something
 alias cp="cp -i"

@@ -1,17 +1,28 @@
 return {
 	"neovim/nvim-lspconfig",
 	lazy = false,
-	config = function()
-		local lspconfig = require("lspconfig")
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+	dependencies = { "saghen/blink.cmp" },
 
-		lspconfig.clangd.setup({ capabilities = capabilities })
-		lspconfig.markdown_oxide.setup({ capabilities = capabilities })
-		lspconfig.texlab.setup({ capabilities = capabilities })
-		lspconfig.neocmake.setup({ capabilities = capabilities })
-		lspconfig.lua_ls.setup({ capabilities = capabilities })
-		lspconfig.glsl_analyzer.setup({ capabilities = capabilities })
-		lspconfig.asm_lsp.setup({ capabilities = capabilities })
+	opts = {
+		servers = {
+			lua_ls = {},
+			clangd = {},
+			markdown_oxide = {},
+			texlab = {},
+			neocmake = {},
+			glsl_analyzer = {},
+			asm_lsp = {},
+		},
+	},
+	config = function(_, opts)
+		local lspconfig = require("lspconfig")
+		for server, config in pairs(opts.servers) do
+			-- passing config.capabilities to blink.cmp merges with the capabilities in your
+			-- `opts[server].capabilities, if you've defined it
+			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+			lspconfig[server].setup(config)
+		end
 	end,
 }
+--		config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+--local capabilities = vim.lsp.protocol.make_client_capabilities()

@@ -38,8 +38,12 @@ return {
 				},
 				extensions = {
 					file_browser = {
-						-- theme = "dropdown",
+						theme = "ivy",
 						hijack_netrw = true,
+						grouped = true,
+						hidden = false,
+						follow_symlinks = true,
+						use_fd = true,
 					},
 				},
 				extensions_list = {

@@ -84,9 +84,9 @@ $ reflector --sort rate --latest 20 --protocol https --save /etc/pacman.d/mirror
 ## General
 
 ```console
-$ paru -S thefuck tealdeer fzf bat exa zoxide atuin \
-zsh neovim zellij yazi trashy ripgrep fd unarchiver duf gdu \
-man bat-extras man-pages pass bottom peaclock zathura jq poppler \
+$ paru -S thefuck tealdeer fzf bat exa zoxide atuin choose \
+zsh neovim yazi trashy ripgrep fd unarchiver duf gdu \
+man bat-extras man-pages pass peaclock zathura jq poppler \
 wezterm zathura-pdf-mupdf s glow epy-ereader-git dunst \
 krita cava qalculate-gtk spotify-launcher ventoy fastfetch \
 qbittorrent silicon vesktop update-grub polkit thunar \
@@ -96,8 +96,11 @@ ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse polkit-kde-agent \
 qt5-wayland qt6-wayland qt5ct wf-recorder tui-journal\
 hyprcursor hyprlock hypridle hyprpaper grimblast-git  \
-xdg-desktop-portal-hyprland ffmpegthumbnailer zen-browser-bin
+xdg-desktop-portal-hyprland ffmpegthumbnailer zen-browser-avx2-bin
 ```
+
+> [!WARNING]
+> Using the avx2 version of the zen browser. If you have an older cpu use zen-browser-bin
 
 > [!WARNING]
 > if there are issues with missing font icons do `paru -S nerd-fonts-complete-mono-glyphs`
@@ -217,6 +220,9 @@ $ nvim
 
 ## Paru 
 
+> [!NOTE]
+> Use `sudo pacman -Qdtq | sudo pacman -Rns -` every now and then to remove unneeded packages. Would add a hook for it but cba :3
+
 ```console
 $ sudo nvim /etc/pacman.conf
 ```
@@ -314,10 +320,13 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 - [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 - [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
 
+> [!NOTE]
+> auto tab discard is built in to zen
+
 ##### Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
 
 > [!NOTE] 
-> if you are gonna use zen and trydactil do `bind: J tabnext` and `bind: K tabprev` to get more sane behavior
+> if you are gonna use zen and trydactil do `:bind J tabnext` and `:bind K tabprev` to get more sane behavior
 
 ### Rice
 
@@ -344,6 +353,12 @@ Start firerfox and it should work
 
 
 ### Nvidia + firefox
+
+> [!IMPORTANT]
+> You know if vaapi is working when on about:support in the Compositing field it has WebRender
+> For now just with zen browser it just works with 
+> - media.ffmpeg.vaapi.enabled true
+> - gfx.webrender.all true
 
 |  about:config |  |
 | :-----------: | :-------------------------------: |
