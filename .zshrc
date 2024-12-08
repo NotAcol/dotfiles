@@ -25,32 +25,33 @@ gpgconf --launch gpg-agent
 # HISTSIZE=1000000
 # SAVEHIST=1000000
 
+set -o vi # VI-MODE | "set -o emacs" for emacs keybinds and delete/comment the next two lines
+KEYTIMEOUT=1  # and zsh-vi-mode zsh-system-clipboard blugins
+bindkey -M vicmd '^[' undefined-key 
+
 #exports
 source ~/.zshenv
 
 # Load and initialise completion system
-autoload -Uz compinit
+autoload -U compinit
 compinit
 
-plug "romkatv/powerlevel10k"
-plug "hlissner/zsh-autopair"
-plug "MichaelAquilina/zsh-you-should-use"
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+
 plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
+plug "romkatv/powerlevel10k"
+plug "hlissner/zsh-autopair"
 plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/vim"
 plug "kutsan/zsh-system-clipboard"
 
-set -o vi # VI-MODE | "set -o emacs" for emacs keybinds and delete/comment the next two lines
-KEYTIMEOUT=1  # and zsh-vi-mode zsh-system-clipboard blugins
-bindkey -M vicmd '^[' undefined-key 
-
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 eval "$(atuin init zsh)"
-eval "$(batpipe)"
+eval "$(fzf --zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
 [[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh

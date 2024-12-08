@@ -22,11 +22,16 @@ map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Window up" })
 
 map("n", "<tab>", "<cmd>bnext<cr>")
 map("n", "<S-tab>", "<cmd>bprev<cr>")
-map("n", "<leader>x", "<cmd>bd!<cr>", { desc = "Close Current Buffer" })
+map("n", "<leader>x", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Close Current Buffer" })
 
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
------------- yazi ---------------------
+--------------- Compilation mode --------------------------------
+
+map("n", "<leader>co", "<CMD>Compile<CR>", { desc = "Compilation mode" })
+
+----------------------------- yazi ---------------------
+
 map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })
 
 --------------- harpoon stuff ------------------------------------

@@ -15,7 +15,10 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
---multi"
+--multi --preview 'bat --color=always -n --line-range :500 {}'\
+--border=rounded"
+export FZF_DEFAULT_COMMAND="fd --hidden --max-depth=5 --strip-cwd-prefix --exclude .git"
+export FZF_TMUX_OPTS=" -p90%,70% "
 
 # keeping this in separate file cause it's aids
 export LS_COLORS="$(<$HOME/.ls_colors)"
@@ -42,7 +45,6 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i' #Better use trash
 
-alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
 # grimblast for screenshot
 alias sc='grimblast copy area'

@@ -20,11 +20,13 @@ echo "-O2
 -fno-exceptions 
 -fno-rtti 
 -Wall 
+-Wextra
+-pedantic
 -pthreads 
 -flto=thin
 -fuse-ld=lld 
 -fno-omit-frame-pointer  
 -fsanitize=address
--g" > ./.debug-flags #fno-omit-frame-pointer is for perf
+-ggdb" > ./.debug-flags #fno-omit-frame-pointer is for perf
 
 echo -e "\033[1;33m                     remember to use tsan as well retard (-fsanitize=thread)"
