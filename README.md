@@ -26,7 +26,7 @@ clone this repo and stow → do settings described below
 ### Clone and stow
 
 ```console
-$ git clone https://github.com/NotAcol/dotfiles.git
+$ git clone --depth=1 https://github.com/NotAcol/dotfiles.git
 $ cd dotfiles
 ```
 

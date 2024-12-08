@@ -5,13 +5,14 @@ return {
 		cmd = "Compile",
 		branch = "latest",
 		dependencies = {
-			--"m00qek/baleia.nvim",
+			--		"m00qek/baleia.nvim",
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
 			vim.g.compile_mode = {
 				default_command = "clang++ $(<.debug-flags) ",
-				baleia_setup = false,
+				ask_about_save = false,
+				--			baleia_setup = true,
 			}
 		end,
 	},
