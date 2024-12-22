@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+-- Set terminal gui colors to true
 vim.opt.termguicolors = true
 
 -- Set highlight on search
@@ -47,20 +49,20 @@ vim.o.timeoutlen = 400
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 
--- Set terminal gui colors to true
-vim.o.termguicolors = true
-
 -- Stuff
 vim.o.conceallevel = 0
 vim.o.cursorline = true
 vim.o.cursorlineopt = "both" -- to enable relative and absolute cursor line!
 vim.o.filetype = "on"
-vim.o.syntax = "on"
 vim.o.hidden = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.opt.whichwrap:append("<>[]hl")
 vim.opt.shortmess:append("sI")
+
+-- greek in normal mode
+vim.opt.langmap =
+	"ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz"
 
 vim.g.loaded_node_provider = 0
 vim.g.loaded_python3_provider = 0

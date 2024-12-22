@@ -23,7 +23,6 @@ export FZF_TMUX_OPTS=" -p90%,70% "
 # keeping this in separate file cause it's aids
 export LS_COLORS="$(<$HOME/.ls_colors)"
 
-
 export PATH="$PATH:$HOME/.scripts"
 
 # Fix for password store
@@ -37,18 +36,20 @@ alias tree='eza -T --group-directories-first '
 alias find="fd"
 alias clock="peaclock --config-dir ~/.config/peaclock"
 alias tmux="tmux -2"
-alias manpages='man -k . | fzf | awk '\''{print $1$2}'\'' | xargs man'
+
+#convenience stuff
+alias manpages='man -k . | fzf -e | awk '\''{print $1$2}'\'' | xargs man'
+alias mt="sudo mount -o uid=$USER"
 
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i' #Better use trash
 
-
 # grimblast for screenshot
 alias sc='grimblast copy area'
 
-# quick and dirty disassembly
+# quick disassembly
 alias disasm="objdump -M intel,amd64 -g -C -S --visualize-jumps --no-addresses --no-show-raw-insn"
 
 # tmux and kitty dont play wellwith images so have to do this cringe shit

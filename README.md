@@ -54,7 +54,10 @@ $ paru -S linux-zen linux-zen-headers update-grub
 $ update-grub
 ```
 you will also have to change `Target=linux` to `Target=linux-zen` in the [nvidia pacman hook](<README#Pacman hook>)
-
+# Locales
+To add new locales do `sudo nvim /etc/locale.gen` and uncomment the locale you want and run `sudo local-gen`
+> [!TIP]
+> Big preference to utf8
 
 # APPS
 
@@ -85,7 +88,7 @@ $ reflector --sort rate --latest 20 --protocol https --save /etc/pacman.d/mirror
 
 ```console
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin choose \
-zsh neovim yazi trashy ripgrep fd unarchiver duf gdu \
+zsh neovim yazi trashy ripgrep fd unarchiver duf gdu starship \
 man bat-extras man-pages pass peaclock zathura jq poppler \
 wezterm zathura-pdf-mupdf s glow epy-ereader-git dunst \
 krita cava qalculate-gtk spotify-launcher ventoy fastfetch \
@@ -93,9 +96,9 @@ qbittorrent silicon vesktop update-grub polkit thunar \
 tmux thunar-archive-plugin gvfs nomacs perl-image-exiftool \
 python-pygments spicetify-cli zip p7zip brightnessctl \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
-rofi-lbonn-wayland-git wl-clipboard clipse polkit-kde-agent \
+rofi-lbonn-wayland-git wl-clipboard clipse hyprpolkitagent \
 qt5-wayland qt6-wayland qt5ct wf-recorder tui-journal\
-hyprcursor hyprlock hypridle hyprpaper grimblast-git  \
+hyprcursor hyprlock hypridle hyprpaper grimblast-git \
 xdg-desktop-portal-hyprland ffmpegthumbnailer zen-browser-avx2-bin
 ```
 
@@ -212,6 +215,7 @@ ctrl + shift +
 ## Nvim setup
 
 ```console
+$ sudo pacman -S luarocks
 $ nvim
 ```
 

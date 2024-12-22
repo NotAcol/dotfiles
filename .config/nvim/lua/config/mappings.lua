@@ -26,6 +26,16 @@ map("n", "<leader>x", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Close Curren
 
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
+------------ git --------------------
+
+local neogit = require("neogit")
+map("n", "<leader>gs", neogit.open, { silent = true, noremap = true, desc = "git status" })
+map("n", "<leader>gc", "<cmd>Neogit commit<cr>", { silent = true, noremap = true, desc = "git commit" })
+map("n", "<leader>gp", "<cmd>Neogit pull<cr>", { silent = true, noremap = true, desc = "git pull" })
+map("n", "<leader>gP", "<cmd>Neogit push<cr>", { silent = true, noremap = true, desc = "git push" })
+map("n", "<leader>gb", "<cmd>Telescope git_branch<cr>", { silent = true, noremap = true, desc = "git branch" })
+map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { silent = true, noremap = true, desc = "git diff" })
+
 --------------- Compilation mode --------------------------------
 
 map("n", "<leader>co", "<CMD>Compile<CR>", { desc = "Compilation mode" })
@@ -47,24 +57,6 @@ end)
 vim.keymap.set("n", "<M-s>", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
-local conf = require("telescope.config").values
-local function toggle_telescope(harpoon_files)
-	local file_paths = {}
-	for _, item in ipairs(harpoon_files.items) do
-		table.insert(file_paths, item.value)
-	end
-
-	require("telescope.pickers")
-		.new({}, {
-			prompt_title = "Harpoon",
-			finder = require("telescope.finders").new_table({
-				results = file_paths,
-			}),
-			previewer = conf.file_previewer({}),
-			sorter = conf.generic_sorter({}),
-		})
-		:find()
-end
 vim.keymap.set("n", "<M-q>", function()
 	harpoon:list():select(1)
 end, { nowait = true, silent = true, desc = "Harpoon select 1" })
@@ -78,10 +70,6 @@ vim.keymap.set("n", "<M-r>", function()
 	harpoon:list():select(4)
 end, { nowait = true, silent = true, desc = "Harpoon select 4" })
 
-vim.keymap.set("n", "<leader>s", function()
-	toggle_telescope(harpoon:list())
-end, { desc = "Open harpoon window" })
-
 -------- lsp stuff----------------
 
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
@@ -92,8 +80,8 @@ map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" 
 
 -------------------- nvim dap -----------------------------------------------
 
-map({ "n" }, "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Dap toggle breakpoint" })
-map({ "n" }, "<leader>dc", "<cmd> DapContinue <cr>", { desc = "Dap continue" })
+map({ "n" }, "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Debugger toggle breakpoint" })
+map({ "n" }, "<leader>ds", "<cmd> DapContinue <cr>", { desc = "Debugger start" })
 
 --------------------- Spell checking -------------------------------------------
 map("n", "<leader>ln", function()
@@ -133,18 +121,19 @@ end, { desc = "general format file" })
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
--- telescope
+----------------------- telescope ------------------------------------------
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
+map("n", "<leader>fW", "<cmd>Telescope grep_string<CR>", { desc = "telescope grep word under cursor" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 map("n", "<leader>m", "<cmd>Telescope marks initial_mode=normal<CR>", { desc = "telescope find marks" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
+map("n", "<leader>ff", "<cmd>Telescope find_files find_command=fd,--hidden<cr>", { desc = "telescope find files" })
 map("n", "<leader>th", "<cmd>Telescope colorscheme<cr>", { desc = "telescope change theme" })
 map("n", "<leader>:", "<cmd>Telescope command_history initial_mode=normal<cr>", { desc = "telescope command history" })
 map("n", "<leader>fq", "<cmd>Telescope quickfix initial_mode=normal<cr>", { desc = "telescope quickfix list" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics initial_mode=normal<cr>", { desc = "telescope lsp diagonstics" })
 
--- terminal
+------------------------------ terminal----------------------------
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 map(
@@ -168,7 +157,7 @@ map("n", "<leader>wk", function()
 	vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))
 end, { desc = "whichkey query lookup" })
 
---Terminal apps
+----------------------------Terminal apps-------------------------------------
 -- lazygit
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", display_name = "Lazygit", direction = "float", hidden = true })
@@ -178,10 +167,10 @@ end
 
 map({ "n", "t" }, "<A-g>", "<cmd>lua _Lazygit_toggle()<cr>", { desc = "Toggle floating term with Lazygit" })
 
--- bottom
-local bottom = Terminal:new({ cmd = "btop", display_name = "Btop", direction = "float", hidden = true })
+-- sysmonitor
+local btop = Terminal:new({ cmd = "btop", display_name = "Btop", direction = "float", hidden = true })
 function _Btop_toggle()
-	bottom:toggle()
+	btop:toggle()
 end
 map({ "n", "t" }, "<A-b>", "<cmd>lua _Btop_toggle()<cr>", { desc = "Toggle floating term with system monitor" })
 --------------------------

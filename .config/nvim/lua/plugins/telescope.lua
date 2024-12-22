@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
 		cmd = "Telescope",
 		opts = function()
 			return {
@@ -37,14 +37,14 @@ return {
 					qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 				},
 				extensions = {
-					file_browser = {
-						theme = "ivy",
-						hijack_netrw = true,
-						grouped = true,
-						hidden = false,
-						follow_symlinks = true,
-						use_fd = true,
-					},
+					-- file_browser = {
+					-- 	theme = "ivy",
+					-- 	hijack_netrw = true,
+					-- 	grouped = true,
+					-- 	hidden = false,
+					-- 	follow_symlinks = true,
+					-- 	use_fd = true,
+					-- },
 				},
 				extensions_list = {
 					-- "file_browser",

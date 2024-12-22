@@ -1,10 +1,3 @@
- # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ## Set the GPG_TTY to be the same as the TTY, either via the env var
 # or via the tty command.
 if [ -n "$TTY" ]; then
@@ -40,7 +33,6 @@ zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
 plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
-plug "romkatv/powerlevel10k"
 plug "hlissner/zsh-autopair"
 plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-autosuggestions"
@@ -52,7 +44,36 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 eval "$(atuin init zsh)"
 eval "$(fzf --zsh)"
+eval "$(starship init zsh)"
 
-# To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
-[[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
-unset ZSH_AUTOSUGGEST_USE_ASYNC
+# Transient prompt for starship
+zle-line-init() {
+  emulate -L zsh
+
+  [[ $CONTEXT == start ]] || return 0
+
+  while true; do
+    zle .recursive-edit
+    local -i ret=$?
+    [[ $ret == 0 && $KEYS == $'\4' ]] || break
+    [[ -o ignore_eof ]] || exit 0
+  done
+
+  local saved_prompt=$PROMPT
+  local saved_rprompt=$RPROMPT
+
+  # Set prompt value from character module
+  PROMPT="$(starship module -s ${STARSHIP_CMD_STATUS:-0} character)"
+  RPROMPT=''
+  zle .reset-prompt
+  PROMPT=$saved_prompt
+  RPROMPT=$saved_rprompt
+
+  if (( ret )); then
+    zle .send-break
+  else
+    zle .accept-line
+  fi
+  return ret
+}
+zle -N zle-line-init
