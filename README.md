@@ -282,11 +282,15 @@ Using [PhotGIMP](https://github.com/Diolinux/PhotoGIMP/tree/master), it might ne
 
 ```console
 $ paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
-papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
+catppuccin-cursors-moch apapirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
 ```
 
-Set up nwg-look and kvantum to catppuccin-mocha-flamingo
-https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css
+- Set up nwg-look and kvantum to catppuccin-mocha-flamingo
+- Copy the curosr theme you want from /usr/share/icons/ to ~/local/share/icons and select it in both nwg and hyprland.conf
+> [!NOTE]
+> nwg look cursor size 22 and hyprcursor 32 are the same
+- vesktop theme https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css
+
 
 ## Bat theme
 
