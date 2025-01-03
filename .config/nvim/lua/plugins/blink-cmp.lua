@@ -49,18 +49,24 @@ return {
 			-- default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, via `opts_extend`
 			sources = {
-				completion = {
-					enabled_providers = { "lsp", "luasnip", "snippets", "buffer", "path" },
+				default = {
+					"lsp",
+					"luasnip",
+					"snippets",
+					"buffer",
+					"path",
 				},
 			},
-
-			-- experimental auto-brackets support
 			completion = {
 				menu = {
 					-- border = "single",
+					-- dont auto show when searching or in cmdline
+					auto_show = function(ctx)
+						return ctx.mode ~= "cmdline"
+					end,
 					scrollbar = false,
 					draw = {
-						treesitter = true,
+						--treesitter = true,
 						columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },
 					},
 				},
@@ -74,8 +80,5 @@ return {
 
 			signature = { enabled = true },
 		},
-		-- allows extending the enabled_providers array elsewhere in your config
-		-- without having to redefine it
-		-- opts_extend = { "sources.completion.enabled_providers" },
 	},
 }

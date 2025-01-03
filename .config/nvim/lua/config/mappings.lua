@@ -172,5 +172,6 @@ local btop = Terminal:new({ cmd = "btop", display_name = "Btop", direction = "fl
 function _Btop_toggle()
 	btop:toggle()
 end
+
 map({ "n", "t" }, "<A-b>", "<cmd>lua _Btop_toggle()<cr>", { desc = "Toggle floating term with system monitor" })
 --------------------------

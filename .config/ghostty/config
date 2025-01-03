@@ -1,0 +1,12 @@
+theme = catppuccin-mocha
+font-family="JetBrains Mono SemiBold"
+font-size = 10
+cursor-invert-fg-bg = true
+mouse-hide-while-typing
+cursor-style = block
+cursor-style-blink = false
+window-decoration = false
+window-theme = ghostty
+initial-command = tmux
+window-padding-x = 0
+window-padding-y = 0
