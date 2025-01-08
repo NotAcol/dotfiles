@@ -1,9 +1,7 @@
 .config/obs-studio
 .config/peaclock/history
 .config/spotify/Users/11173978708-user
-.local/share/icons/default
-.local/share/icons/hicolor/128x128/apps
-.local/share/icons/hicolor
 .config/ncmpcpp/error.log
 .config/nvim/lazy-lock.json
 .config/spotify/prefs
+.config/tmux/plugins

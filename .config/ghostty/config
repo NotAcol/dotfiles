@@ -5,7 +5,8 @@ cursor-invert-fg-bg = true
 mouse-hide-while-typing
 cursor-style = block
 cursor-style-blink = false
-window-decoration = false
+window-decoration = true
+gtk-titlebar = false
 window-theme = ghostty
 initial-command = tmux
 window-padding-x = 0

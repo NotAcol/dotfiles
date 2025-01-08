@@ -127,7 +127,7 @@ map("n", "<leader>fW", "<cmd>Telescope grep_string<CR>", { desc = "telescope gre
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 map("n", "<leader>m", "<cmd>Telescope marks initial_mode=normal<CR>", { desc = "telescope find marks" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
-map("n", "<leader>ff", "<cmd>Telescope find_files find_command=fd,--hidden<cr>", { desc = "telescope find files" })
+map("n", "<leader>ff", "<cmd>Telescope find_files find_command=fd,-t,f,--hidden<cr>", { desc = "telescope find files" })
 map("n", "<leader>th", "<cmd>Telescope colorscheme<cr>", { desc = "telescope change theme" })
 map("n", "<leader>:", "<cmd>Telescope command_history initial_mode=normal<cr>", { desc = "telescope command history" })
 map("n", "<leader>fq", "<cmd>Telescope quickfix initial_mode=normal<cr>", { desc = "telescope quickfix list" })
