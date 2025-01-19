@@ -6,7 +6,6 @@ return {
 		lazy = false, -- lazy loading handled internally
 		dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip" },
 		version = "v0.*",
-
 		opts = {
 			-- 'default' for mappings similar to built-in completion
 			-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
@@ -16,10 +15,18 @@ return {
 			keymap = {
 				preset = "default",
 				["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-e>"] = {},
 				["<C-Tab>"] = { "hide" },
 				["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
 				["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
 				["<CR>"] = { "accept", "fallback" },
+				cmdline = {
+					["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
+					["<C-Tab>"] = { "hide" },
+					["<Tab>"] = { "show", "snippet_forward", "select_next", "fallback" },
+					["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
+					["<CR>"] = { "accept", "fallback" },
+				},
 			},
 
 			appearance = {
@@ -32,18 +39,7 @@ return {
 				nerd_font_variant = "normal",
 			},
 			snippets = {
-				expand = function(snippet)
-					require("luasnip").lsp_expand(snippet)
-				end,
-				active = function(filter)
-					if filter and filter.direction then
-						return require("luasnip").jumpable(filter.direction)
-					end
-					return require("luasnip").in_snippet()
-				end,
-				jump = function(direction)
-					require("luasnip").jump(direction)
-				end,
+				preset = "luasnip",
 			},
 
 			-- default list of enabled providers defined so that you can extend it
@@ -51,7 +47,6 @@ return {
 			sources = {
 				default = {
 					"lsp",
-					"luasnip",
 					"snippets",
 					"buffer",
 					"path",
@@ -61,19 +56,20 @@ return {
 				menu = {
 					-- border = "single",
 					-- dont auto show when searching or in cmdline
-					auto_show = function(ctx)
-						return ctx.mode ~= "cmdline"
-					end,
+					-- auto_show = function(ctx)
+					-- 	return ctx.mode ~= "cmdline"
+					-- end,
+					auto_show = false,
 					scrollbar = false,
 					draw = {
-						--treesitter = true,
+						treesitter = { "lsp" },
 						columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },
 					},
 				},
 				documentation = {
 					--auto_show = true,
 				},
-				--ghost_text = { enabled = true },
+				ghost_text = { enabled = true },
 			},
 
 			-- experimental signature help support

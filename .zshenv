@@ -1,4 +1,4 @@
-export TERMINAL="kitty"
+export TERMINAL="ghostty"
 export BAT_THEME="Catppuccin Mocha"
 export LESSOPEN="|bat --paging=auto --color=always %s"
 export PAGER="less"
@@ -30,14 +30,14 @@ export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
 
 #colors
 alias cat=bat
-alias ls="eza -lhrMs size --classify=auto --smart-group --group-directories-first"
+alias ls="eza -lhrMs size --hyperlink --classify=auto --smart-group --group-directories-first"
 alias grep='rg' 
 alias tree='eza -T --group-directories-first '
 alias find="fd"
 alias clock="peaclock --config-dir ~/.config/peaclock"
 alias tmux="tmux -2"
 
-#convenience stuff
+# convenience stuff
 alias manpages='man -k . | fzf -e | awk '\''{print $1$2}'\'' | xargs man'
 alias mt="sudo mount -o uid=$USER"
 
@@ -52,7 +52,7 @@ alias sc='grimblast copy area'
 # quick disassembly
 alias disasm="objdump -M intel,amd64 -g -C -S --visualize-jumps --no-addresses --no-show-raw-insn"
 
-# tmux and kitty dont play wellwith images so have to do this cringe shit
+# tmux and kitty dont play well with images so have to do this cringe shit
 alias fetch="kitten icat --align=left ~/Pictures/yorha.png | fastfetch --raw - --logo-width 40 --logo-height 19"
 
 # yazi change cwd on close

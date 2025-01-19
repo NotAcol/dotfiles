@@ -1,13 +1,21 @@
+# theme
 theme = catppuccin-mocha
-font-family="JetBrains Mono SemiBold"
-font-size = 10
+window-decoration = false
+#gtk-adwaita = false
+window-theme = ghostty
 cursor-invert-fg-bg = true
-mouse-hide-while-typing
 cursor-style = block
 cursor-style-blink = false
-window-decoration = true
-gtk-titlebar = false
-window-theme = ghostty
-initial-command = tmux
+shell-integration-features = no-cursor, sudo, title
+background-opacity = 0.85
+#background-blur-radius = 20
+
+# font
+font-family="JetBrains Mono SemiBold"
+font-size = 10
+
+#misc
+mouse-hide-while-typing
+initial-command = tmux -2
 window-padding-x = 0
 window-padding-y = 0
