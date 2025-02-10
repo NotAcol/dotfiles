@@ -59,6 +59,8 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.opt.whichwrap:append("<>[]hl")
 vim.opt.shortmess:append("sI")
+vim.o.scrolloff = 5
+vim.o.encoding = "utf-8"
 
 -- greek in normal mode
 vim.opt.langmap =

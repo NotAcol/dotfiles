@@ -7,16 +7,16 @@
   
   width = 275
   height = 100
-  offset = 40x60
+  offset = 10x50
   origin = top-right
 
-  frame_width = 1
+  frame_width = 2
   separator_height = 2
-  frame_color = "#11111b"
+  frame_color = "#f2cdcd"
   separator_color = "#11111b"
 
   sort = no
-  font = Overpass 10.5
+  font = JetBrains Mono 10
   markup = full
   format = "<b>%s</b>\n%b"
   alignment = left
@@ -33,7 +33,7 @@
   history_length = 6
   title = Dunst
   class = Dunst
-  corner_radius = 3
+  corner_radius = 20
 
   mouse_left_click = close_current
   mouse_middle_click = do_action

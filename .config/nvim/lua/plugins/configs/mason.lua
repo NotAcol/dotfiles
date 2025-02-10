@@ -3,7 +3,6 @@ return {
 		--lsp
 		"clangd",
 		"glsl_analyzer",
-		"neocmakelsp",
 		"texlab",
 		"markdown-oxide",
 		"lua-language-server",

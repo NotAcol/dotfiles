@@ -90,16 +90,16 @@ $ sudo reflector --sort rate --latest 20 --protocol https --save /etc/pacman.d/m
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin choose \
 zsh neovim yazi trashy ripgrep fd unarchiver duf gdu starship \
 man bat-extras man-pages pass peaclock zathura jq poppler \
-wezterm zathura-pdf-mupdf s glow epy-ereader-git dunst \
-krita cava qalculate-gtk spotify-launcher ventoy fastfetch \
+zathura-pdf-mupdf s glow epy-ereader-git dunst zen-browser-bin \
+cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
 qbittorrent silicon vesktop update-grub polkit thunar qt5ct \
 tmux thunar-archive-plugin gvfs nomacs perl-image-exiftool \
 python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse hyprpolkitagent \
-qt5-wayland qt6-wayland wf-recorder tui-journal hyprpaper \
-hyprcursor hyprlock hypridle grimblast-git brightnessctl \
-xdg-desktop-portal-hyprland ffmpegthumbnailer zen-browser-avx2-bin
+qt5-wayland qt6-wayland wf-recorder hyprpaper brightnessctl \
+hyprcursor hyprlock grimblast-git ffmpegthumbnailer \
+xdg-desktop-portal-hyprland 
 ```
 
 > [!WARNING]

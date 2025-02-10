@@ -74,7 +74,7 @@ return {
 
 			-- experimental signature help support
 
-			signature = { enabled = true },
+			signature = { enabled = false },
 		},
 	},
 }

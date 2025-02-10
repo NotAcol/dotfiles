@@ -9,7 +9,6 @@ return {
 			clangd = {},
 			markdown_oxide = {},
 			texlab = {},
-			neocmake = {},
 			glsl_analyzer = {},
 			asm_lsp = {},
 		},
