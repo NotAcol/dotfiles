@@ -10,7 +10,7 @@ return {
 		},
 		config = function()
 			vim.g.compile_mode = {
-				default_command = "clang++ $(<.debug-flags) ",
+				-- default_command = "clang $(<.debug-flags) ",
 				ask_about_save = false,
 				--			baleia_setup = true,
 			}

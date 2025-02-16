@@ -3,19 +3,18 @@
 set -euo pipefail
 
 echo "-O2
--march=native
--stdlib=libc++ 
+-mavx2
 -lc++abi 
 -fno-exceptions 
 -fno-rtti 
 -Wall 
 -pthreads 
--flto=thin
+-ffinite-math-only
+-fno-math-errno
+-fno-trapping-math
 -fuse-ld=lld" > ./.flags
 
-echo "-O2
--march=native
--stdlib=libc++ 
+echo "-mavx2
 -lc++abi 
 -fno-exceptions 
 -fno-rtti 
@@ -23,8 +22,9 @@ echo "-O2
 -Wextra
 -pedantic
 -pthreads 
--flto=thin
 -fuse-ld=lld 
+-fno-trapping-math
+-fno-math-errno
 -fno-omit-frame-pointer  
 -fsanitize=address
 -ggdb" > ./.debug-flags #fno-omit-frame-pointer is for perf

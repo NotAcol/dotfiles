@@ -26,7 +26,7 @@ return {
 					-- Number of cursor/window lines moved per step
 					vertical = 1,
 					-- Number of cursor/window columns moved per step
-					horizontal = 2,
+					horizontal = 4,
 				},
 			},
 		},

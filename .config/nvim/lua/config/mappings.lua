@@ -37,9 +37,24 @@ map("n", "<leader>gb", "<cmd>Telescope git_branch<cr>", { silent = true, noremap
 map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { silent = true, noremap = true, desc = "git diff" })
 
 --------------- Compilation mode --------------------------------
+local compile_mode = require("compile-mode")
+map("n", "<leader>cd", function()
+	local filename = vim.api.nvim_buf_get_name(0)
+	local command = "clang $(<.debug-flags) " .. filename
+	compile_mode.compile({ args = command })
+end, { desc = "Compile debug mode" })
 
-map("n", "<leader>co", "<CMD>Compile<CR>", { desc = "Compilation mode" })
+map("n", "<leader>cr", function()
+	local filename = vim.api.nvim_buf_get_name(0)
+	local command = "clang $(<.flags) " .. filename
+	compile_mode.compile({ args = command })
+end, { desc = "Compile release mode" })
 
+map("n", "<leader>cs", function()
+	local filename = vim.api.nvim_buf_get_name(0)
+	local command = "clang $(<.flags) " .. filename
+	compile_mode.compile({ args = command })
+end, { desc = "Compile using build.sh script" })
 ----------------------------- file browser ---------------------
 
 -- map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })
@@ -69,6 +84,9 @@ end, { nowait = true, silent = true, desc = "Harpoon select 3" })
 vim.keymap.set("n", "<M-r>", function()
 	harpoon:list():select(4)
 end, { nowait = true, silent = true, desc = "Harpoon select 4" })
+--------- Hop ------------------------------
+local hop = require("hop")
+map("n", "f", "<CMD>HopWord<CR>", { desc = "Hint words to hop to" })
 
 -------- lsp stuff----------------
 

@@ -13,7 +13,7 @@ background-opacity = 1
 font-family="JetBrainsMono NF SemiBold"
 font-size = 10
 
-#misc
+# misc
 initial-command = tmux -2
 window-padding-x = 0
 window-padding-y = 0
