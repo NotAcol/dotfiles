@@ -72,4 +72,18 @@ return {
 			},
 		},
 	},
+	{
+
+		"rose-pine/neovim",
+		name = "rose-pine",
+		opts = {
+			variant = "main",
+			dakr_variant = "main",
+			enable = {
+				terminal = true,
+				legacy_highlights = true,
+				migrations = true,
+			},
+		},
+	},
 }

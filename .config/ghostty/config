@@ -1,5 +1,6 @@
 # theme
 theme = catppuccin-mocha
+#theme = rose-pine
 window-decoration = false
 cursor-invert-fg-bg = true
 cursor-style = block

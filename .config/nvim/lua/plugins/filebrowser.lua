@@ -98,7 +98,7 @@ return {
 				disable_preview = function(filename)
 					return false
 				end,
-				win_options = { winblend = 5 },
+				win_options = { winblend = 0 },
 			},
 			float = {
 				padding = 2,
@@ -106,7 +106,7 @@ return {
 				max_height = 40,
 				border = "rounded",
 				win_options = {
-					winblend = 5,
+					winblend = 0,
 				},
 				-- preview_split: Split direction: "auto", "left", "right", "above", "below".
 				preview_split = "auto",
