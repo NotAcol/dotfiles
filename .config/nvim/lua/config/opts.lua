@@ -11,10 +11,10 @@ vim.o.laststatus = 3
 vim.o.showmode = false
 
 -- Make line numbers default
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.wo.number = false
+vim.wo.relativenumber = false
 vim.o.ruler = false
-vim.o.numberwidth = 2
+--vim.o.numberwidth = 3
 
 -- Tabs vs spaces
 vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
@@ -40,7 +40,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = "yes"
+vim.wo.signcolumn = "no"
 
 -- Decrease update time
 vim.o.updatetime = 250

@@ -26,17 +26,8 @@ map("n", "<leader>x", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Close Curren
 
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
------------- git --------------------
-
-local neogit = require("neogit")
-map("n", "<leader>gs", neogit.open, { silent = true, noremap = true, desc = "git status" })
-map("n", "<leader>gc", "<cmd>Neogit commit<cr>", { silent = true, noremap = true, desc = "git commit" })
-map("n", "<leader>gp", "<cmd>Neogit pull<cr>", { silent = true, noremap = true, desc = "git pull" })
-map("n", "<leader>gP", "<cmd>Neogit push<cr>", { silent = true, noremap = true, desc = "git push" })
-map("n", "<leader>gb", "<cmd>Telescope git_branch<cr>", { silent = true, noremap = true, desc = "git branch" })
-map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { silent = true, noremap = true, desc = "git diff" })
-
 --------------- Compilation mode --------------------------------
+
 local compile_mode = require("compile-mode")
 map("n", "<leader>cd", function()
 	local filename = vim.api.nvim_buf_get_name(0)
@@ -52,9 +43,10 @@ end, { desc = "Compile release mode" })
 
 map("n", "<leader>cs", function()
 	local filename = vim.api.nvim_buf_get_name(0)
-	local command = "clang $(<.flags) " .. filename
+	local command = "./build.sh " .. filename
 	compile_mode.compile({ args = command })
 end, { desc = "Compile using build.sh script" })
+
 ----------------------------- file browser ---------------------
 
 -- map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })

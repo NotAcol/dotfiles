@@ -3,7 +3,7 @@
     "position": "top",
     "margin-left": 10,
     "margin-right": 10,
-    "margin-top": 6,
+    "margin-top": 2,
     "spacing": 1,
 
     "modules-left": ["custom/icon", "hyprland/workspaces"],

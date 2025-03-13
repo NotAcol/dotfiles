@@ -17,10 +17,14 @@ return {
 				["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
 				["<C-e>"] = {},
 				["<C-Tab>"] = { "hide" },
-				["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
-				["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
+				["<C-n>"] = { "snippet_forward", "select_next", "fallback" },
+				["<C-p>"] = { "snippet_backward", "select_prev", "fallback" },
+
 				["<CR>"] = { "accept", "fallback" },
-				cmdline = {
+			},
+
+			cmdline = {
+				keymap = {
 					["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
 					["<C-Tab>"] = { "hide" },
 					["<Tab>"] = { "show", "snippet_forward", "select_next", "fallback" },

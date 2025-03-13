@@ -25,6 +25,7 @@ return {
 			},
 			integrations = {
 				blink_cmp = true,
+				bufferline = true,
 				alpha = true,
 				gitsigns = true,
 				harpoon = true,

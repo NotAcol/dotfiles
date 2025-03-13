@@ -89,17 +89,16 @@ $ sudo reflector --sort rate --latest 20 --protocol https --save /etc/pacman.d/m
 ```console
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin choose \
 zsh neovim yazi trashy ripgrep fd unarchiver duf gdu starship \
-man bat-extras man-pages pass peaclock zathura jq poppler \
+man bat-extras man-pages pass zathura jq poppler grimblast-git \
 zathura-pdf-mupdf s glow epy-ereader-git dunst zen-browser-bin \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
-qbittorrent silicon vesktop update-grub polkit thunar qt5ct \
-tmux thunar-archive-plugin gvfs nomacs perl-image-exiftool \
+qbittorrent silicon vesktop update-grub polkit dolphin qt5ct \
+tmux gvfs nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
 python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse hyprpolkitagent \
 qt5-wayland qt6-wayland wf-recorder hyprpaper brightnessctl \
-hyprcursor hyprlock grimblast-git ffmpegthumbnailer \
-xdg-desktop-portal-hyprland 
+hyprcursor hyprlock ffmpegthumbnailer \
 ```
 
 > [!WARNING]
@@ -518,9 +517,9 @@ $ sudo systemctl enable nvidia-resume.service
 
 ```console
 $ paru -S vulkan-devel vulkan-icd-loader git-delta inotify-tools \
-lib32-vulkan-icd-loader glm glfw benchmark linux-tools python-catppuccin \
+lib32-vulkan-icd-loader glm glfw linux-tools python-catppuccin \
 clang llvm ninja pwndbg-git lazygit openssh python-pygments \
-libc++abi libc++ tracy imhex-bin
+libc++abi libc++ tracy imhex-bin valgrind sshs fasm
 ```
 
 > Grab the template for .gitconfig from dotfiles/_gitstuff for delta integration, you also need the bad theme
@@ -537,21 +536,6 @@ texlive-binextra texlive-fontsrecommended texlive-langgreek
 - In cli gdb try `setup [0-3]` for different layouts
 
 >[!NOTE]
-> Nvim-dapui blows massive dick tho better just use pwndbg in different terminal window.
+> Nvim-dapui blows massive dick tho better just use pwndbg in different terminal window. (pls god ryan port the rad debugger alread)
 
 ![](_assets/gdb.png)
-
-
-## Scripts 
-
-- flags.sh
-> Creates two flag files in pwd which you can ```clang++ $(<.flags) [cpp file in current dir]``` cause fuck make
-
-- analyse.sh [file in current dir]
-> Perf record and perf reports executable, can "perf annotate -M intel" after as well for assembly
-
-- monitor.sh [cpp file in current dir]
-> Monitors a C or C++ file for changes and outputs assembly, refreshing every time the file gets changed. You can make a .flags file to provide it your own flags clang++
-
-- disassemble.sh [file in current dir]
-> Disassembles and prints syntax highlighted assembly with pygmentize

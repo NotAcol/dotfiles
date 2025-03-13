@@ -85,7 +85,7 @@ timer 10m:0s
 
 # set the string value to be executed by a shell upon timer completion,
 # an empty string clears the value
-timer-exec 'notify-send -a peaclock "timer complete"'
+timer-exec 'notify-send -a sound "timer complete"'
 
 # set the duration in milliseconds between reading user input
 rate-input 50

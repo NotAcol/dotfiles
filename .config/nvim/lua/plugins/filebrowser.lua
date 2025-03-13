@@ -27,7 +27,7 @@ return {
 			columns = {
 				"icon",
 				"permissions",
-				"size",
+				--"size",
 				--"mtime",
 			},
 			buf_options = {
@@ -72,6 +72,8 @@ return {
 			use_default_keymaps = false,
 			view_options = {
 				show_hidden = true,
+				natural_order = "fast",
+				case_insensitive = true,
 				sort = {
 					{ "type", "asc" },
 					{ "size", "desc" },

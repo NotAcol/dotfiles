@@ -2,7 +2,6 @@ export TERMINAL="ghostty"
 export BAT_THEME="Catppuccin Mocha"
 export LESSOPEN="|bat --paging=auto --color=always %s"
 export PAGER="less"
-#export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANPAGER='nvim +Man!'
 export MANROFFOPT="-c"
 export BATPIPE="color"
@@ -23,8 +22,6 @@ export FZF_TMUX_OPTS=" -p90%,70% "
 # keeping this in separate file cause it's aids
 export LS_COLORS="$(<$HOME/.ls_colors)"
 
-export PATH="$PATH:$HOME/.scripts"
-
 # Fix for password store
 export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
 
@@ -37,10 +34,6 @@ alias find="fd"
 alias clock="peaclock --config-dir ~/.config/peaclock"
 alias tmux="tmux -2"
 
-# convenience stuff
-alias manpages='man -k . | fzf -e | awk '\''{print $1$2}'\'' | xargs man'
-alias mt="sudo mount -o uid=$USER"
-
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
@@ -49,11 +42,41 @@ alias rm='rm -i' #Better use trash
 # grimblast for screenshot
 alias sc='grimblast copy area'
 
-# quick disassembly
-alias disasm="objdump -M intel,amd64 -g -C -S --visualize-jumps --no-addresses --no-show-raw-insn"
-
 # tmux and kitty dont play well with images so have to do this cringe shit
 alias fetch="kitten icat --align=left ~/Pictures/yorha.png | fastfetch --raw - --logo-width 40 --logo-height 19"
+
+# convenience stuff
+alias manpages='man -k . | fzf -e | awk '\''{print $1$2}'\'' | xargs man'
+alias mt="sudo mount -o uid=$USER"
+
+function stopwatch() {
+    if [ -z "$1" ]; then
+        echo "Usage: stopwatch <time>"
+    else
+        sleep $1 ; notify-send -a sound "Timer end" 
+    fi
+}
+
+# quick disassembly
+function disasm() {
+    if [ -z "$1" ]; then
+        echo "Usage: disasm <executable>"
+    else
+        file="$1"
+        objdump -M intel,amd64 -g -C -S --visualize-jumps --no-show-raw-insn $file | pygmentize -P style=catppuccin-mocha -l asm |  less -R
+    fi
+}
+
+# uses perf to give a quick overview of performance
+function analyse() {
+    if [ -z "$1" ]; then
+        echo "Usage: analyse <executable>"
+    else
+        file="$1"
+        perf record -g "$file"
+        perf report -M intel --percent-limit=0.5 -g "graph,0.5,caller"
+    fi
+}
 
 # yazi change cwd on close
 function y() {
@@ -63,4 +86,40 @@ function y() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+function flags() {
+    echo "-O2
+-mavx2
+-mfma
+-lc++abi 
+-fno-exceptions 
+-fno-rtti 
+-Wall 
+-pthread
+-ffinite-math-only
+-fno-math-errno
+-fno-trapping-math
+-fuse-ld=lld
+-flto=thin" > ./.flags
+
+    echo "-mavx2
+-DDBUG
+-mfma
+-lc++abi 
+-fno-exceptions 
+-fno-rtti 
+-Wall 
+-Wextra
+-Wpedantic
+-pthread
+-fuse-ld=lld 
+-fno-trapping-math
+-fno-math-errno
+-fno-omit-frame-pointer  
+-fsanitize=address
+-ggdb" > ./.debug-flags 
+
+#fno-omit-frame-pointer is for perf 
+    echo -e "\033[1;33m                     remember to use tsan as well retard (-fsanitize=thread)"
 }
