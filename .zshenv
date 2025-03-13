@@ -19,6 +19,9 @@ export FZF_DEFAULT_OPTS=" \
 export FZF_DEFAULT_COMMAND="fd --hidden --max-depth=5 --strip-cwd-prefix --exclude .git"
 export FZF_TMUX_OPTS=" -p90%,70% "
 
+# This is needed for valgrind cause glibc is a joke XD
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+
 # keeping this in separate file cause it's aids
 export LS_COLORS="$(<$HOME/.ls_colors)"
 
@@ -93,6 +96,7 @@ function flags() {
 -mavx2
 -mfma
 -lc++abi 
+-stdlib=libc++
 -fno-exceptions 
 -fno-rtti 
 -Wall 
@@ -107,6 +111,7 @@ function flags() {
 -DDBUG
 -mfma
 -lc++abi 
+-stdlib=libc++
 -fno-exceptions 
 -fno-rtti 
 -Wall 

@@ -93,7 +93,7 @@ man bat-extras man-pages pass zathura jq poppler grimblast-git \
 zathura-pdf-mupdf s glow epy-ereader-git dunst zen-browser-bin \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
 qbittorrent silicon vesktop update-grub polkit dolphin qt5ct \
-tmux gvfs nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
+tmux gvfs mirage perl-image-exiftool xdg-desktop-portal-hyprland \
 python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse hyprpolkitagent \
