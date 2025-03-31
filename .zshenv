@@ -96,34 +96,47 @@ function flags() {
 -mavx2
 -mfma
 -lc++abi 
--stdlib=libc++
 -fno-exceptions 
 -fno-rtti 
--Wall 
 -pthread
+-ftime-trace
 -ffinite-math-only
 -fno-math-errno
 -fno-trapping-math
+-fno-signed-zeros
+-freciprocal-math
+-fassociative-math
 -fuse-ld=lld
 -flto=thin" > ./.flags
 
-    echo "-mavx2
--DDBUG
--mfma
+    echo "-DDEBUG
+-DPROFILE=1
+-DENABLE_ASSERT
+-O0
+-mavx2
 -lc++abi 
--stdlib=libc++
 -fno-exceptions 
 -fno-rtti 
 -Wall 
 -Wextra
--Wpedantic
+-Wno-unused-function
+-Wno-c++20-designator
+-Wno-c11-extensions
+-Wno-null-pointer-subtraction
+-Wno-gnu-anonymous-struct
+-Wno-missing-braces
+-Wnull-dereference
+-Wdouble-promotion
+-Wshadow
+-Wformat=2
 -pthread
 -fuse-ld=lld 
 -fno-trapping-math
 -fno-math-errno
 -fno-omit-frame-pointer  
--fsanitize=address
--ggdb" > ./.debug-flags 
+-ggdb3
+-lrt
+-fsanitize=address" > ./.debug-flags 
 
 #fno-omit-frame-pointer is for perf 
     echo -e "\033[1;33m                     remember to use tsan as well retard (-fsanitize=thread)"

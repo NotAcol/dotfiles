@@ -45,24 +45,10 @@ $ stow --adopt .
 $ git restore .
 ```
 
-# New kernel
-
-I use the linux-zen kernel cause it's faster :).
-
-```console
-$ paru -S linux-zen linux-zen-headers update-grub
-$ update-grub
-```
-you will also have to change `Target=linux` to `Target=linux-zen` in the [nvidia pacman hook](<README#Pacman hook>)
-# Locales
-To add new locales do `sudo nvim /etc/locale.gen` and uncomment the locale you want and run `sudo local-gen`
-> [!TIP]
-> Big preference to utf8
-
 # APPS
 
-
 ## Before installing apps 
+### Chaotic-aur
 
 ```console
 $ su -
@@ -102,9 +88,6 @@ hyprcursor hyprlock ffmpegthumbnailer \
 ```
 
 > [!WARNING]
-> Using the avx2 version of the zen browser. If you have an older cpu use zen-browser-bin
-
-> [!WARNING]
 > if there are issues with missing font icons do `paru -S nerd-fonts-complete-mono-glyphs`
 
 
@@ -138,26 +121,6 @@ $ sudo systemctl enable --now bluetooth.service
 $ paru -S obs-studio obs-vaapi obs-vkcapture-git lib32-obs-vkcapture-git \
 obs-rtspserver obs-gstreamer ffmpeg-obs cef-minimal-obs-rc-bin xdg-desktop-portal-wlr
 ```
-For image editing use [affinity](https://github.com/Twig6943/AffinityOnLinux) products (adobe straight up doesnt work) and for video use davinci but not aur version it perma breaks
-> [!note]
-> You can install affinity products using just a script from [here](https://github.com/ryzendew/AffinityOnLinux) just check if it's up to date
-
-### Using obs for virtual cam
-
-```console
-$ paru -S linux-headers v4l2loopback-dkms
-$ sudo touch /etc/modules-load.d/v4l2loopback.conf
-$ sudo nvim /etc/modules-load.d/v4l2loopback.conf
-```
-
-Add
-
-```text
-v4l2loopback
-```
-
->Will work after reboot
-
 
 ## Zsh with zap
 
@@ -201,16 +164,6 @@ Prefix is ctrl+space
 - prefix + X    kill session
 - ctrl + hjkl   go to left up down right pane
 
-## WezTerm key binds
-ctrl + shift + 
-- S horizontal split
-- A vertical split
-- T new tab
-- Z zooming into a pane
-- HJKL select left up down right pane
-- X kill pane
-- {} left right tab
-
 ## Nvim setup
 
 ```console
@@ -220,6 +173,12 @@ $ nvim
 
 - :Lazy sync
 - :MasonToolsInstallsync
+
+## Update tealdeer manpages
+
+```console
+$ tldr --update
+```
 
 ## Paru 
 
@@ -245,8 +204,6 @@ $ sudo nvim /etc/paru.conf
 $ paru --gendb
 ```
 
-Add a pacman hook to clear old cache
-
 ```console
 $ sudo touch /etc/pacman.d/hooks/paccache.hook
 $ sudo nvim /etc/pacman.d/hooks/paccache.hook
@@ -266,58 +223,11 @@ When = PostTransaction
 Exec = /usr/bin/paccache -rvk2
 ```
 
-## Update tealdeer manpages
-
 ```console
-$ tldr --update
+$ sudo mkinitcpio -P
 ```
 
-## GIMP
-Using [PhotGIMP](https://github.com/Diolinux/PhotoGIMP/tree/master), it might need update if 3.0 ever comes out XD
-> [!WARNING]
-> Scratch that, gimp blows too much dick it's unusable. Maybe use krita?
-
-## Catppuccinification
-
-```console
-$ paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
-catppuccin-cursors-moch apapirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
-```
-
-- Set up nwg-look and kvantum to catppuccin-mocha-flamingo
-- Copy the curosr theme you want from /usr/share/icons/ to ~/local/share/icons and select it in both nwg and hyprland.conf
-> [!NOTE]
-> nwg look cursor size 22 and hyprcursor 32 are the same
-- vesktop theme https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css
-
-
-## Bat theme
-
-```console
-$ wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-$ bat cache --build
-```
-
-## Grub theme
-
-```console
-$ sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
-$ sudo nvim /etc/default/grub
-```
-
-GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
-
-```console
-$ sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
->Can skip making the config here if nvidia GPU
-
-## Firefox
-
-#### Moved to zen from firefox but same things apply just change firefox to zen in paths
-
-[Grab betterfox](https://github.com/yokoffing/Betterfox)
+## Zen Browser
 
 ### Add-ons
 
@@ -325,59 +235,11 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 - [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 - [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/)
 - [Youtube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
-- [Auto Tab Discard](https://addons.mozilla.org/en-US/firefox/addon/auto-tab-discard/)
-
-> [!NOTE]
-> auto tab discard is built in to zen
 
 ##### Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
 
 > [!NOTE] 
-> if you are gonna use zen and trydactil do `:bind J tabnext` and `:bind K tabprev` to get more sane behavior
-
-### Rice
-
-##### Add [Catppuccin theme](https://github.com/catppuccin/firefox) (only needed for firefox)
-
-##### Add custom css
-- about:config
-- toolkit.legacyUserProfileCustomizations.stylesheets → true
-- about:profiles → Root Directory
-
-```console
-$ pkill -f firefox
-$ cp -r ~/dotfiles/_firefox/chrome ./
-```
-Start firerfox and it should work
-
->Big thanks to [this](https://github.com/Haruzona/penguinFox) repo for the css files
-
-### Custom Home Page
-
-- Settings → Home → New Windows and Tabs
-- Custom URLs...
-- File:///home/YOUR-USERNAME/dotfiles/_firefox/startpage/index.html
-
-
-### Nvidia + firefox
-
-> [!IMPORTANT]
-> You know if vaapi is working when on about:support in the Compositing field it has WebRender
-> For now just with zen browser it just works with 
-> - media.ffmpeg.vaapi.enabled true
-> - gfx.webrender.all true
-
-|  about:config |  |
-| :-----------: | :-------------------------------: |
-| media.ffmpeg.vaapi.enabled |true|
-| media.rdd-ffmpeg.enabled |true|
-| media.av1.enabled |false|
-| gfx.x11-egl.force-enabled |true |
-| widget.dmabuf.force-enabled |true|
-| gfx.webrender.all |true|
-| gfx.webrender.enabled |true|
-| layers.acceleration.force-enabled |true|
-| media.hardware-video-decoding.force-enabled |true |
+> For trydactil do `:bind J tabnext` , `:bind K tabprev` `:set smoothscroll true` to get more sane behavior
 
 ## Spotify
 
@@ -387,21 +249,6 @@ Start firerfox and it should work
 $ sudo nvim /etc/spotify-launcher.conf
 ```
 uncomment: extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
-
-
-#### Spotify theme
-
-Login to spotify
-
-```console
-$ nvim ~/dotfiles/.config/spicetify/config-xpui.ini
-```
-
-Edit path to use correct username
-
-```console
-$ spicetify backup apply
-```
 
 #### Block spotify ads
 
@@ -426,6 +273,69 @@ $ sudo nvim /etc/hosts
 127.0.0.1 securepubads.g.doubleclick.net
 127.0.0.1 8.126.154.104.bc.googleusercontent.com
 127.0.0.1 104.154.126.8
+```
+
+## Rice
+
+```console
+$ paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
+papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
+```
+
+Set up nwg-look and kvantum to catppuccin-mocha-flamingo
+https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css
+
+### Zen theme
+
+#### Add custom css
+- about:config
+- toolkit.legacyUserProfileCustomizations.stylesheets → true
+- about:profiles → Root Directory
+
+```console
+$ pkill -f zen-bin
+$ cp -r ~/dotfiles/_zen/chrome ./
+```
+Start zen and it should work
+
+#### Custom Home Page
+
+- Settings → Home → New Windows and Tabs
+- Custom URLs...
+- File:///home/YOUR-USERNAME/dotfiles/_zen/startpage/index.html
+
+### Bat theme
+
+```console
+$ wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+$ bat cache --build
+```
+
+### Spotify theme
+
+Login to spotify
+
+```console
+$ nvim ~/dotfiles/.config/spicetify/config-xpui.ini
+```
+
+Edit path to use correct username
+
+```console
+$ spicetify apply
+```
+
+### Grub theme
+
+```console
+$ sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
+$ sudo nvim /etc/default/grub
+```
+
+GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
+
+```console
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 # NVIDIA
@@ -468,12 +378,15 @@ options nvidia_drm modeset=1 fbdev=1
 
 ```console
 $ sudo mkinitcpio -P
+```
+
+### Pacman hook
+
+```console
 $ sudo mkdir /etc/pacman.d/hooks/ 
 $ sudo touch /etc/pacman.d/hooks/nvidia.hook
 $ sudo nvim /etc/pacman.d/hooks/nvidia.hook
 ```
-
-### Pacman hook
 
 ```text
 [Trigger]
@@ -486,7 +399,7 @@ Target=nvidia-dkms
 #Target=nvidia-open
 #Target=nvidia-lts
 # If running a different kernel, modify below to match
-Target=linux-zen
+Target=linux
 
 [Action]
 Description=Updating NVIDIA module in initcpio
@@ -511,7 +424,7 @@ $ sudo systemctl enable nvidia-hibernate.service
 $ sudo systemctl enable nvidia-resume.service
 ```
 
->Maybe install xorg-xwayland-explicit-sync-git if flickering persists after reboot
+Maybe install xorg-xwayland-explicit-sync-git if flickering persists after reboot
 
 # Dev stuff
 

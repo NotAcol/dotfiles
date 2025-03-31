@@ -1,7 +1,6 @@
 local map = vim.keymap.set
 
 ----------------- Moving around ----------------
-
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
 map("i", "<C-h>", "<Left>", { desc = "move left" })
@@ -14,7 +13,11 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
+
 map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Window left" })
 map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Window right" })
 map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Window down" })
@@ -31,13 +34,13 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic locli
 local compile_mode = require("compile-mode")
 map("n", "<leader>cd", function()
 	local filename = vim.api.nvim_buf_get_name(0)
-	local command = "clang $(<.debug-flags) " .. filename
+	local command = "clang++ $(<.debug-flags) " .. filename
 	compile_mode.compile({ args = command })
 end, { desc = "Compile debug mode" })
 
 map("n", "<leader>cr", function()
 	local filename = vim.api.nvim_buf_get_name(0)
-	local command = "clang $(<.flags) " .. filename
+	local command = "clang++ $(<.flags) " .. filename
 	compile_mode.compile({ args = command })
 end, { desc = "Compile release mode" })
 
