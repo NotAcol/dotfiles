@@ -2,6 +2,8 @@ return {
 	ensure_installed = {
 		"lua",
 		"cpp",
+		"glsl",
+		"c",
 		"bash",
 		"asm",
 		"markdown",
@@ -13,6 +15,9 @@ return {
 		enable = true,
 		use_languagetree = true,
 		additional_vim_regex_highlighting = false,
+	},
+	custom_captures = {
+		["constructor"] = "@function", -- Forces PascalCase to use @function highlight
 	},
 	indent = { enable = true },
 	autotag = {

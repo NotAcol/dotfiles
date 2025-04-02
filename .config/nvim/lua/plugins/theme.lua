@@ -12,7 +12,7 @@ return {
 				comments = { "italic" }, -- Change the style of comments
 				conditionals = {},
 				loops = {},
-				functions = {},
+				functions = { "italic" },
 				keywords = {},
 				strings = {},
 				variables = {},
@@ -52,6 +52,47 @@ return {
 						background = false,
 					},
 				},
+			},
+			-- NOTE(acol): this was so fucking disgusting treeshitter is legit retarded for taking
+			-- all PascalCase functions as constructors, this is just the workaround...
+			highlight_overrides = {
+				mocha = function(colors)
+					return {
+						["@constructor"] = { fg = colors.blue },
+						["@function"] = { fg = colors.blue },
+						["@function.call"] = { fg = colors.blue },
+						["@type"] = { fg = colors.rosewater },
+						["@type.definition"] = { fg = colors.rosewater },
+						["@type.builtin"] = { fg = colors.rosewater },
+						["@type.builtin.cpp"] = { fg = colors.rosewater },
+						["@variable.member"] = { fg = "#cdd6f5" },
+						["@variable.parameter"] = { fg = colors.text },
+						["@_parent"] = { fg = colors.teal },
+
+						["@keyword.conditional"] = { fg = colors.mauve },
+						["@keyword.repeat"] = { fg = colors.mauve },
+						["@keyword.loop"] = { fg = colors.mauve },
+						["@keyword.function"] = { fg = colors.mauve },
+						["@keyword.type"] = { fg = colors.mauve },
+						["@keyword.modifier"] = { fg = colors.mauve },
+						["@keyword.return"] = { fg = colors.mauve },
+						--["@keyword.import"] = { fg = #e6d9bc },
+						["@keyword"] = { fg = colors.mauve },
+
+						["@operator"] = { fg = colors.teal },
+						["@keyword.operator"] = { fg = colors.lavender },
+						["@keyword.import"] = { fg = colors.lavender },
+						["@keyword.directive"] = { fg = colors.lavender },
+						["@keyword.directive.define"] = { fg = colors.lavender },
+
+						["@constant"] = { fg = colors.lavender },
+						["@constant.builtin"] = { fg = colors.lavender },
+						["@constant.macro"] = { fg = colors.lavender },
+						["@number"] = { fg = colors.maroon },
+						["@string.escape"] = { fg = colors.green },
+						["@string"] = { fg = colors.green },
+					}
+				end,
 			},
 			custom_highlights = {
 				-- function.builtin

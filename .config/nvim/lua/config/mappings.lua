@@ -53,9 +53,10 @@ end, { desc = "Compile using build.sh script" })
 ----------------------------- file browser ---------------------
 
 -- map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })
-map("n", "<C-n>", function()
-	require("oil").toggle_float()
-end, { desc = "Open file browser" })
+--map("n", "<C-n>", function()
+--	require("oil").toggle_float()
+--end, { desc = "Open file browser" })
+map("n", "<C-n>", "<CMD>e.<CR>", { desc = "file browser/editor" })
 
 --------------- harpoon stuff ------------------------------------
 -- this is basically better marks
@@ -140,7 +141,7 @@ map("n", "<leader>fW", "<cmd>Telescope grep_string<CR>", { desc = "telescope gre
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 map("n", "<leader>m", "<cmd>Telescope marks initial_mode=normal<CR>", { desc = "telescope find marks" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
-map("n", "<leader>ff", "<cmd>Telescope find_files find_command=fd,-t,f,--hidden<cr>", { desc = "telescope find files" })
+map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "telescope find files" })
 map("n", "<leader>th", "<cmd>Telescope colorscheme<cr>", { desc = "telescope change theme" })
 map("n", "<leader>:", "<cmd>Telescope command_history initial_mode=normal<cr>", { desc = "telescope command history" })
 map("n", "<leader>fq", "<cmd>Telescope quickfix initial_mode=normal<cr>", { desc = "telescope quickfix list" })
