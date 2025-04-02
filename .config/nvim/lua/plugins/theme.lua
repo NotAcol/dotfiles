@@ -80,7 +80,8 @@ return {
 						["@keyword"] = { fg = colors.mauve },
 
 						["@operator"] = { fg = colors.teal },
-						["@keyword.operator"] = { fg = colors.lavender },
+						["@keyword.operator"] = { fg = colors.teal },
+
 						["@keyword.import"] = { fg = colors.lavender },
 						["@keyword.directive"] = { fg = colors.lavender },
 						["@keyword.directive.define"] = { fg = colors.lavender },
