@@ -58,8 +58,14 @@ return {
 			highlight_overrides = {
 				mocha = function(colors)
 					return {
+						--						Normal = { bg = colors.mantle },
+						--						NormalFloat = { bg = colors.mantle },
+						--						Pmenu = { bg = colors.mantle }, -- Popup menu background
+						--						WinSeparator = { fg = colors.surface2 }, -- Window separator lines
+						--						CursorLine = { bg = colors.surface0 }, -- Current line highlight
 						["@constructor"] = { fg = colors.blue },
-						["@function"] = { fg = colors.blue },
+						["@function"] = { fg = colors.maroon },
+						["@function.macro"] = { fg = colors.blue },
 						["@function.call"] = { fg = colors.blue },
 						["@type"] = { fg = colors.rosewater },
 						["@type.definition"] = { fg = colors.rosewater },
@@ -67,7 +73,10 @@ return {
 						["@type.builtin.cpp"] = { fg = colors.rosewater },
 						["@variable.member"] = { fg = "#cdd6f5" },
 						["@variable.parameter"] = { fg = colors.text },
-						["@_parent"] = { fg = colors.teal },
+
+						["@comment.todo"] = { fg = colors.subtext, bg = colors.red },
+						["@comment.error"] = { fg = colors.subtext, bg = colors.yellow },
+						["@comment.note"] = { fg = colors.subtext, bg = colors.teal },
 
 						["@keyword.conditional"] = { fg = colors.mauve },
 						["@keyword.repeat"] = { fg = colors.mauve },
@@ -75,6 +84,7 @@ return {
 						["@keyword.function"] = { fg = colors.mauve },
 						["@keyword.type"] = { fg = colors.mauve },
 						["@keyword.modifier"] = { fg = colors.mauve },
+						["@attribute"] = { fg = colors.mauve },
 						["@keyword.return"] = { fg = colors.mauve },
 						--["@keyword.import"] = { fg = #e6d9bc },
 						["@keyword"] = { fg = colors.mauve },
@@ -85,12 +95,13 @@ return {
 						["@keyword.import"] = { fg = colors.lavender },
 						["@keyword.directive"] = { fg = colors.lavender },
 						["@keyword.directive.define"] = { fg = colors.lavender },
+						["@boolean"] = { fg = colors.lavender },
 
 						["@constant"] = { fg = colors.lavender },
 						["@constant.builtin"] = { fg = colors.lavender },
 						["@constant.macro"] = { fg = colors.lavender },
 						["@number"] = { fg = colors.maroon },
-						["@string.escape"] = { fg = colors.green },
+						["@string.escape"] = { fg = colors.maroon },
 						["@string"] = { fg = colors.green },
 					}
 				end,

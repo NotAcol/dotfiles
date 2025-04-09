@@ -445,8 +445,9 @@ texlive-binextra texlive-fontsrecommended texlive-langgreek
 
 
 ## GDB
-- Added gdb support for nvim with dup and dupui for quick and dirty debug. Can do :enew | r !a.out to get an obj dump in a new buffer. 
+- Two gdb init files one is for gf the other one is for pwndbg 
 - In cli gdb try `setup [0-3]` for different layouts
+- [gf](https://github.com/nakst/gf) works with [this](https://github.com/nakst/gf/pull/190) patch 
 
 >[!NOTE]
 > Nvim-dapui blows massive dick tho better just use pwndbg in different terminal window. (pls god ryan port the rad debugger alread)

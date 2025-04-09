@@ -11,9 +11,9 @@ vim.o.laststatus = 3
 vim.o.showmode = false
 
 -- Make line numbers default
-vim.wo.number = false
+vim.wo.number = true
 vim.wo.relativenumber = false
-vim.o.ruler = false
+vim.o.ruler = true
 --vim.o.numberwidth = 3
 
 -- Tabs vs spaces
