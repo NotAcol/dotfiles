@@ -63,6 +63,13 @@ return {
 						--						Pmenu = { bg = colors.mantle }, -- Popup menu background
 						--						WinSeparator = { fg = colors.surface2 }, -- Window separator lines
 						--						CursorLine = { bg = colors.surface0 }, -- Current line highlight
+
+						CompileModeWarning = { fg = colors.yellow }, -- Current line highlight
+						CompileModeError = { fg = colors.red }, -- Current line highlight
+						CompileModeInfo = { fg = colors.green }, -- Current line highlight
+						CompileModeMessageRow = { fg = colors.mauve }, -- Current line highlight
+						CompileModeMessageCol = { fg = colors.text }, -- Current line highlight
+
 						["@constructor"] = { fg = colors.blue },
 						["@function"] = { fg = colors.maroon },
 						["@function.macro"] = { fg = colors.blue },
