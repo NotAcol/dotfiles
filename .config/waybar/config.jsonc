@@ -6,14 +6,14 @@
     "margin-top": 2,
     "spacing": 1,
 
-    "modules-left": ["custom/icon", "hyprland/workspaces"],
+    "modules-left": ["group/menu", "hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory" ,"disk", "pulseaudio", "tray"],
+    "modules-right": ["network", "pulseaudio", "cpu", "memory" ,"disk", "tray"],
 
     "hyprland/workspaces": {
         "on-click": "activate",
         "persistent-workspaces": {
-            "*": 2,
+            "*": 2
          },
         "format": "{icon}",
         "format-icons": {
@@ -27,12 +27,12 @@
             "8": "8",
             "9": "9",
             "10": "10"
-         },
+         }
     },
     "tray": {
         "icon-size": 18,
         "spacing": 5,
-        "show-passive-items": true,
+        "show-passive-items": true
     },
     "clock": {
         "interval": 1,
@@ -47,20 +47,25 @@
     },
     "memory": {
         "interval": 2,
-        "format": "  {}%"
+        "format": " {}%"
     },
    "disk": {
         "interval": 15,
-        "format": "󰋊 {percentage_used}%",
+        "format": "󰋊 {percentage_used}%"
     },
     "network": {
-        "format-wifi": " :{ipaddr}",
-        "format-ethernet": " {ipaddr}/{cidr}"  ,
+        "interval": 2,
+        "format": "{icon} {bandwidthDownBytes}⇣",
+        "format-disconnected": "{icon}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)",
         "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "{ifname} (No IP)  ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-icons": {
+            "disconnected": "󰤭",
+            "wifi": ["󰤟", "󰤢", "󰤨"],
+            "default": " "
+        },
+        "on-click": "nm-connection-editor",
+        "on-click-right": "blueberry"
     },
     "pulseaudio": {
         "interval": 30,
@@ -81,11 +86,51 @@
         },
         "on-click": "pavucontrol"
     },
+    "group/menu": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300
+        },
+        "modules": [
+            "custom/icon",
+            "group/power"
+        ]
+    },
+    "group/power": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/power",
+            "custom/logout",
+            "custom/lock",
+            "custom/reboot"
+        ]
+    },
     "custom/icon": {
       "format": "{icon}",
       "format-icons": "⚞ ⮝ ⚟",
       "exec-on-event": "true",
+      "tooltip": false,
       "on-click": "rofi -show drun",
-      "on-click-right": "grimblast copy area",
+      "on-click-right": "grimblast copy area"
     },
+    "custom/logout": {
+        "format": "󰗼",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit"
+    },
+    "custom/lock": {
+        "format": "󰍁",
+        "tooltip": false,
+        "on-click": "hyprlock"
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip": false,
+        "on-click": "reboot"
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "shutdown now"
+    }
 }

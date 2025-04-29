@@ -40,20 +40,9 @@ button:hover {
     border-radius: 90px;
 }
 
-#custom-icon {
-    color: @flamingo;
-    font-weight: 600;
-    margin-right: 10px;
-    padding-left: 15px;
-    padding-right: 14px;
-    padding-top: 5px;
-    border-radius: 90px;
-    background: @crust
-}
-
 #workspaces {
     font-weight: 600;
-    margin-right: 10px;
+    margin-left: 10px;
     padding: 5px 10px;
     border-radius: 90px;
     background: @crust
@@ -87,9 +76,47 @@ button:hover {
 #disk {
     color: @flamingo;
     font-weight: 600;
-    margin-right: 10px;
+    margin-right: 3px;
     padding: 6px 15px;
     border-radius: 90px;
+    background: @crust
+}
+
+#menu .drawer-child {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#menu:hover .drawer-child {
+    opacity: 1;
+}
+    
+#custom-icon {
+    color: @flamingo;
+    font-weight: 600;
+    padding-left: 15px;
+    padding-right: 14px;
+    padding-top: 5px;
+    border-radius: 90px;
+    background: @crust
+}
+
+#power {
+    color: @flamingo;
+    font-weight: 600;
+    margin-left: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 90px;
+    background: @crust
+}
+
+#custom-logout,
+#custom-lock,
+#custom-reboot,
+#custom-power {
+    font-weight: 600;
+    padding: 6px 10px;
     background: @crust
 }
 

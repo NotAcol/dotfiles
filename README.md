@@ -111,7 +111,7 @@ $ sudo systemctl enable --now NetworkManager.service
 ## Bluetooth
 
 ```console
-$ paru -S bluez bluez-utils bluetuith
+$ paru -S bluez bluez-utils bluetuith blueberry
 $ sudo systemctl enable --now bluetooth.service
 ```
 
