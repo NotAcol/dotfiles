@@ -453,3 +453,8 @@ texlive-binextra texlive-fontsrecommended texlive-langgreek
 > Nvim-dapui blows massive dick tho better just use pwndbg in different terminal window. (pls god ryan port the rad debugger alread)
 
 ![](_assets/gdb.png)
+
+
+<p align="center">
+	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" />
+</p>

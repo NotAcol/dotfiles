@@ -8,7 +8,7 @@
 
     "modules-left": ["group/menu", "hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "pulseaudio", "cpu", "memory" ,"disk", "tray"],
+    "modules-right": ["network", "pulseaudio", "group/perf", "tray"],
 
     "hyprland/workspaces": {
         "on-click": "activate",
@@ -42,7 +42,7 @@
     },
     "cpu": {
         "interval": 2,
-        "format": "  {usage}%",
+        "format": " {usage}%",
         "tooltip": false
     },
     "memory": {
@@ -52,6 +52,14 @@
    "disk": {
         "interval": 15,
         "format": "󰋊 {percentage_used}%"
+    },
+    "group/perf": {
+        "orientation": "inherit",
+        "modules": [
+            "cpu",
+            "memory",
+            "disk"
+        ]
     },
     "network": {
         "interval": 2,
