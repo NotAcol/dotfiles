@@ -1,6 +1,6 @@
 # Dotfiles
 
-![](_assets/firefox.png)
+![](_assets/zen.png)
 
 ![](_assets/screenshot.png)
 
@@ -14,7 +14,6 @@ $ pacman -S git
 ```console
 $ pacman -S stow
 ```
-
 
 ## Installation
 Grab [paru](https://github.com/Morganamilo/paru) → Install all apps bellow →
@@ -76,7 +75,7 @@ $ sudo reflector --sort rate --latest 20 --protocol https --save /etc/pacman.d/m
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin choose \
 zsh neovim yazi trashy ripgrep fd unarchiver duf gdu starship \
 man bat-extras man-pages pass zathura jq poppler grimblast-git \
-zathura-pdf-mupdf s glow epy-ereader-git dunst zen-browser-bin \
+zathura-pdf-mupdf s dunst zen-browser-bin ffmpegthumbnailer \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
 qbittorrent silicon vesktop update-grub polkit dolphin qt5ct \
 tmux gvfs mirage perl-image-exiftool xdg-desktop-portal-hyprland \
@@ -84,7 +83,7 @@ python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse hyprpolkitagent \
 qt5-wayland qt6-wayland wf-recorder hyprpaper brightnessctl \
-hyprcursor hyprlock ffmpegthumbnailer \
+hyprcursor hyprlock 
 ```
 
 > [!WARNING]
@@ -431,7 +430,7 @@ Maybe install xorg-xwayland-explicit-sync-git if flickering persists after reboo
 ```console
 $ paru -S vulkan-devel vulkan-icd-loader git-delta inotify-tools \
 lib32-vulkan-icd-loader glm glfw linux-tools python-catppuccin \
-clang llvm ninja pwndbg-git lazygit openssh python-pygments \
+clang llvm ninja lazygit openssh python-pygments \
 libc++abi libc++ tracy imhex-bin valgrind sshs fasm
 ```
 
@@ -442,18 +441,6 @@ libc++abi libc++ tracy imhex-bin valgrind sshs fasm
 paru -S texlive-latexrecommended texlive-latexextra texlive-mathscience \
 texlive-binextra texlive-fontsrecommended texlive-langgreek 
 ```
-
-
-## GDB
-- Two gdb init files one is for gf the other one is for pwndbg 
-- In cli gdb try `setup [0-3]` for different layouts
-- [gf](https://github.com/nakst/gf) works with [this](https://github.com/nakst/gf/pull/190) patch 
-
->[!NOTE]
-> Nvim-dapui blows massive dick tho better just use pwndbg in different terminal window. (pls god ryan port the rad debugger alread)
-
-![](_assets/gdb.png)
-
 
 <p align="center">
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" />
