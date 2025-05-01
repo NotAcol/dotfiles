@@ -20,7 +20,10 @@ Grab [paru](https://github.com/Morganamilo/paru) → Install all apps bellow →
 clone this repo and stow → do settings described below 
 
 >[!NOTE] 
->If you want to game do "$ paru -S arch-gaming-meta proton-ge-custom-bin" after being done with everything else and enable Proton-Ge as default in steam launcher compatibility options and make sure GPU acceleration rendering in web views is off in interface settings
+If you want to game do "$ paru -S arch-gaming-meta proton-ge-custom-bin" 
+after being done with everything else and enable Proton-Ge as default in 
+steam launcher compatibility options and make sure GPU acceleration rendering 
+in web views is off in interface settings.
 
 ### Clone and stow
 
@@ -83,7 +86,7 @@ python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse hyprpolkitagent \
 qt5-wayland qt6-wayland wf-recorder hyprpaper brightnessctl \
-hyprcursor hyprlock 
+hyprcursor hyprlock  
 ```
 
 > [!WARNING]
@@ -95,8 +98,10 @@ hyprcursor hyprlock
 ```console
 $ paru -S pipewire gst-plugin-pipewire pipewire-alsa \
 pamixer pipewire-audio pipewire-jack pipewire-pulse \
-wireplumber pavucontrol playerctl mpv mpd ncmpcpp \
-noise-suppression-for-voice
+wireplumber pavucontrol playerctl mpv mpd rmpc \
+noise-suppression-for-voice python-mutagen yt-dlp
+$ mkdir -p ~/.local/share/mpd/playlists
+$ systemctl --user enable --now mpd
 ```
 ## Network
 
@@ -182,7 +187,8 @@ $ tldr --update
 ## Paru 
 
 > [!NOTE]
-> Use `sudo pacman -Qdtq | sudo pacman -Rns -` every now and then to remove unneeded packages. Would add a hook for it but cba :3
+> Use `sudo pacman -Qdtq | sudo pacman -Rns -` every now and then to remove 
+unneeded packages. Would add a hook for it but cba :3
 
 ```console
 $ sudo nvim /etc/pacman.conf
