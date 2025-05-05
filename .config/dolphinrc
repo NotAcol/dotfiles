@@ -1,10 +1,9 @@
+MenuBar=Disabled
+
 [General]
 TerminalApplication=kitty
 Version=202
 ViewPropsTimestamp=2025,3,8,14,20,23.376
-
-[IconsMode]
-PreviewSize=80
 
 [KFileDialog Settings]
 Places Icons Auto-resize=false
@@ -12,6 +11,9 @@ Places Icons Static Size=22
 
 [MainWindow]
 MenuBar=Disabled
+
+[PreviewSettings]
+Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,exe-thumbnailer,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,gsf-office,opendocumentthumbnail,svgthumbnail,gdk-pixbuf-thumbnailer
 
 [Search]
 Location=Everywhere

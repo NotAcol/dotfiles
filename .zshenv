@@ -114,6 +114,7 @@ function flags() {
 -DENABLE_ASSERT
 -O0
 -mavx2
+-mfma
 -lc++abi 
 -fno-exceptions 
 -fno-rtti 

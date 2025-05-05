@@ -21,9 +21,9 @@ clone this repo and stow → do settings described below
 
 >[!NOTE] 
 If you want to game do "$ paru -S arch-gaming-meta proton-ge-custom-bin" 
-after being done with everything else and enable Proton-Ge as default in 
-steam launcher compatibility options and make sure GPU acceleration rendering 
-in web views is off in interface settings.
+after doing everything else, enable Proton-Ge as default in steam launcher 
+compatibility options and turn off GPU acceleration rendering in web views 
+from interface settings.
 
 ### Clone and stow
 
@@ -72,6 +72,11 @@ $ sudo pacman -S reflector
 $ sudo reflector --sort rate --latest 20 --protocol https --save /etc/pacman.d/mirrorlist
 ```
 
+```console
+sudo pacman -S archlinux-xdg-menu
+sudo update-desktop-database 
+```
+
 ## General
 
 ```console
@@ -81,7 +86,7 @@ man bat-extras man-pages pass zathura jq poppler grimblast-git \
 zathura-pdf-mupdf s dunst zen-browser-bin ffmpegthumbnailer \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
 qbittorrent silicon vesktop update-grub polkit dolphin qt5ct \
-tmux gvfs mirage perl-image-exiftool xdg-desktop-portal-hyprland \
+tmux gvfs nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
 python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-lbonn-wayland-git wl-clipboard clipse hyprpolkitagent \
@@ -255,7 +260,7 @@ $ sudo nvim /etc/spotify-launcher.conf
 ```
 uncomment: extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 
-#### Block spotify ads
+#### Block Spotify ads
 
 ```console
 $ sudo nvim /etc/hosts
@@ -442,10 +447,17 @@ libc++abi libc++ tracy imhex-bin valgrind sshs fasm
 
 > Grab the template for .gitconfig from dotfiles/_gitstuff for delta integration, you also need the bad theme
 
+# Academics
+
 ## LaTeX
 ```console
 paru -S texlive-latexrecommended texlive-latexextra texlive-mathscience \
 texlive-binextra texlive-fontsrecommended texlive-langgreek 
+```
+
+## Matlab/Mathematica for the poors
+```console
+paru -S sagemath sagemath-doc
 ```
 
 <p align="center">

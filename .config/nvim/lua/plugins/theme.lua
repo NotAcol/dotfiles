@@ -78,6 +78,7 @@ return {
 						["@type.definition"] = { fg = colors.rosewater },
 						["@type.builtin"] = { fg = colors.rosewater },
 						["@type.builtin.cpp"] = { fg = colors.rosewater },
+						["@type.builtin.c"] = { fg = colors.rosewater },
 						["@variable.member"] = { fg = "#cdd6f5" },
 						["@variable.parameter"] = { fg = colors.text },
 

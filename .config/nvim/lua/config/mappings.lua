@@ -34,13 +34,35 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic locli
 local compile_mode = require("compile-mode")
 map("n", "<leader>cd", function()
 	local filename = vim.api.nvim_buf_get_name(0)
-	local command = "clang++ $(<.debug-flags) " .. filename
+	local command
+	if filename:match("%.cpp$") then
+		command = "clang++ $(<.debug-flags) " .. filename
+	elseif filename:match("%.c$") then
+		command = "clang $(<.debug-flags) " .. filename
+	elseif filename:match("%.vert$") then
+		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
+		command = "glslc " .. filename .. " -o " .. dir .. "vert.spv"
+	elseif filename:match("%.frag$") then
+		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
+		command = "glslc " .. filename .. " -o " .. dir .. "frag.spv"
+	end
 	compile_mode.compile({ args = command })
 end, { desc = "Compile debug mode" })
 
 map("n", "<leader>cr", function()
 	local filename = vim.api.nvim_buf_get_name(0)
-	local command = "clang++ $(<.flags) " .. filename
+	local command
+	if filename:match("%.cpp$") then
+		command = "clang++ $(<.flags) " .. filename
+	elseif filename:match("%.c$") then
+		command = "clang $(<.flags) " .. filename
+	elseif filename:match("%.vert$") then
+		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
+		command = "glslc " .. filename .. " -o " .. dir .. "vert.spv"
+	elseif filename:match("%.frag$") then
+		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
+		command = "glslc " .. filename .. " -o " .. dir .. "frag.spv"
+	end
 	compile_mode.compile({ args = command })
 end, { desc = "Compile release mode" })
 

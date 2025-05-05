@@ -7,7 +7,6 @@ return {
 		servers = {
 			lua_ls = {},
 			clangd = {},
-			markdown_oxide = {},
 			texlab = {},
 			glsl_analyzer = {},
 			asm_lsp = {},

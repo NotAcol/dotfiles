@@ -4,7 +4,6 @@ return {
 		"clangd",
 		"glsl_analyzer",
 		"texlab",
-		"markdown-oxide",
 		"lua-language-server",
 		"asm-lsp",
 		--formaters
