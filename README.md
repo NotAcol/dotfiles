@@ -89,9 +89,9 @@ qbittorrent silicon vesktop update-grub polkit dolphin qt5ct \
 tmux gvfs nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
 python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
-rofi-lbonn-wayland-git wl-clipboard clipse hyprpolkitagent \
+rofi-wayland rofi-emoji rofi-calc wl-clipboard clipse \
 qt5-wayland qt6-wayland wf-recorder hyprpaper brightnessctl \
-hyprcursor hyprlock  
+hyprcursor hyprlock hyprpolkitagent 
 ```
 
 > [!WARNING]
@@ -351,9 +351,9 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # NVIDIA
 
 ```console
-$ paru -S nvidia-dkms nvidia-utils nvidia-settings egl-wayland\
-libva-nvidia-driver libva-utils vdpauinfo linux-headers\
-cuda
+$ paru -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings \
+libva-nvidia-driver libva-utils vdpauinfo linux-headers egl-wayland \
+cuda wayland-protocols xorg-xwayland
 ```
 > cuda package kinda big, but it helped with davinci resolve 👍
 

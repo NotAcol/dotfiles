@@ -15,15 +15,26 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "window,run,drun,filebrowser";
+	modi:                       "window,run,drun,emoji,calc";
     show-icons:                 true;
 	icon-theme:                 "Papirus-Dark";
     display-drun:               "";
     display-run:                "";
     display-filebrowser:        "";
     display-window:             "";
+    display-emoji:              "";
+    display-calc:               "";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
+    hide-scrollbar:              true;
+    kb-remove-to-eol:           "";
+    kb-mode-complete:           "";
+    kb-remove-char-back:        "BackSpace,Shift+BackSpace";
+    kb-accept-entry:            "Control+m,Return,KP_Enter";
+    kb-row-up:                  "Control+k";
+    kb-row-down:                "Control+j";
+    kb-row-left:                "Control+Page_Up,Control+h";
+    kb-row-right:               "Control+Page_Down,Control+l";
 }
 
 * {

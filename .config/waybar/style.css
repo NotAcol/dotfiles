@@ -106,7 +106,7 @@ button:hover {
 }
 
 #power {
-    color: @text;
+    color: @surface2;
     font-weight: 600;
     margin-left: 3px;
     padding-left: 10px;
@@ -128,9 +128,8 @@ button:hover {
 #custom-lock:hover,
 #custom-reboot:hover,
 #custom-power:hover {
-    color: @maroon;
+    color: @flamingo;
 }
-
 
 #pulseaudio {
     color: @crust;
