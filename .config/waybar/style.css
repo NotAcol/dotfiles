@@ -1,10 +1,12 @@
 @import "mocha.css";
 
 * {
+    border: none;
+    border-radius: 0px;
     min-height: 0;
-    font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font", FontAwesome, Roboto,
-        Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12px;
+    font-weight: bold;
 }
 
 window#waybar {
@@ -15,7 +17,6 @@ window#waybar {
 }
 
 window#waybar.empty {
-    opacity: 0.3;
 }
 
 .modules-left {
@@ -41,16 +42,15 @@ button:hover {
 }
 
 #workspaces {
-    font-weight: 600;
     margin-left: 10px;
-    padding: 5px 10px;
+    padding: 3px 10px;
     border-radius: 90px;
-    background: @crust
+    background: @crust;
+    border: 1.5px solid @flamingo;
 }
 
 #workspaces button {
     color: @text;
-    font-weight: 600;
     margin: 0px;
     padding: 0px 5px;
 }
@@ -68,22 +68,30 @@ button:hover {
 }
 
 #workspaces button.focused {
-    color: @green;
+    color: @lavender;
 }
 
 #cpu,
 #memory,
 #disk {
-    font-weight: 600;
     padding: 0px 8px;
 }
 
 #perf {
     color: @flamingo;
+    border: 1.5px solid @flamingo;
     margin-right: 10px;
     padding: 0px 7px;
     border-radius: 90px;
-    background: @crust
+    background: @crust;
+}
+
+#menu {
+    color: @flamingo;
+    border: 1.5px solid @flamingo;
+    padding: 0px 7px;
+    border-radius: 90px;
+    background: @crust;
 }
 
 #menu .drawer-child {
@@ -96,32 +104,23 @@ button:hover {
 }
     
 #custom-icon {
-    color: @flamingo;
-    font-weight: 600;
-    padding-left: 15px;
-    padding-right: 14px;
-    padding-top: 5px;
-    border-radius: 90px;
-    background: @crust
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
 }
 
 #power {
     color: @surface2;
-    font-weight: 600;
-    margin-left: 3px;
-    padding-left: 10px;
-    padding-right: 10px;
     border-radius: 90px;
-    background: @crust
+    background: @crust;
+    padding: 0px 7px;
 }
 
 #custom-logout,
 #custom-lock,
 #custom-reboot,
 #custom-power {
-    border-radius: 90px;
-    font-weight: 600;
-    padding: 6px 10px;
+    padding: 0px 8px;
 }
 
 #custom-logout:hover,
@@ -131,48 +130,53 @@ button:hover {
     color: @flamingo;
 }
 
-#pulseaudio {
-    color: @crust;
-    font-weight: 600;
-    margin-right: 10px;
-    padding: 6px 15px;
-    border-radius: 90px;
-    background: @flamingo
+#bluetooth {
+    font-size: 15px;
+    padding-right: 8px;
+    padding-left: 3px;
+}
+#pulseaudio,
+#network {
+    padding: 0px 8px;
 }
 
-#network {
-    color: @crust;
-    font-weight: 600;
+
+#network.disconnected {
+    color: @maroon;
+}
+
+
+#bluetooth.off {
+    color: @maroon;
+}
+
+#ns{
+    color: @lavender;
+    border: 1.5px solid @lavender;
     margin-right: 10px;
-    padding: 6px 15px;
+    padding: 0px 7px;
     border-radius: 90px;
-    background: @green
+    background: @crust;
 }
 
 #tray {
     color: @text;
-    font-weight: 600;
+    border: 1.5px solid @flamingo;
     padding: 6px 15px;
     border-radius: 90px;
-    background: @crust
+    background: @crust;
 }
 
 #clock {
     color: @flamingo;
-    font-weight: 600;
     margin-right: 10px;
     padding: 6px 15px;
     border-radius: 90px;
-    background: @crust
+    background: @crust;
+    border: 1.5px solid @flamingo;
 }
 
 #custom-sepp {
     color: @surface2;
     font-size: 20px;
-    padding-left: 4px;
-    padding-right: 10px;
-}
-
-#network.disconnected {
-    background-color: @maroon;
 }

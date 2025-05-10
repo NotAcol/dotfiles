@@ -77,3 +77,13 @@ zle-line-init() {
   return ret
 }
 zle -N zle-line-init
+
+custom-fzf-file-widget() {
+  local selected=$(fd --type f --type d --hidden --max-depth=5 --exclude .git | fzf )
+  if [[ -n "$selected" ]]; then
+      nvim -b  $(echo $selected | tr '\n' ' ')
+  fi
+  zle reset-prompt
+}
+zle -N custom-fzf-file-widget
+bindkey '^e' custom-fzf-file-widget

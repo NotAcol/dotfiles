@@ -1,14 +1,14 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-left": 10,
-    "margin-right": 10,
+    "margin-left": 5,
+    "margin-right": 5,
     "margin-top": 2,
     "spacing": 1,
 
     "modules-left": ["group/menu", "hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "pulseaudio", "group/perf", "tray"],
+    "modules-right": ["group/ns",  "tray"],
 
     "hyprland/workspaces": {
         "on-click": "activate",
@@ -30,15 +30,14 @@
          }
     },
     "tray": {
-        "icon-size": 18,
+        "icon-size": 16,
         "spacing": 5,
         "show-passive-items": true
     },
     "clock": {
         "interval": 1,
-        "format-alt": "  {:%a %b %d}", // %b %d %Y  --Date formatting
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "  {:%T}"
+        "format": "{:%d/%m/%y - %T}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
         "interval": 2,
@@ -65,34 +64,48 @@
         "interval": 2,
         "format": "{icon} {bandwidthDownBytes}⇣",
         "format-disconnected": "{icon}",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "{essid} {bandwidthDownBytes}⇣ {bandwidthUpBytes}⇡ ({signalStrength}%)",
+        "tooltip-format": "{bandwidthDownBytes}⇣ {bandwidthUpBytes}⇡",
         "format-icons": {
             "disconnected": "󰤭",
-            "wifi": ["󰤟", "󰤢", "󰤨"],
+            "wifi": ["󰤯","󰤟", "󰤢", "󰤥", "󰤨"],
             "default": " "
         },
-        "on-click": "nm-connection-editor",
-        "on-click-right": "blueberry"
+        "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
         "interval": 30,
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}% 󰂯",
-        "format-bluetooth-muted": "󰖁 {icon} 󰂯",
-        "format-muted": "󰖁 {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-muted": "󰖁",
         "format-icons": {
-            "headphone": "󰋋",
-            "hands-free": "󱡒",
-            "headset": "󰋎",
-            "phone": "",
-            "portable": "",
-            "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "scroll-step": 5,
+        "max-volume": 150
+    },
+    "bluetooth": {
+        "interval": 30,
+        "format": "",
+        "format-connected": "{icon}",
+        "format-off": "{icon}",
+        "format-on": "{icon}",
+        "format-no-controller": "",
+        "format-disabled": "",
+        "format-icons": {
+            "off": "󰂲",
+            "on": "󰂯",
+            "connected": "󰂴"
+        },
+        "on-click": "blueberry"
+    },
+    "group/ns": {
+        "orientation": "inherit",
+            "modules": [
+            "pulseaudio",
+            "network",
+            "bluetooth"
+        ]
     },
     "group/menu": {
         "orientation": "horizontal",
@@ -106,7 +119,7 @@
     },
     "group/power": {
         "orientation": "inherit",
-        "modules": [
+            "modules": [
             "custom/power",
             "custom/logout",
             "custom/lock",
@@ -140,5 +153,8 @@
         "format": "",
         "tooltip": false,
         "on-click": "shutdown now"
+    },
+    "custom/sepp": {
+        "format": "|"
     }
 }
