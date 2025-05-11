@@ -1,0 +1,5 @@
+--recurse=yes
+--languages=all
+--exclude=.git
+--exclude=db/*
+--exclude=log/*

@@ -25,7 +25,7 @@ configuration {
     display-emoji:              "";
     display-calc:               "";
 	drun-display-format:        "{name}";
-	window-format:              "{w} · {c} · {t}";
+	window-format:              "{c} · {t}";
     hide-scrollbar:              true;
     kb-remove-to-eol:           "";
     kb-mode-complete:           "";

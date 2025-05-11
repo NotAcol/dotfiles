@@ -43,10 +43,10 @@ button:hover {
 
 #workspaces {
     margin-left: 10px;
-    padding: 3px 10px;
+    padding: 3px 8px;
     border-radius: 90px;
     background: @crust;
-    border: 1.5px solid @flamingo;
+    border: 1.5px solid @lavender;
 }
 
 #workspaces button {
@@ -64,7 +64,7 @@ button:hover {
 }
 
 #workspaces button.active {
-    color: @flamingo;
+    color: @lavender;
 }
 
 #workspaces button.focused {
@@ -78,8 +78,8 @@ button:hover {
 }
 
 #perf {
-    color: @flamingo;
-    border: 1.5px solid @flamingo;
+    color: @lavender;
+    border: 1.5px solid @lavender;
     margin-right: 10px;
     padding: 0px 7px;
     border-radius: 90px;
@@ -87,8 +87,8 @@ button:hover {
 }
 
 #menu {
-    color: @flamingo;
-    border: 1.5px solid @flamingo;
+    color: @lavender;
+    border: 1.5px solid @lavender;
     padding: 0px 7px;
     border-radius: 90px;
     background: @crust;
@@ -106,7 +106,7 @@ button:hover {
 #custom-icon {
     padding-left: 7px;
     padding-right: 7px;
-    padding-top: 3px;
+    padding-top: 4px;
 }
 
 #power {
@@ -127,7 +127,7 @@ button:hover {
 #custom-lock:hover,
 #custom-reboot:hover,
 #custom-power:hover {
-    color: @flamingo;
+    color: @lavender;
 }
 
 #bluetooth {
@@ -161,19 +161,19 @@ button:hover {
 
 #tray {
     color: @text;
-    border: 1.5px solid @flamingo;
-    padding: 6px 15px;
+    border: 1.5px solid @lavender;
+    padding: 0px 12px;
     border-radius: 90px;
     background: @crust;
 }
 
 #clock {
-    color: @flamingo;
+    color: @lavender;
     margin-right: 10px;
     padding: 6px 15px;
     border-radius: 90px;
     background: @crust;
-    border: 1.5px solid @flamingo;
+    border: 1.5px solid @lavender;
 }
 
 #custom-sepp {

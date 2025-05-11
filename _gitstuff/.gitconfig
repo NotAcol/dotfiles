@@ -8,8 +8,15 @@
 [core]
     pager = delta
 	excludesFile = ~/.gitignore
+    compression = 9
+[log]
+    abrevCommit = true
+    graphColors = blue,yellow,cyan,magenta,green,red
 [interactive]
     diffFilter = delta --color-only
+    singlekey = true
+[diff]
+    renames = copies
 [delta]
     navigate = true    # use n and N to move between diff sections
     features = catppuccin-mocha
@@ -23,3 +30,23 @@
 	rebase = true
 [rerere]
 	enabled = true
+[branch]
+    sort = -committerdate
+[tag]
+    sort = -taggerdate
+[status]
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
+[push]
+    autoSetupRemote = true
+    default = current
+    followTags = true
+[pull]
+    default = current
+    rebase = true
+[rebase]
+    autoStash = true
+    missingCommitsCheck = warn
+[commit]
+	template = /home/acol/dotfiles/_gitstuff/.gitmessage

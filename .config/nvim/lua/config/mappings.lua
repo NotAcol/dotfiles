@@ -114,11 +114,6 @@ map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
 map("n", "<leader>h", vim.lsp.buf.signature_help, { desc = "Show signature help" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 
--------------------- nvim dap -----------------------------------------------
-
-map({ "n" }, "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Debugger toggle breakpoint" })
-map({ "n" }, "<leader>ds", "<cmd> DapContinue <cr>", { desc = "Debugger start" })
-
 --------------------- Spell checking -------------------------------------------
 map("n", "<leader>ln", function()
 	vim.o.spell = false
@@ -171,7 +166,7 @@ map(
 	{ desc = "telescope find files" }
 )
 
-map("n", "<leader>th", "<cmd>Telescope colorscheme<cr>", { desc = "telescope change theme" })
+map("n", "<leader>t", "<cmd>Telescope tags<CR>", { desc = "telescope search tags" })
 map("n", "<leader>:", "<cmd>Telescope command_history initial_mode=normal<cr>", { desc = "telescope command history" })
 map("n", "<leader>fq", "<cmd>Telescope quickfix initial_mode=normal<cr>", { desc = "telescope quickfix list" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics initial_mode=normal<cr>", { desc = "telescope lsp diagonstics" })

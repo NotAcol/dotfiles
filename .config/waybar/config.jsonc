@@ -9,7 +9,7 @@
     "modules-left": ["group/menu", "hyprland/workspaces"],
     "modules-center": ["clock"],
     "modules-right": ["group/ns",  "tray"],
-
+    //"modules-right": ["group/ns", "group/perf", "tray"],
     "hyprland/workspaces": {
         "on-click": "activate",
         "persistent-workspaces": {

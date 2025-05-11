@@ -62,7 +62,7 @@ return {
 						--						NormalFloat = { bg = colors.mantle },
 						--						Pmenu = { bg = colors.mantle }, -- Popup menu background
 						--						WinSeparator = { fg = colors.surface2 }, -- Window separator lines
-						--						CursorLine = { bg = colors.surface0 }, -- Current line highlight
+						CursorLine = { bg = colors.surface0 }, -- Current line highlight
 
 						CompileModeWarning = { fg = colors.yellow }, -- Current line highlight
 						CompileModeError = { fg = colors.red }, -- Current line highlight
@@ -114,6 +114,7 @@ return {
 					}
 				end,
 			},
+			transparent_background = true,
 			custom_highlights = {
 				-- function.builtin
 				DiagnosticVirtualTextHint = { bg = "none" },

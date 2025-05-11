@@ -46,6 +46,25 @@ alias fetch="kitten icat --align=left ~/Pictures/yorha.png | fastfetch --raw - -
 alias manpages='man -k . | fzf -e | awk '\''{print $1$2}'\'' | xargs man'
 alias mt="sudo mount -o uid=$USER"
 
+#git stuff
+alias gl="git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto)  %D%n%s%n'"
+alias gb="git branch"
+
+alias gi="git init"
+alias gcl="git clone"
+
+alias gd="git diff"
+alias gs="git status --short"
+
+alias ga="git add"
+alias gap="git add --patch"
+alias gc="git commit --verbose"
+
+alias gp="git pull"
+alias gP="git push"
+
+
+
 function stopwatch() {
     if [ -z "$1" ]; then
         echo "Usage: stopwatch <time>"

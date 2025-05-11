@@ -441,8 +441,8 @@ Maybe install xorg-xwayland-explicit-sync-git if flickering persists after reboo
 ```console
 $ paru -S vulkan-devel vulkan-icd-loader git-delta inotify-tools \
 lib32-vulkan-icd-loader glm glfw linux-tools python-catppuccin \
-clang llvm ninja lazygit openssh python-pygments \
-libc++abi libc++ tracy imhex-bin valgrind sshs fasm
+clang llvm ninja lazygit openssh python-pygments ctags \
+libc++abi libc++ tracy imhex-bin valgrind sshs fasm 
 ```
 
 > Grab the template for .gitconfig from dotfiles/_gitstuff for delta integration, you also need the bad theme
