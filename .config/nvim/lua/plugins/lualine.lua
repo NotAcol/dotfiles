@@ -7,7 +7,7 @@ return {
 			options = {
 				icons_enabled = true,
 				theme = "catppuccin",
-				component_separators = "|",
+				component_separators = "",
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
 					statusline = {},
@@ -25,7 +25,10 @@ return {
 			sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { "filename" },
+				lualine_c = {
+					{ "filetype", colored = true, icon_only = true, icon = { align = "right" } },
+					{ "filename", path = 3 },
+				},
 				lualine_x = { "location" },
 				lualine_y = {},
 				lualine_z = {},
@@ -33,7 +36,11 @@ return {
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { "filename" },
+				lualine_c = {
+					{ "filetype", colored = true, icon_only = true, icon = { align = "right" } },
+					{ "filename", path = 3 },
+				},
+
 				lualine_x = { "location" },
 				lualine_y = {},
 				lualine_z = {},
@@ -61,6 +68,7 @@ return {
 						"buffers",
 						use_mode_colors = true,
 						mode = 0,
+						max_length = vim.o.columns,
 						section_separators = { left = "", right = "" },
 						component_separators = { right = "", left = "" },
 						symbols = {

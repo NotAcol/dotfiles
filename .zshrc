@@ -29,12 +29,11 @@ source ~/.zshenv
 autoload -U compinit
 compinit
 
-zstyle ':fzf-tab:*' use-fzf-default-opts yes
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+source <(carapace _carapace)
 
 plug "Aloxaf/fzf-tab"
-plug "Freed-Wu/fzf-tab-source"
 plug "hlissner/zsh-autopair"
-plug "esc/conda-zsh-completion"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/vim"
@@ -45,6 +44,7 @@ eval "$(thefuck --alias)"
 eval "$(atuin init zsh)"
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
+
 
 # Transient prompt for starship
 zle-line-init() {

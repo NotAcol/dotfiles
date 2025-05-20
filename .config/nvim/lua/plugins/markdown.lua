@@ -1,19 +1,24 @@
 return {
-	-- {
-	-- 	"OXY2DEV/markview.nvim",
-	-- 	--lazy = false,
-	-- 	ft = "markdown", -- If you decide to lazy-load anyway
-	-- 	dependencies = {
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 	},
-	-- },
 	{
-		"euclio/vim-markdown-composer",
-		build = "cd ~/.local/share/nvim/lazy/vim-markdown-composer && cargo build --release",
-		init = function()
-			vim.g.markdown_composer_autostart = true
-		end,
-		ft = { "markdown" },
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+		lazy = false,
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {
+			ft = { "mardown", "quarto" },
+			debounce = 50,
+			code = {
+				enabled = true,
+				style = "full",
+				border = "thick",
+				sign = true,
+			},
+			checkbox = {
+				unchecked = { icon = "✘ " },
+				checked = { icon = "✔ " },
+				custom = { todo = { rendered = "◯ " } },
+			},
+		},
 	},
 }

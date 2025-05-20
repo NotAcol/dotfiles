@@ -1,13 +1,12 @@
 # theme
 theme = catppuccin-mocha
-#theme = rose-pine
 window-decoration = false
 cursor-invert-fg-bg = true
 cursor-style = block
 cursor-style-blink = false
-shell-integration = zsh
-shell-integration-features = cursor, sudo, title
-background-opacity = 1
+#shell-integration = zsh
+#shell-integration-features = cursor, sudo, title
+background-opacity = 0
 #background-blur-radius = 20
 
 # font
@@ -18,3 +17,7 @@ font-size = 10
 initial-command = tmux -2
 window-padding-x = 0
 window-padding-y = 0
+
+# keybinds
+#keybind="ctrl+space>r=reload_config"
+#keybind="ctrl+space>t=new_tab"

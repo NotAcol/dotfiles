@@ -6,12 +6,12 @@
 
 ### Git
 
-```console
+```bash 
 $ pacman -S git
 ```
 ### Stow
 
-```console
+```bash 
 $ pacman -S stow
 ```
 
@@ -27,21 +27,21 @@ from interface settings.
 
 ### Clone and stow
 
-```console
+```bash 
 $ git clone --depth=1 https://github.com/NotAcol/dotfiles.git
 $ cd dotfiles
 ```
 
 Stow to create symlinks
 
-```console
+```bash 
 $ stow .
 ```
 
 If stow doesn't work
 
 
-```console
+```bash 
 $ git add .
 $ stow --adopt .
 $ git restore .
@@ -52,7 +52,7 @@ $ git restore .
 ## Before installing apps 
 ### Chaotic-aur
 
-```console
+```bash 
 $ su -
 # pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 # pacman-key --lsign-key 3056513887B78AEB
@@ -72,14 +72,14 @@ $ sudo pacman -S reflector
 $ sudo reflector --sort rate --latest 20 --protocol https --save /etc/pacman.d/mirrorlist
 ```
 
-```console
+```bash 
 sudo pacman -S archlinux-xdg-menu
 sudo update-desktop-database 
 ```
 
 ## General
 
-```console
+```bash 
 $ paru -S thefuck tealdeer fzf bat exa zoxide atuin choose \
 zsh neovim yazi trashy ripgrep fd unarchiver duf gdu starship \
 man bat-extras man-pages pass zathura jq poppler grimblast-git \
@@ -91,7 +91,7 @@ python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
 rofi-wayland rofi-emoji rofi-calc wl-clipboard clipse \
 qt5-wayland qt6-wayland wf-recorder hyprpaper brightnessctl \
-hyprcursor hyprlock hyprpolkitagent 
+hyprcursor hyprlock hyprpolkitagent carapace rsync gnuplot
 ```
 
 > [!WARNING]
@@ -100,7 +100,7 @@ hyprcursor hyprlock hyprpolkitagent
 
 ## Audio
 
-```console
+```bash 
 $ paru -S pipewire gst-plugin-pipewire pipewire-alsa \
 pamixer pipewire-audio pipewire-jack pipewire-pulse \
 wireplumber pavucontrol playerctl mpv mpd rmpc \
@@ -110,7 +110,7 @@ $ systemctl --user enable --now mpd
 ```
 ## Network
 
-```console
+```bash 
 $ paru -S networkmanager
 $ sudo systemctl enable --now NetworkManager.service
 ```
@@ -119,14 +119,14 @@ $ sudo systemctl enable --now NetworkManager.service
 
 ## Bluetooth
 
-```console
+```bash 
 $ paru -S bluez bluez-utils bluetuith blueberry
 $ sudo systemctl enable --now bluetooth.service
 ```
 
 ## Obs 
 
-```console
+```bash 
 $ paru -S obs-studio obs-vaapi obs-vkcapture-git lib32-obs-vkcapture-git \
 obs-rtspserver obs-gstreamer ffmpeg-obs cef-minimal-obs-rc-bin xdg-desktop-portal-wlr
 ```
@@ -135,13 +135,13 @@ obs-rtspserver obs-gstreamer ffmpeg-obs cef-minimal-obs-rc-bin xdg-desktop-porta
 
 In zsh terminal
 
-```console
+```bash 
 $ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 ```
 
 >This might back up and replace .zshrc if it does switch them back to this repo's version
 
-```console
+```bash 
 $ zap update all
 $ chsh -s /usr/bin/zsh
 $ atuin import auto
@@ -157,7 +157,7 @@ If you want to sync search history across machines you can trivially do it [here
 
 Grab TPM
 
-```console
+```bash 
 $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
 $ tmux
 ```
@@ -175,7 +175,7 @@ Prefix is ctrl+space
 
 ## Nvim setup
 
-```console
+```bash 
 $ sudo pacman -S luarocks
 $ nvim
 ```
@@ -185,7 +185,7 @@ $ nvim
 
 ## Update tealdeer manpages
 
-```console
+```bash 
 $ tldr --update
 ```
 
@@ -195,14 +195,14 @@ $ tldr --update
 > Use `sudo pacman -Qdtq | sudo pacman -Rns -` every now and then to remove 
 unneeded packages. Would add a hook for it but cba :3
 
-```console
+```bash 
 $ sudo nvim /etc/pacman.conf
 ```
 
 - Uncomment: Color, VerbosePkgLists, ParallelDownloads
 - Add ILoveCandy
 
-```console
+```bash 
 $ sudo nvim /etc/paru.conf
 ```
 
@@ -210,11 +210,11 @@ $ sudo nvim /etc/paru.conf
 - Uncomment: SudoLoop
 - Uncomment: NewsOnUpgrade
 
-```console
+```bash 
 $ paru --gendb
 ```
 
-```console
+```bash 
 $ sudo touch /etc/pacman.d/hooks/paccache.hook
 $ sudo nvim /etc/pacman.d/hooks/paccache.hook
 ```
@@ -233,7 +233,7 @@ When = PostTransaction
 Exec = /usr/bin/paccache -rvk2
 ```
 
-```console
+```bash 
 $ sudo mkinitcpio -P
 ```
 
@@ -255,14 +255,14 @@ $ sudo mkinitcpio -P
 
 #### Spotify wayland fix
 
-```console
+```bash 
 $ sudo nvim /etc/spotify-launcher.conf
 ```
 uncomment: extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 
 #### Block Spotify ads
 
-```console
+```bash 
 $ sudo nvim /etc/hosts
 ```
 
@@ -287,7 +287,7 @@ $ sudo nvim /etc/hosts
 
 ## Rice
 
-```console
+```bash 
 $ paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
 papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
 ```
@@ -302,7 +302,7 @@ https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css
 - toolkit.legacyUserProfileCustomizations.stylesheets → true
 - about:profiles → Root Directory
 
-```console
+```bash 
 $ pkill -f zen-bin
 $ cp -r ~/dotfiles/_zen/chrome ./
 ```
@@ -316,7 +316,7 @@ Start zen and it should work
 
 ### Bat theme
 
-```console
+```bash 
 $ wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 $ bat cache --build
 ```
@@ -325,39 +325,39 @@ $ bat cache --build
 
 Login to spotify
 
-```console
+```bash 
 $ nvim ~/dotfiles/.config/spicetify/config-xpui.ini
 ```
 
 Edit path to use correct username
 
-```console
+```bash 
 $ spicetify apply
 ```
 
 ### Grub theme
 
-```console
+```bash 
 $ sudo cp -r /usr/share/grub/themes/catppuccin-mocha/ /boot/grub/themes/
 $ sudo nvim /etc/default/grub
 ```
 
 GRUB_THEME="/boot/grub/themes/catppuccin-mocha/theme.txt"
 
-```console
+```bash 
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 # NVIDIA
 
-```console
+```bash 
 $ paru -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings \
 libva-nvidia-driver libva-utils vdpauinfo linux-headers egl-wayland \
 cuda wayland-protocols xorg-xwayland
 ```
 > cuda package kinda big, but it helped with davinci resolve 👍
 
-```console
+```bash 
 $ sudo nvim /etc/default/grub
 ```
 
@@ -367,7 +367,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAll
 
 >Remove amd_pstate=active if no amd cpu
 
-```console
+```bash 
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 $ sudo nvim /etc/mkinitcpio.conf
 ```
@@ -377,7 +377,7 @@ $ sudo nvim /etc/mkinitcpio.conf
 MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
 
-```console
+```bash 
 $ sudo touch /etc/modprobe.d/nvidia.conf
 $ sudo nvim /etc/modprobe.d/nvidia.conf
 ```
@@ -386,13 +386,13 @@ $ sudo nvim /etc/modprobe.d/nvidia.conf
 options nvidia_drm modeset=1 fbdev=1
 ```
 
-```console
+```bash 
 $ sudo mkinitcpio -P
 ```
 
 ### Pacman hook
 
-```console
+```bash 
 $ sudo mkdir /etc/pacman.d/hooks/ 
 $ sudo touch /etc/pacman.d/hooks/nvidia.hook
 $ sudo nvim /etc/pacman.d/hooks/nvidia.hook
@@ -421,14 +421,14 @@ Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; 
 
 Tests after reboot
 
-```console
+```bash 
 $ vdpauinfo
 $ vainfo
 ```
 
 VAEntrypointEncVLD good 👍
 
-```console
+```bash 
 $ sudo systemctl enable nvidia-suspend.service
 $ sudo systemctl enable nvidia-hibernate.service
 $ sudo systemctl enable nvidia-resume.service
@@ -438,7 +438,7 @@ Maybe install xorg-xwayland-explicit-sync-git if flickering persists after reboo
 
 # Dev stuff
 
-```console
+```bash 
 $ paru -S vulkan-devel vulkan-icd-loader git-delta inotify-tools \
 lib32-vulkan-icd-loader glm glfw linux-tools python-catppuccin \
 clang llvm ninja lazygit openssh python-pygments ctags \
@@ -450,16 +450,17 @@ libc++abi libc++ tracy imhex-bin valgrind sshs fasm
 # Academics
 
 ## LaTeX
-```console
+```bash 
 paru -S texlive-latexrecommended texlive-latexextra texlive-mathscience \
 texlive-binextra texlive-fontsrecommended texlive-langgreek 
 ```
 
 ## Matlab/Mathematica for the poors
-```console
+```bash 
 paru -S sagemath sagemath-doc
 ```
 
 <p align="center">
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" />
 </p>
+

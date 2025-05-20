@@ -14,6 +14,10 @@
                 size: "1",
             ),
             (
+                pane: Pane(Tabs), 
+                size: "1",
+            ),
+            (
                 pane: Pane(TabContent),
                 size: "100%",
             ),
@@ -41,7 +45,11 @@
     header_background_color: "#181825",
     modal_background_color: None,
     modal_backdrop: false,
-    tab_bar: (active_style: (fg: "black", bg: "#cba6f7", modifiers: "Bold"), inactive_style: ()),
+    tab_bar: (
+        enabled : false, 
+        active_style: (fg: "#cba6f7", bg: "#181825", modifiers: "Bold"), 
+        inactive_style: (fg: "black" )
+    ),
     borders_style: (fg: "#6c7086"),
     highlighted_item_style: (fg: "#cba6f7", modifiers: "Bold"),
     current_item_style: (fg: "black", bg: "#b4befe", modifiers: "Bold"),

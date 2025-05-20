@@ -3,3 +3,4 @@
 --exclude=.git
 --exclude=db/*
 --exclude=log/*
+--exclude=dotfiles/*

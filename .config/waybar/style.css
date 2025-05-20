@@ -46,7 +46,7 @@ button:hover {
     padding: 3px 8px;
     border-radius: 90px;
     background: @crust;
-    border: 1.5px solid @lavender;
+    border: 1.5px solid @flamingo;
 }
 
 #workspaces button {
@@ -63,12 +63,16 @@ button:hover {
     color: @surface2;
 }
 
+#workspaces button.visible {
+    color: @flamingo;
+}
+
 #workspaces button.active {
-    color: @lavender;
+    color: @flamingo;
 }
 
 #workspaces button.focused {
-    color: @lavender;
+    color: @flamingo;
 }
 
 #cpu,
@@ -78,8 +82,8 @@ button:hover {
 }
 
 #perf {
-    color: @lavender;
-    border: 1.5px solid @lavender;
+    color: @flamingo;
+    border: 1.5px solid @flamingo;
     margin-right: 10px;
     padding: 0px 7px;
     border-radius: 90px;
@@ -87,8 +91,8 @@ button:hover {
 }
 
 #menu {
-    color: @lavender;
-    border: 1.5px solid @lavender;
+    color: @flamingo;
+    border: 1.5px solid @flamingo;
     padding: 0px 7px;
     border-radius: 90px;
     background: @crust;
@@ -127,7 +131,7 @@ button:hover {
 #custom-lock:hover,
 #custom-reboot:hover,
 #custom-power:hover {
-    color: @lavender;
+    color: @flamingo;
 }
 
 #bluetooth {
@@ -151,8 +155,8 @@ button:hover {
 }
 
 #ns{
-    color: @lavender;
-    border: 1.5px solid @lavender;
+    color: @flamingo;
+    border: 1.5px solid @flamingo;
     margin-right: 10px;
     padding: 0px 7px;
     border-radius: 90px;
@@ -161,19 +165,19 @@ button:hover {
 
 #tray {
     color: @text;
-    border: 1.5px solid @lavender;
+    border: 1.5px solid @flamingo;
     padding: 0px 12px;
     border-radius: 90px;
     background: @crust;
 }
 
 #clock {
-    color: @lavender;
+    color: @flamingo;
     margin-right: 10px;
     padding: 6px 15px;
     border-radius: 90px;
     background: @crust;
-    border: 1.5px solid @lavender;
+    border: 1.5px solid @flamingo;
 }
 
 #custom-sepp {
