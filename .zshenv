@@ -35,6 +35,11 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i' #Better use trash
 
+# trash shortcuts
+alias t="gtrash"
+alias tp="t put"
+alias tf="t find"
+
 # grimblast for screenshot
 alias sc='grimblast copy area'
 
