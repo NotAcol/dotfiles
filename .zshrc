@@ -10,6 +10,7 @@ fi
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
+
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
@@ -22,6 +23,8 @@ set -o vi # VI-MODE | "set -o emacs" for emacs keybinds and delete/comment the n
 KEYTIMEOUT=1  # and zsh-vi-mode zsh-system-clipboard blugins
 bindkey -M vicmd '^[' undefined-key 
 
+kitten icat --align=left ~/Pictures/2B.png | fastfetch --raw - --logo-width 40 --logo-height 21
+
 #exports
 source ~/.zshenv
 
@@ -29,7 +32,7 @@ source ~/.zshenv
 autoload -U compinit
 compinit
 
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+export CARAPACE_BRIDGES='zsh,bash,inshellisense' # optional
 source <(carapace _carapace)
 
 plug "Aloxaf/fzf-tab"
@@ -44,7 +47,6 @@ eval "$(thefuck --alias)"
 eval "$(atuin init zsh)"
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
-
 
 # Transient prompt for starship
 zle-line-init() {

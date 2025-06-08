@@ -81,6 +81,7 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
+        "on-click-right": "coppwr",
         "scroll-step": 5,
         "max-volume": 150
     },

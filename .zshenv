@@ -28,7 +28,6 @@ alias ls="eza -lhrMs size --hyperlink --classify=auto --smart-group --group-dire
 alias grep='rg' 
 alias tree='eza -T --group-directories-first '
 alias find="fd"
-alias clock="peaclock --config-dir ~/.config/peaclock"
 alias tmux="tmux -2"
 
 # confirm before overwriting something
@@ -38,9 +37,6 @@ alias rm='rm -i' #Better use trash
 
 # grimblast for screenshot
 alias sc='grimblast copy area'
-
-# tmux and kitty dont play well with images so have to do this cringe shit
-alias fetch="kitten icat --align=left ~/Pictures/yorha.png | fastfetch --raw - --logo-width 40 --logo-height 19"
 
 # convenience stuff
 alias manpages='man -k . | fzf -e | awk '\''{print $1$2}'\'' | xargs man'
@@ -63,7 +59,10 @@ alias gc="git commit --verbose"
 alias gp="git pull"
 alias gP="git push"
 
+alias google="s -p google"
+alias ddgr="BROWSER=w3m ddgr"
 
+alias dua="dua i"
 
 function stopwatch() {
     if [ -z "$1" ]; then
@@ -84,9 +83,9 @@ function disasm() {
 }
 
 # uses perf to give a quick overview of performance
-function analyse() {
+function profile() {
     if [ -z "$1" ]; then
-        echo "Usage: analyse <executable>"
+        echo "Usage: profile <executable>\n    Needs to be compiled -fno-omit-frame-pointer\n"
     else
         file="$1"
         perf record -g "$file"
@@ -108,11 +107,9 @@ function flags() {
     echo "-O2
 -mavx2
 -mfma
--lc++abi 
 -fno-exceptions 
 -fno-rtti 
 -pthread
--ftime-trace
 -ffinite-math-only
 -fno-math-errno
 -fno-trapping-math
@@ -122,36 +119,66 @@ function flags() {
 -fuse-ld=lld
 -flto=thin" > ./.flags
 
-    echo "-DDEBUG
--DPROFILE=1
--DENABLE_ASSERT
--O0
--mavx2
+    echo "-mavx2
 -mfma
--lc++abi 
 -fno-exceptions 
--fno-rtti 
 -Wall 
 -Wextra
 -Wno-unused-function
--Wno-c++20-designator
--Wno-c11-extensions
--Wno-null-pointer-subtraction
--Wno-gnu-anonymous-struct
 -Wno-missing-braces
--Wnull-dereference
--Wdouble-promotion
--Wshadow
--Wformat=2
+-Wno-excess-initializers
+-pedantic
 -pthread
 -fuse-ld=lld 
 -fno-trapping-math
 -fno-math-errno
--fno-omit-frame-pointer  
--ggdb3
--lrt
--fsanitize=address" > ./.debug-flags 
+-fsanitize=address
+-g3" > ./.debug-flags 
 
-#fno-omit-frame-pointer is for perf 
-    echo -e "\033[1;33m                     remember to use tsan as well retard (-fsanitize=thread)"
+    echo -e "\033[1;33m                    use -fno-omit-frame-pointer for perf\n"
 }
+
+function encrypt() {
+    if [ -z "$1" ]; then
+        printf "Usage: encrypt <directory|file>\n"
+    else
+        file="$1"
+        if [ ! -e "$file" ]; then
+            echo "Error: '$file' does not exist."
+            return 1
+        fi
+
+        gpgtar -o "${file}.gpg" -ce "${file}"
+
+        printf "Delete original file? [Y/n] " 
+        read answer
+        answer=${answer:-y}
+
+        if [[ "$answer" =~ ^[Yy] ]]; then
+            rm -rf "${file}"
+        fi
+    fi
+}
+
+function decrypt(){
+
+    if [ -z "$1" ]; then
+        printf "Usage: decrypt <gpg encrypted tarball>\n"
+    else
+        file="$1"
+        if [ ! -e "$file" ]; then
+            echo "Error: '$file' does not exist."
+            return 1
+        fi
+        gpg --decrypt "$file" | tar -x
+
+        printf "Delete encrypted file? [Y/n] " 
+        read answer
+        answer=${answer:-y}
+
+        if [[ "$answer" =~ ^[Yy] ]]; then
+            rm -rf "${file}"
+        fi
+    fi
+}
+

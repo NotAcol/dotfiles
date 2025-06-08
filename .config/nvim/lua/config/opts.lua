@@ -14,7 +14,7 @@ vim.o.showmode = false
 vim.wo.number = true
 vim.wo.relativenumber = false
 vim.o.ruler = true
---vim.o.numberwidth = 3
+vim.o.numberwidth = 3
 
 -- Tabs vs spaces
 vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
@@ -40,7 +40,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = "no"
+vim.wo.signcolumn = auto
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -61,6 +61,7 @@ vim.opt.whichwrap:append("<>[]hl")
 vim.opt.shortmess:append("sI")
 vim.o.scrolloff = 5
 vim.o.encoding = "utf-8"
+vim.o.wrap = false
 
 -- greek in normal mode
 vim.opt.langmap =
