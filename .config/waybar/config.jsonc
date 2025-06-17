@@ -133,7 +133,7 @@
       "exec-on-event": "true",
       "tooltip": false,
       "on-click": "rofi -show drun",
-      "on-click-right": "grimblast copy area"
+      "on-click-right": "grim -g \"$(slurp)\" - | satty -f -"
     },
     "custom/logout": {
         "format": "󰗼",

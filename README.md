@@ -83,15 +83,15 @@ sudo update-desktop-database
 
 ```bash 
 paru -S thefuck tealdeer fzf bat exa zoxide atuin udiskie \
-zsh neovim yazi gtrash ripgrep fd unarchiver duf dua-cli starship \
-man bat-extras man-pages pass zathura jq poppler grimblast-git \
+zsh neovim yazi gtrash ripgrep fd unarchiver duf dua-cli \
+man bat-extras man-pages pass zathura jq poppler grim slurp satty \
 zathura-pdf-mupdf s dunst zen-browser-bin ffmpegthumbnailer \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
 qbittorrent freeze discord update-grub polkit dolphin qt6ct \
 tmux gvfs nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
 python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
-rofi-wayland rofi-emoji rofi-calc wl-clipboard clipse w3m \
+rofi-wayland rofi-emoji wl-clipboard clipse w3m starship \
 qt5-wayland qt6-wayland wf-recorder swww brightnessctl \
 hyprcursor hyprlock hyprpolkitagent carapace rsync gnuplot ddgr
 ```

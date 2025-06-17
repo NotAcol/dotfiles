@@ -15,7 +15,7 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "window,run,drun,emoji,calc";
+	modi:                       "window,run,drun,emoji";
     show-icons:                 true;
 	icon-theme:                 "Papirus-Dark";
     display-drun:               "";
@@ -23,7 +23,6 @@ configuration {
     display-filebrowser:        "";
     display-window:             "";
     display-emoji:              "";
-    display-calc:               "";
 	drun-display-format:        "{name}";
 	window-format:              "{c} · {t}";
     hide-scrollbar:              true;
