@@ -46,6 +46,7 @@ alias sc='grimblast copy area'
 # convenience stuff
 alias manpages='man -k . | fzf -e | awk '\''{print $1$2}'\'' | xargs man'
 alias mt="sudo mount -o uid=$USER"
+alias snapshot="sudo -E timeshift-launcher &"
 
 #git stuff
 alias gl="git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto)  %D%n%s%n'"
@@ -70,6 +71,7 @@ alias ddgr="BROWSER=w3m ddgr"
 alias dua="dua i"
 
 function stopwatch() {
+    set -euo pipefail
     if [ -z "$1" ]; then
         echo "Usage: stopwatch <time>"
     else
@@ -79,6 +81,7 @@ function stopwatch() {
 
 # quick disassembly
 function disasm() {
+    set -euo pipefail
     if [ -z "$1" ]; then
         echo "Usage: disasm <executable>"
     else
@@ -89,6 +92,7 @@ function disasm() {
 
 # uses perf to give a quick overview of performance
 function profile() {
+    set -euo pipefail
     if [ -z "$1" ]; then
         echo "Usage: profile <executable>\n    Needs to be compiled -fno-omit-frame-pointer\n"
     else
@@ -144,6 +148,7 @@ function flags() {
 }
 
 function encrypt() {
+    set -euo pipefail
     if [ -z "$1" ]; then
         printf "Usage: encrypt <directory|file>\n"
     else
@@ -166,7 +171,7 @@ function encrypt() {
 }
 
 function decrypt(){
-
+    set -euo pipefail
     if [ -z "$1" ]; then
         printf "Usage: decrypt <gpg encrypted tarball>\n"
     else

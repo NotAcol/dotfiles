@@ -1,5 +1,3 @@
-MenuBar=Disabled
-
 [DetailsMode]
 PreviewSize=32
 
@@ -19,7 +17,10 @@ Places Icons Static Size=22
 MenuBar=Disabled
 
 [PreviewSettings]
-Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,exe-thumbnailer,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,gsf-office,opendocumentthumbnail,svgthumbnail,gdk-pixbuf-thumbnailer
+Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,exe-thumbnailer,ebookthumbnail,exrthumbnail,directorythumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,gsf-office,opendocumentthumbnail,svgthumbnail,gdk-pixbuf-thumbnailer
 
 [UiSettings]
 ColorScheme=Catppuccin-Mocha
+
+[VersionControl]
+enabledPlugins=Git

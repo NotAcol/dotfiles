@@ -29,6 +29,9 @@ map("n", "<leader>x", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", { desc = "Close Curren
 
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
+-- Paste last yank
+map("n", "<C-p>", '"0p', { noremap = true, silent = true, desc = "Paste last yank" })
+
 --------------- Compilation mode --------------------------------
 
 local compile_mode = require("compile-mode")

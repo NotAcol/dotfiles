@@ -32,6 +32,9 @@ source ~/.zshenv
 autoload -U compinit
 compinit
 
+# fucking terminal tetris lmao
+autoload -Uz tetriscurses
+
 export CARAPACE_BRIDGES='zsh,bash,inshellisense' # optional
 source <(carapace _carapace)
 

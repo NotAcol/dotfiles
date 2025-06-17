@@ -54,10 +54,10 @@ git restore .
 
 ```bash 
 su -
-# pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-# pacman-key --lsign-key 3056513887B78AEB
-# pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-# nvim /etc/pacman.conf
+pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key 3056513887B78AEB
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+nvim /etc/pacman.conf
 ```
 
 then under multilib add
@@ -82,12 +82,12 @@ sudo update-desktop-database
 ## General
 
 ```bash 
-paru -S thefuck tealdeer fzf bat exa zoxide atuin choose \
+paru -S thefuck tealdeer fzf bat exa zoxide atuin udiskie \
 zsh neovim yazi gtrash ripgrep fd unarchiver duf dua-cli starship \
 man bat-extras man-pages pass zathura jq poppler grimblast-git \
 zathura-pdf-mupdf s dunst zen-browser-bin ffmpegthumbnailer \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
-qbittorrent silicon vesktop update-grub polkit dolphin qt5ct \
+qbittorrent freeze discord update-grub polkit dolphin qt6ct \
 tmux gvfs nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
 python-pygments spicetify-cli zip p7zip hyprland-qtutils \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
@@ -113,7 +113,7 @@ systemctl --user enable --now mpd
 ## Network
 
 ```bash 
-paru -S networkmanager
+paru -S networkmanager nm-connection-editor
 sudo systemctl enable --now NetworkManager.service
 ```
 
@@ -134,6 +134,19 @@ paru -S kdeconnect sshfs
 > [!NOTE]
 > This app goes fucking hard works with iphone and on every from what I can tell
  There is some permissions you have to set on phone side but it's great.
+
+## Snapshots
+> [!NOTE]
+> Use btrfs for file system, maybe bcachefs 
+
+```bash
+paru -S timeshift
+```
+
+> [!WARNING]
+> As of now this has an issue with opening the gui so I made a snapshot alias 
+for `sudo -E timeshift-launcher` which is goofy as hell but whatever, 
+should keep an eye on it for when it gets fixed
 
 ## Obs 
 
@@ -261,6 +274,10 @@ sudo mkinitcpio -P
 
 > [!NOTE] 
 > For trydactil do `:bind J tabnext` , `:bind K tabprev` `:set smoothscroll true` to get more sane behavior
+
+## Discord
+
+Just get vencord from [here](https://vencord.dev/download/) and theme it with [catppuccin css](https://github.com/catppuccin/discord?tab=readme-ov-file)
 
 ## Spotify
 
