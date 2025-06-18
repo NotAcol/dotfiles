@@ -1,10 +1,14 @@
 [general]
-initial-tool            = "brush"
-copy-command            = "wl-copy"
-disable-notifications   = false
-primary-highlighter     = "block"
-actions-on-enter        = ["save-to-clipboard"]
-actions-on-escape       = ["exit"]
+initial-tool                = "brush"
+copy-command                = "wl-copy"
+disable-notifications       = false
+primary-highlighter         = "block"
+actions-on-enter            = ["save-to-clipboard"]
+actions-on-escape           = ["exit"]
+corner-roundness            = 3
+annotation-size-factor      = 0.8
+brush-smooth-history-size   = 5
+no-window-decoration        = true
 
 [font]
 family = "JetBrainsMono Nerd Font"

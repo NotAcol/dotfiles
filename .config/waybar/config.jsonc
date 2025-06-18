@@ -133,8 +133,7 @@
       "exec-on-event": "true",
       "tooltip": false,
       "on-click": "rofi -show drun",
-      "on-click-right": "grim -g \"$(slurp)\" - | satty -f -"
-    },
+      "on-click-right": "grim -g \"$(slurp -o)\" -t ppm - | satty -f - --output-filename ~/Pictures/screenshot-$(date '+%Y%m%d-%H:%M:%S').png" },
     "custom/logout": {
         "format": "󰗼",
         "tooltip": false,
