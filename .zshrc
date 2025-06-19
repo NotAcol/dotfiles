@@ -23,7 +23,7 @@ set -o vi # VI-MODE | "set -o emacs" for emacs keybinds and delete/comment the n
 KEYTIMEOUT=1  # and zsh-vi-mode zsh-system-clipboard blugins
 bindkey -M vicmd '^[' undefined-key 
 
-kitten icat --align=left ~/Pictures/2B.png | fastfetch --raw - --logo-width 40 --logo-height 21
+#kitten icat --align=left ~/Pictures/2B.png | fastfetch --raw - --logo-width 40 --logo-height 21
 
 #exports
 source ~/.zshenv

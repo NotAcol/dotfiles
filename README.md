@@ -83,16 +83,16 @@ sudo update-desktop-database
 
 ```bash 
 paru -S thefuck tealdeer fzf bat exa zoxide atuin udiskie \
-zsh neovim yazi gtrash ripgrep fd unarchiver duf dua-cli \
-man bat-extras man-pages pass zathura jq poppler grim slurp satty \
+zsh neovim yazi gtrash pass  ripgrep fd unarchiver duf dua-cli \
+man bat-extras man-pages zathura jq poppler grim slurp satty \
 zathura-pdf-mupdf s dunst zen-browser-bin ffmpegthumbnailer \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
 qbittorrent freeze discord update-grub polkit dolphin qt6ct \
 tmux gvfs nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
-python-pygments spicetify-cli zip p7zip hyprland-qtutils \
+python-pygments spicetify-cli zip p7zip hyprland-qtutils clipse  \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
-rofi-wayland rofi-emoji wl-clipboard clipse w3m starship \
-qt5-wayland qt6-wayland wf-recorder swww brightnessctl \
+rofi-wayland rofi-emoji wl-clipboard w3m starship onlyoffice-bin \
+qt5-wayland qt6-wayland wf-recorder swww brightnessctl neovide \
 hyprcursor hyprlock hyprpolkitagent carapace rsync gnuplot ddgr
 ```
 
@@ -122,7 +122,7 @@ sudo systemctl enable --now NetworkManager.service
 ## Bluetooth
 
 ```bash 
-paru -S bluez bluez-utils bluetuith blueberry
+paru -S bluez bluez-utils blueberry
 sudo systemctl enable --now bluetooth.service
 ```
 
@@ -469,11 +469,101 @@ Maybe install xorg-xwayland-explicit-sync-git if flickering persists after reboo
 ```bash 
 paru -S vulkan-devel vulkan-icd-loader git-delta inotify-tools \
 lib32-vulkan-icd-loader glm glfw linux-tools python-catppuccin \
-clang llvm ninja lazygit openssh python-pygments ctags \
-libc++abi libc++ tracy imhex-bin valgrind sshs fasm hyperfine
+clang llvm ninja lazygit python-pygments ctags \
+libc++abi libc++ imhex-bin valgrind fasm
 ```
 
 > Grab the template for .gitconfig from dotfiles/_gitstuff for delta integration, you also need the bad theme
+
+# SSH
+
+```bash
+paru -S sshs openssh 
+```
+
+on the server 
+
+```bash
+systemctl enable --now sshd
+sudo nvim /etc/ssh/sshd_config
+```
+
+Change the port to whatever you want instead of 22. You can connect to it with
+```bash
+ssh -p port user@server-address
+```
+
+The config for whatever client will go in ~/.ssh/config and will look somehting like this
+```text
+Host displayed-name
+    HostName server-address
+    User user
+    Port port
+```
+and you can now connect with 
+```bash
+ssh displayed-name
+```
+Now create an ssh key in the user by doing (do name it tho when it promts "file in which to save")
+```bash
+cd ~/.ssh
+ssh-keygen -t rsa -b 4096
+chmod 600 ./key_name.pub
+scp key_name.pub displayed-name:
+rm ./key_name.pub
+```
+note the : at the end, it will make it so things are saved to home folder
+
+now switch to the server (or just ssh to it)
+```bash
+mkdir ~/.ssh
+touch ~/.ssh/authorized_keys
+cat ~/key_name.pub >> ~/.ssh/authorized_keys
+rm ~/key_name.pub
+```
+
+After you have connected with the client and gotten a key go force auth_key loggin with
+```text
+PasswordAuthentication no
+PubkeyAuthentication yes
+AuthenticationMethods publickey
+```
+and uncomment the AuthorizedKeysFile
+
+restart the server
+```bash
+systemctl restart sshd
+```
+
+To connect you will either do
+```bash
+ssh -p port -i key_name user@server-address
+```
+or add `IdentifyFile key_name` to the ~/.ssh/config entry
+
+Next time you want to add a user just enable password authentication 
+
+## Dynamic DNS
+This all is assuming router doesnt support freedns if it does just go play with those settings..
+
+Go [here](https://freedns.afraid.org/) create subdomain and 
+set wrong ip for it, go to Dynamic DNS right click copy Dyrect Url
+
+```bash
+paru -S freedns-daemon
+sudo nvim /etc/freedns-daemon/urls
+```
+and paste the link you copied
+
+```bash
+systemctl enable --now freedns-daemon
+```
+
+Now you need to forward a router port to the ssh port from before and you can connect 
+from the internet instead of only local network with
+```bash
+ssh -p router-port user@dns-subdomain.com
+```
 
 # Academics
 

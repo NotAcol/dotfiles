@@ -77,11 +77,11 @@ end, { desc = "Compile using build.sh script" })
 
 ----------------------------- file browser ---------------------
 
--- map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })
+map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })
 --map("n", "<C-n>", function()
 --	require("oil").toggle_float()
 --end, { desc = "Open file browser" })
-map("n", "<C-n>", "<CMD>e.<CR>", { desc = "file browser/editor" })
+--map("n", "<C-n>", "<CMD>e.<CR>", { desc = "file browser/editor" })
 
 --------------- harpoon stuff ------------------------------------
 -- this is basically better marks

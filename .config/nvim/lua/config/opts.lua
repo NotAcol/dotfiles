@@ -11,10 +11,12 @@ vim.o.laststatus = 3
 vim.o.showmode = false
 
 -- Make line numbers default
-vim.wo.number = true
+vim.wo.number = false
 vim.wo.relativenumber = false
-vim.o.ruler = true
-vim.o.numberwidth = 3
+vim.o.ruler = false
+vim.o.numberwidth = 2
+
+vim.wo.signcolumn = "yes"
 
 -- Tabs vs spaces
 vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
@@ -38,9 +40,6 @@ vim.o.undofile = true
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
-
--- Keep signcolumn on by default
-vim.wo.signcolumn = auto
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -71,3 +70,9 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+vim.o.guifont = "JetBrainsMono NF SemiBold:h10"
+vim.g.neovide_position_animation_length = 0.0
+vim.g.neovide_scroll_animation_length = 0.20
+vim.g.neovide_refresh_rate = 144
+vim.opt.termguicolors = true

@@ -46,7 +46,7 @@ alias sc='grimblast copy area'
 # convenience stuff
 alias manpages='man -k . | fzf -e | awk '\''{print $1$2}'\'' | xargs man'
 alias mt="sudo mount -o uid=$USER"
-alias snapshot="sudo -E timeshift-launcher &"
+alias snapshot="sudo -E timeshift-launcher"
 
 #git stuff
 alias gl="git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto)  %D%n%s%n'"

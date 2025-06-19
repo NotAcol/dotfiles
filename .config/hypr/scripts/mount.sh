@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 device=$(udiskie-info -a -o "{ui_label} {is_mounted}" |  awk '{
     label = $1;
     name = "";
