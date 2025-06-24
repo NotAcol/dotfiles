@@ -82,18 +82,18 @@ sudo update-desktop-database
 ## General
 
 ```bash 
-paru -S thefuck tealdeer fzf bat exa zoxide atuin udiskie \
-zsh neovim yazi gtrash pass  ripgrep fd unarchiver duf dua-cli \
+paru -S thefuck tealdeer bat exa atuin udiskie pacman-contrib \
+zsh neovim yazi gtrash-bin pass zoxide ripgrep fd duf dua-cli \
 man bat-extras man-pages zathura jq poppler grim slurp satty \
-zathura-pdf-mupdf s dunst zen-browser-bin ffmpegthumbnailer \
+zathura-pdf-mupdf s dunst fzf  zen-browser-bin ffmpegthumbnailer \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
 qbittorrent freeze discord update-grub polkit dolphin qt6ct \
-tmux gvfs nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
+tmux nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
 python-pygments spicetify-cli zip p7zip hyprland-qtutils clipse  \
-ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji waybar \
+ttf-jetbrains-mono-nerd rar noto-fonts noto-fonts-emoji waybar \
 rofi-wayland rofi-emoji wl-clipboard w3m starship onlyoffice-bin \
 qt5-wayland qt6-wayland wf-recorder swww brightnessctl neovide \
-hyprcursor hyprlock hyprpolkitagent carapace rsync gnuplot ddgr
+hyprcursor hyprlock hyprpolkitagent carapace-bin rsync gnuplot ddgr
 ```
 
 > [!WARNING]
@@ -105,11 +105,27 @@ hyprcursor hyprlock hyprpolkitagent carapace rsync gnuplot ddgr
 ```bash 
 paru -S pipewire gst-plugin-pipewire pipewire-alsa \
 pamixer pipewire-audio pipewire-jack pipewire-pulse \
-wireplumber pavucontrol coppwr playerctl mpv mpd rmpc \
-noise-suppression-for-voice python-mutagen yt-dlp
+wireplumber pavucontrol coppwr-bin playerctl mpv mpd rmpc \
+noise-suppression-for-voice python-mutagen yt-dlp mpd-mpris
 mkdir -p ~/.local/share/mpd/playlists
+systemctl --user enable --now pipewire.socket
+systemctl --user enable --now pipewire-pulse.socket
+systemctl --user enable --now wireplumber.service
 systemctl --user enable --now mpd
+sudo nvim /usr/lib/systemd/user/mpd-mpris.service
 ```
+
+modify ExecStart to this
+```txt
+ExecStart=/usr/bin/mpd-mpris -network "unix" -host "/tmp/mpd_socket"
+```
+
+```bash
+echo "[Unit]\nDescription=Keep track of media player activity\n\n[Service]\nType=oneshot\nExecStart=/usr/bin/playerctld daemon\n\n[Install]\nWantedBy=default.target" > ~/.config/systemd/user/playerctld.service
+systemctl --user --now enable playerctld
+systemctl --user --now enable mpd-mpris
+```
+
 ## Network
 
 ```bash 
@@ -289,6 +305,8 @@ sudo nvim /etc/spotify-launcher.conf
 uncomment: extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 
 #### Block Spotify ads
+> [!NOTE]
+> Probably dont do this except if spicetify doesnt block adds for you
 
 ```bash 
 sudo nvim /etc/hosts
@@ -351,13 +369,7 @@ bat cache --build
 
 ### Spotify theme
 
-Login to spotify
-
-```bash 
-nvim ~/dotfiles/.config/spicetify/config-xpui.ini
-```
-
-Edit path to use correct username
+Log in to spotify
 
 ```bash 
 spicetify apply
@@ -586,4 +598,3 @@ paru -S obsidian
 <p align="center">
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" />
 </p>
-
