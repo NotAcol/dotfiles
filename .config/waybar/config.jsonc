@@ -87,14 +87,15 @@
     },
     "bluetooth": {
         "interval": 30,
-        "format": "",
+        "format": "{icon}",
         "format-connected": "{icon}",
         "format-off": "{icon}",
         "format-on": "{icon}",
+        "format-disabled": "{icon}",
         "format-no-controller": "",
-        "format-disabled": "",
         "format-icons": {
             "off": "󰂲",
+            "disabled": "󰂲",
             "on": "󰂯",
             "connected": "󰂴"
         },

@@ -1,0 +1,38 @@
+[
+    {
+        "key": "k",
+        "command": ["script-binding", "file_browser/dynamic/scroll_up"]
+    },
+    {
+        "key": "j",
+        "command": ["script-binding", "file_browser/dynamic/scroll_down"]
+    },
+    {
+        "key": "h",
+        "command": ["script-binding", "file_browser/dynamic/up_dir"]
+    },
+    {
+        "key": "l",
+        "command": ["script-binding", "file_browser/dynamic/down_dir"]
+    },
+    {
+        "key": "v",
+        "command": ["script-binding", "file_browser/dynamic/select_mode"]
+    },
+    {
+        "key": "tab",
+        "command": ["script-binding", "file_browser/dynamic/select_item"]
+    },
+    {
+        "key": "/",
+        "command": ["script-binding", "file_browser/dynamic/find/find_advanced"]
+    },
+    {
+        "key": "`",
+        "command": ["script-binding", "file_browser/dynamic/goto_current"]
+    },
+    {
+        "key": "~",
+        "command": ["script-binding", "file_browser/dynamic/goto_root"]
+    }   
+]

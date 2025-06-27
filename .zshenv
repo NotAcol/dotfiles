@@ -192,3 +192,20 @@ function decrypt(){
     fi
 }
 
+custom-fzf-nvim() {
+  local selected="$(fd --type f -H --max-depth=5 --exclude .git | fzf )"
+  if [[ -n "$selected" ]]; then
+      nvim -b  $(echo $selected | tr '\n' ' ')
+  fi
+  zle reset-prompt
+}
+zle -N custom-fzf-nvim
+
+custom-fzf-file-browse(){
+    local selected="$(fd --type d -H --exclude .git | fzf --preview 'ls --color=always {}')"
+    if [[ -n "$selected" ]]; then
+        cd $(echo $selected | tr '\n' ' ')
+    fi
+    zle reset-prompt
+}
+zle -N custom-fzf-file-browse

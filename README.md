@@ -82,25 +82,27 @@ sudo update-desktop-database
 ## General
 
 ```bash 
-paru -S thefuck tealdeer bat exa atuin udiskie pacman-contrib \
+paru -S thefuck tealdeer bat eza atuin udiskie pacman-contrib \
 zsh neovim yazi gtrash-bin pass zoxide ripgrep fd duf dua-cli \
 man bat-extras man-pages zathura jq poppler grim slurp satty \
-zathura-pdf-mupdf s dunst fzf  zen-browser-bin ffmpegthumbnailer \
+zathura-pdf-mupdf s dunst fzf perl-image-exiftoolffmpegthumbnailer \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
-qbittorrent freeze discord update-grub polkit dolphin qt6ct \
-tmux nomacs perl-image-exiftool xdg-desktop-portal-hyprland \
-python-pygments spicetify-cli zip p7zip hyprland-qtutils clipse  \
+qbittorrent freeze discord update-grub polkit dolphin qt6ct-kde \
+nomacs xdg-desktop-portal-hyprland uwsm libnewt zen-browser-bin \
+python-pygments spicetify-cli zip p7zip hyprland-qtutils clipse \
 ttf-jetbrains-mono-nerd rar noto-fonts noto-fonts-emoji waybar \
 rofi-wayland rofi-emoji wl-clipboard w3m starship onlyoffice-bin \
-qt5-wayland qt6-wayland wf-recorder swww brightnessctl neovide \
+tmux qt5-wayland qt6-wayland wf-recorder swww brightnessctl neovide \
 hyprcursor hyprlock hyprpolkitagent carapace-bin rsync gnuplot ddgr
 ```
 
-> [!WARNING]
-> if there are issues with missing font icons do `paru -S nerd-fonts-complete-mono-glyphs`
-
+> [!NOTE]
+> if there are issues with missing font icons you can do `paru -S nerd-fonts-complete-mono-glyphs`
 
 ## Audio
+
+> [!WARNING]
+> Pipewire and wireplubmer confs only work for my desktop
 
 ```bash 
 paru -S pipewire gst-plugin-pipewire pipewire-alsa \
@@ -121,7 +123,7 @@ ExecStart=/usr/bin/mpd-mpris -network "unix" -host "/tmp/mpd_socket"
 ```
 
 ```bash
-echo "[Unit]\nDescription=Keep track of media player activity\n\n[Service]\nType=oneshot\nExecStart=/usr/bin/playerctld daemon\n\n[Install]\nWantedBy=default.target" > ~/.config/systemd/user/playerctld.service
+echo "[Unit]\nDescription=Keep track of media player activity\n\n[Service]\nExecStart=/usr/bin/playerctld daemon\nRestart=on-failure\n\n[Install]\nWantedBy=default.target" > ~/.config/systemd/user/playerctld.service
 systemctl --user --now enable playerctld
 systemctl --user --now enable mpd-mpris
 ```
@@ -335,7 +337,7 @@ sudo nvim /etc/hosts
 
 ```bash 
 paru -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha \
-papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git 
+papirus-icon-theme kvantum nwg-look kvantum-theme-catppuccin-git qqc2-desktop-style
 ```
 
 Set up nwg-look and kvantum to catppuccin-mocha-flamingo
@@ -593,6 +595,13 @@ paru -S sagemath sagemath-doc
 ## Misc
 ```bash 
 paru -S obsidian
+```
+
+put this in obsidian vault .obsidian/snippets/erm.css
+```css
+body {
+  --file-line-width:1000px
+}
 ```
 
 <p align="center">

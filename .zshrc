@@ -32,9 +32,6 @@ source ~/.zshenv
 autoload -U compinit
 compinit
 
-# fucking terminal tetris lmao
-autoload -Uz tetriscurses
-
 export CARAPACE_BRIDGES='zsh,bash,inshellisense' # optional
 source <(carapace _carapace)
 
@@ -83,12 +80,11 @@ zle-line-init() {
 }
 zle -N zle-line-init
 
-custom-fzf-file-widget() {
-  local selected=$(fd --type f --type d --hidden --max-depth=5 --exclude .git | fzf )
-  if [[ -n "$selected" ]]; then
-      nvim -b  $(echo $selected | tr '\n' ' ')
-  fi
-  zle reset-prompt
-}
-zle -N custom-fzf-file-widget
-bindkey '^e' custom-fzf-file-widget
+bindkey '^e' custom-fzf-file-browse
+bindkey '^[e' custom-fzf-nvim
+
+if uwsm check may-start -q && uwsm select; then
+	exec uwsm start default
+else 
+    clear
+fi

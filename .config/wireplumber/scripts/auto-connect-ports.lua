@@ -29,7 +29,7 @@ function auto_connect_ports(args)
 	local output_om = ObjectManager({
 		Interest({
 			type = "port",
-			args["output"],
+			table.unpack(args["output"]),
 			Constraint({ "port.direction", "equals", "out" }),
 		}),
 	})
@@ -39,7 +39,7 @@ function auto_connect_ports(args)
 	local input_om = ObjectManager({
 		Interest({
 			type = "port",
-			args["input"],
+			table.unpack(args["input"]),
 			Constraint({ "port.direction", "equals", "in" }),
 		}),
 	})
@@ -57,7 +57,6 @@ function auto_connect_ports(args)
 			Interest({
 				type = "port",
 				args["unless"],
-				Constraint({ "port.direction", "equals", "in" }),
 			}),
 		})
 	end
@@ -114,26 +113,8 @@ function auto_connect_ports(args)
 end
 
 auto_connect_ports({
-	-- Physical mic
-	output = Constraint({ "object.path", "matches", "alsa:acp:Device:*" }),
-	input = Constraint({ "object.path", "matches", "capture.rnnoise_source:*" }),
-	connect = {
-		["FL"] = "MONO",
-	},
-})
-
--- Block my-source → capture.rnnoise_source
-auto_connect_ports({
-	output = Constraint({ "object.path", "matches", "my-source:*" }),
-	input = Constraint({ "object.path", "matches", "capture.rnnoise_source:*" }),
-	-- This ensures NO links are made between my-source and capture.rnnoise_source
-	unless = Constraint({ "object.path", "matches", "this-will-never-exist:*" }), -- Fake condition to force deletion
-	connect = {}, -- Empty connect table means no links are created, but the rule still runs
-})
-
-auto_connect_ports({
-	output = Constraint({ "object.path", "matches", "my-sink:*" }),
-	input = Constraint({ "object.path", "matches", "my-source:*" }),
+	output = { Constraint({ "object.path", "matches", "to-virt-mic:*" }) },
+	input = { Constraint({ "object.path", "matches", "virt-mic:*" }) },
 	connect = {
 		["FL"] = "FL",
 		["FR"] = "FR",
@@ -141,9 +122,66 @@ auto_connect_ports({
 })
 
 auto_connect_ports({
-	output = Constraint({ "object.path", "matches", "rnnoise_source:*" }),
-	input = Constraint({ "object.path", "matches", "my-sink:*" }),
+	output = { Constraint({ "object.path", "matches", "rnnoise_source:*" }) },
+	input = { Constraint({ "object.path", "matches", "to-virt-mic:*" }) },
 	connect = {
 		["MONO"] = { "FL", "FR" },
+		["FL"] = "FL",
+		["FR"] = "FR",
+	},
+})
+
+auto_connect_ports({
+	output = { Constraint({ "object.path", "matches", "to-virtual-mic-and-speakers:*" }) },
+	input = { Constraint({ "object.path", "matches", "to-virt-mic:*" }) },
+	connect = {
+		["FL"] = "FL",
+		["FR"] = "FR",
+	},
+})
+
+auto_connect_ports({
+	output = { Constraint({ "object.path", "matches", "to-virtual-mic-and-speakers:*" }) },
+	input = {
+		Constraint({ "port.group", "equals", "playback" }),
+		Constraint({ "object.path", "matches", "alsa:*" }),
+	},
+	connect = {
+		["FL"] = { "FL", "MONO" },
+		["FR"] = { "FR" },
+	},
+	unless = Constraint({ "object.path", "matches", "bluez_output.*" }),
+})
+
+auto_connect_ports({
+	output = { Constraint({ "object.path", "matches", "to-virtual-mic-and-speakers:*" }) },
+	input = { Constraint({ "object.path", "matches", "bluez_output.*" }) },
+	connect = {
+		["FL"] = { "FL", "MONO" },
+		["FR"] = { "FR" },
+	},
+})
+
+auto_connect_ports({
+	output = {
+		Constraint({ "port.group", "equals", "capture" }),
+		Constraint({ "object.path", "matches", "alsa:*" }),
+	},
+	input = { Constraint({ "object.path", "matches", "capture.rnnoise_source:*" }) },
+	connect = {
+		["MONO"] = "MONO",
+		["FL"] = { "FL", "MONO" },
+		["FR"] = { "FR" },
+	},
+	unless = Constraint({ "object.path", "matches", "bluez_input.*" }),
+})
+
+auto_connect_ports({
+	output = { Constraint({ "object.path", "matches", "bluez_input.*" }) },
+	input = { Constraint({ "object.path", "matches", "capture.rnnoise_source:*" }) },
+	connect = {
+		["MONO"] = "MONO",
+		["FL"] = { "FL", "MONO" },
+		["FR"] = { "FR" },
 	},
 })

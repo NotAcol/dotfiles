@@ -10,19 +10,19 @@ AlignConsecutiveAssignments:
   AlignCompound:   false
   PadOperators:    false
 AlignConsecutiveBitFields:
-  Enabled:         true
+  Enabled:         false
   AcrossEmptyLines: false
   AcrossComments:  false
   AlignCompound:   false
   PadOperators:    false
 AlignConsecutiveDeclarations:
-  Enabled:         true
+  Enabled:         false
   AcrossEmptyLines: false
   AcrossComments:  false
   AlignCompound:   false
   PadOperators:    false
 AlignConsecutiveMacros:
-  Enabled:         true
+  Enabled:         false
   AcrossEmptyLines: false
   AcrossComments:  false
   AlignCompound:   false
