@@ -82,18 +82,17 @@ sudo update-desktop-database
 ## General
 
 ```bash 
-paru -S thefuck tealdeer bat eza atuin udiskie pacman-contrib \
-zsh neovim yazi gtrash-bin pass zoxide ripgrep fd duf dua-cli \
-man bat-extras man-pages zathura jq poppler grim slurp satty \
-zathura-pdf-mupdf s dunst fzf perl-image-exiftoolffmpegthumbnailer \
-cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle \
-qbittorrent freeze discord update-grub polkit dolphin qt6ct-kde \
+paru -S man tealdeer bat eza atuin udiskie pacman-contrib dunst \
+zsh neovim yazi gtrash-bin pass zoxide ripgrep fd duf rsync dua-cli \
+neovide bat-extras man-pages jq poppler grim slurp satty aria2 \
+zathura-pdf-mupdf s fzf ffmpeg carapace-bin brightnessctl starship \
+cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle waybar \
+freeze discord update-grub hyprpolkitagent polkit dolphin qt6ct \
 nomacs xdg-desktop-portal-hyprland uwsm libnewt zen-browser-bin \
-python-pygments spicetify-cli zip p7zip hyprland-qtutils clipse \
-ttf-jetbrains-mono-nerd rar noto-fonts noto-fonts-emoji waybar \
-rofi-wayland rofi-emoji wl-clipboard w3m starship onlyoffice-bin \
-tmux qt5-wayland qt6-wayland wf-recorder swww brightnessctl neovide \
-hyprcursor hyprlock hyprpolkitagent carapace-bin rsync gnuplot ddgr
+python-pygments spicetify-cli zip 7zip hyprland-qtutils clipse \
+ttf-jetbrains-mono-nerd rar zathura noto-fonts noto-fonts-emoji \
+qbittorrent rofi-wayland rofi-emoji wl-clipboard w3m onlyoffice-bin \
+tmux qt5-wayland qt6-wayland swww ddgr gnuplot hyprlock hyprcursor \
 ```
 
 > [!NOTE]
@@ -169,8 +168,8 @@ should keep an eye on it for when it gets fixed
 ## Obs 
 
 ```bash 
-paru -S obs-studio obs-vaapi obs-vkcapture-git lib32-obs-vkcapture-git \
-obs-rtspserver obs-gstreamer ffmpeg-obs cef-minimal-obs-rc-bin xdg-desktop-portal-wlr
+paru -S obs-studio obs-vaapi obs-vkcapture lib32-obs-vkcapture \
+obs-gstreamer
 ```
 
 ## Zsh with zap
@@ -284,14 +283,14 @@ sudo mkinitcpio -P
 ### Add-ons
 
 - [Ublock Origin](https://github.com/yokoffing/Betterfox)
-- [Tridactyl](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+- [Vimium C](https://addons.mozilla.org/en-US/firefox/addon/vimium-c/)
 - [Dark Reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/)
 - [Youtube Row Fixer](https://addons.mozilla.org/en-US/firefox/addon/youtube-row-fixer-extension/)
 
 ##### Add [blocklists](https://github.com/yokoffing/filterlists#guidelines)
 
 > [!NOTE] 
-> For trydactil do `:bind J tabnext` , `:bind K tabprev` `:set smoothscroll true` to get more sane behavior
+> VimiumC settins in _zen/
 
 ## Discord
 

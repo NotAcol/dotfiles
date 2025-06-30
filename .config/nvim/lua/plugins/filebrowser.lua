@@ -1,20 +1,4 @@
 return {
-	-- 	Yazi in nvim
-	"mikavilpas/yazi.nvim",
-	event = "VeryLazy",
-	opts = {
-		open_for_directories = true,
-	},
-	--
-	-- 	telescope filebrowser see also /nvim/lua/plugins/telescope.lua
-	-- {
-	-- 	"nvim-telescope/telescope-file-browser.nvim",
-	-- 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-	-- },
-	--
-	-- Cute little thing I found, treats file browsing like a normal vim buffer
-	-- can browse files over ssh with using same syntax as netrw
-	-- nvim oil-ssh://[username@]hostname[:port]/[path]
 	{
 		"stevearc/oil.nvim",
 		opts = {

@@ -14,7 +14,14 @@ local select_one_or_multi = function(prompt_bufnr)
 end
 return {
 	"nvim-telescope/telescope.nvim",
-	dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+		"nvim-lua/plenary.nvim",
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+		},
+	},
 	cmd = "Telescope",
 	opts = {
 		defaults = {
@@ -49,37 +56,27 @@ return {
 			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		},
-		pickers = {
-			find_files = {
-				find_command = { "fd" },
-				opts = { "-H", "--type", "f", "--type", "l", "--color", "never", "-E", ".git" },
-				hidden = true,
+		pickers = {},
+		extensions = {
+			fzf = {
+				fuzzy = true, -- false will only do exact matching
+				override_generic_sorter = true, -- override the generic sorter
+				override_file_sorter = true, -- override the file sorter
+				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+				-- the default case_mode is "smart_case"
 			},
 		},
-		extensions = {
-			-- file_browser = {
-			-- 	theme = "ivy",
-			-- 	hijack_netrw = true,
-			-- 	grouped = true,
-			-- 	hidden = false,
-			-- 	follow_symlinks = true,
-			-- 	use_fd = true,
-			-- },
-		},
 		extensions_list = {
-			-- "file_browser",
+			fzf,
 		},
 		config = function(_, opts)
 			local telescope = require("telescope")
 			telescope.setup(opts)
+
 			-- load extensions
 			for _, ext in ipairs(opts.extensions_list) do
 				telescope.load_extension(ext)
 			end
 		end,
-		-- {
-		-- 	"nvim-telescope/telescope-file-browser.nvim",
-		-- 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		-- },
 	},
 }

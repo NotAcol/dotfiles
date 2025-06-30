@@ -1,17 +1,16 @@
-/* Catppuccin Mocha Flamingo userChrome.css*/
+/* Catppuccin Mocha Lavender userChrome.css*/
 
 @media (prefers-color-scheme: dark) {
-
   :root {
     --zen-colors-primary: #313244 !important;
-    --zen-primary-color: #f2cdcd !important;
+    --zen-primary-color: #b4befe !important;
     --zen-colors-secondary: #313244 !important;
     --zen-colors-tertiary: #181825 !important;
-    --zen-colors-border: #f2cdcd !important;
-    --toolbarbutton-icon-fill: #f2cdcd !important;
+    --zen-colors-border: #b4befe !important;
+    --toolbarbutton-icon-fill: #b4befe !important;
     --lwt-text-color: #cdd6f4 !important;
     --toolbar-field-color: #cdd6f4 !important;
-    --tab-selected-textcolor: rgb(223, 210, 225) !important;
+    --tab-selected-textcolor: rgb(192, 202, 249) !important;
     --toolbar-field-focus-color: #cdd6f4 !important;
     --toolbar-color: #cdd6f4 !important;
     --newtab-text-primary-color: #cdd6f4 !important;
@@ -27,7 +26,7 @@
     --toolbox-bgcolor-inactive: #181825 !important;
   }
 
-  #permissions-granted-icon{
+  #permissions-granted-icon {
     color: #181825 !important;
   }
 
@@ -49,20 +48,33 @@
 
   .content-shortcuts {
     background-color: #1e1e2e !important;
-    border-color: #f2cdcd !important;
+    border-color: #b4befe !important;
   }
 
   .urlbarView-url {
-    color: #f2cdcd !important;
+    color: #b4befe !important;
   }
 
   #zenEditBookmarkPanelFaviconContainer {
     background: #11111b !important;
   }
 
+  #zen-media-controls-toolbar {
+    & #zen-media-progress-bar {
+      &::-moz-range-track {
+        background: #313244 !important;
+      }
+    }
+  }
+
   toolbar .toolbarbutton-1 {
     &:not([disabled]) {
-      &:is([open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack){
+      &:is([open], [checked])
+        > :is(
+          .toolbarbutton-icon,
+          .toolbarbutton-text,
+          .toolbarbutton-badge-stack
+        ) {
         fill: #11111b;
       }
     }
@@ -106,5 +118,13 @@
   .identity-color-purple {
     --identity-tab-color: #cba6f7 !important;
     --identity-icon-color: #cba6f7 !important;
+  }
+
+  hbox#titlebar {
+    background-color: #181825 !important;
+  }
+
+  #zen-appcontent-navbar-container {
+    background-color: #181825 !important;
   }
 }

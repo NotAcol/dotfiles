@@ -77,37 +77,36 @@ end, { desc = "Compile using build.sh script" })
 
 ----------------------------- file browser ---------------------
 
-map("n", "<C-n>", "<cmd>Yazi cwd<CR>", { desc = "Open yazi" })
---map("n", "<C-n>", function()
---	require("oil").toggle_float()
---end, { desc = "Open file browser" })
---map("n", "<C-n>", "<CMD>e.<CR>", { desc = "file browser/editor" })
+map("n", "<C-n>", "<CMD>e.<CR>", { desc = "Open file browser" })
 
 --------------- harpoon stuff ------------------------------------
 -- this is basically better marks
 local harpoon = require("harpoon")
 
-vim.keymap.set("n", "<M-a>", function()
+vim.keymap.set("n", "<C-a>", function()
 	harpoon:list():add()
 end)
-vim.keymap.set("n", "<M-s>", function()
+vim.keymap.set("n", "<C-s>", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
-vim.keymap.set("n", "<M-q>", function()
+vim.keymap.set("n", "<C-1>", function()
 	harpoon:list():select(1)
 end, { nowait = true, silent = true, desc = "Harpoon select 1" })
-vim.keymap.set("n", "<M-w>", function()
+vim.keymap.set("n", "<C-2>", function()
 	harpoon:list():select(2)
 end, { nowait = true, silent = true, desc = "Harpoon select 2" })
-vim.keymap.set("n", "<M-e>", function()
+vim.keymap.set("n", "<C-3>", function()
 	harpoon:list():select(3)
 end, { nowait = true, silent = true, desc = "Harpoon select 3" })
-vim.keymap.set("n", "<M-r>", function()
+vim.keymap.set("n", "<C-4>", function()
 	harpoon:list():select(4)
 end, { nowait = true, silent = true, desc = "Harpoon select 4" })
---------- Hop ------------------------------
-local hop = require("hop")
-map("n", "f", "<CMD>HopWord<CR>", { desc = "Hint words to hop to" })
+vim.keymap.set("n", "<C-5>", function()
+	harpoon:list():select(5)
+end, { nowait = true, silent = true, desc = "Harpoon select 4" })
+vim.keymap.set("n", "<C-6>", function()
+	harpoon:list():select(6)
+end, { nowait = true, silent = true, desc = "Harpoon select 4" })
 
 -------- lsp stuff----------------
 
@@ -160,19 +159,56 @@ map("n", "<leader>fW", "<cmd>Telescope grep_string<CR>", { desc = "telescope gre
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 map("n", "<leader>m", "<cmd>Telescope marks initial_mode=normal<CR>", { desc = "telescope find marks" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
---map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "telescope find files" })
 
-map(
-	"n",
-	"<leader>ff",
-	"<cmd>Telescope find_files find_command=fd,-t,f,-t,l,--hidden,--color,never,-E,.git<cr>",
-	{ desc = "telescope find files" }
-)
+map("n", "<leader>ff", function()
+	require("telescope.builtin").find_files({
+		prompt_title = "Find Files",
+		find_command = {
+			"fd",
+			"--type",
+			"file",
+			"-L",
+			"--prune",
+			"--hidden",
+			"--exclude",
+			".git",
+			"--max-depth=6",
+		},
+	})
+end, { desc = "telescope find files" })
 
 map("n", "<leader>t", "<cmd>Telescope tags<CR>", { desc = "telescope search tags" })
-map("n", "<leader>:", "<cmd>Telescope command_history initial_mode=normal<cr>", { desc = "telescope command history" })
-map("n", "<leader>fq", "<cmd>Telescope quickfix initial_mode=normal<cr>", { desc = "telescope quickfix list" })
-map("n", "<leader>fd", "<cmd>Telescope diagnostics initial_mode=normal<cr>", { desc = "telescope lsp diagonstics" })
+
+vim.keymap.set("n", "<leader>fd", function()
+	require("telescope.builtin").find_files({
+		prompt_title = "Browse Directories",
+		cwd = "~",
+		find_command = {
+			"fd",
+			"--type",
+			"dir",
+			"--hidden",
+			"--exclude",
+			".git",
+			".",
+			vim.fn.expand("~"),
+		},
+		attach_mappings = function(prompt_bufnr, map)
+			local actions = require("telescope.actions")
+			local action_state = require("telescope.actions.state")
+
+			map({ "i", "n" }, "<CR>", function()
+				local entry = action_state.get_selected_entry()
+				actions.close(prompt_bufnr) -- Close Telescope
+				if entry then
+					vim.cmd("cd " .. vim.fn.fnameescape(entry.value)) -- Change dir
+					vim.cmd("e " .. vim.fn.fnameescape(entry.value))
+				end
+			end)
+			return true
+		end,
+	})
+end, { desc = "cd to dir" })
 
 ------------------------------ terminal----------------------------
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })

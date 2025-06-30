@@ -1,0 +1,26 @@
+{
+	"name": "Vimium C",
+	"@time": "6/29/2025, 2:21:37 PM",
+	"time": 1751196097103,
+	"environment": {
+		"extension": "2.12.3",
+		"platform": "linux",
+		"firefox": 139
+	},
+	"autoDarkMode": 1,
+	"keyLayout": 2,
+	"keyMappings": [
+		"#!no-check",
+		"map J nextTab",
+		"map K previousTab",
+		"",
+		"map d removeTab",
+		"map u restoreTab",
+		"",
+		"map <c-u> scrollPageUp",
+		"map <c-d> scrollPageDown",
+		""
+	],
+	"searchUrl": "http://google.com/search?udm=14&q=$s",
+	"vimSync": true
+}

@@ -193,7 +193,7 @@ function decrypt(){
 }
 
 custom-fzf-nvim() {
-  local selected="$(fd --type f -H --max-depth=5 --exclude .git | fzf )"
+  local selected="$(fd --type f -H -L --max-depth=5 --exclude .git | fzf )"
   if [[ -n "$selected" ]]; then
       nvim -b  $(echo $selected | tr '\n' ' ')
   fi
