@@ -39,9 +39,9 @@ map("n", "<leader>cd", function()
 	local filename = vim.api.nvim_buf_get_name(0)
 	local command
 	if filename:match("%.cpp$") then
-		command = "clang++ $(<.debug-flags) " .. filename
+		command = "./build.sh --debug " .. filename
 	elseif filename:match("%.c$") then
-		command = "clang $(<.debug-flags) " .. filename
+		command = "./build.sh --debug " .. filename
 	elseif filename:match("%.vert$") then
 		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
 		command = "glslc " .. filename .. " -o " .. dir .. "vert.spv"
@@ -56,9 +56,9 @@ map("n", "<leader>cr", function()
 	local filename = vim.api.nvim_buf_get_name(0)
 	local command
 	if filename:match("%.cpp$") then
-		command = "clang++ $(<.flags) " .. filename
+		command = "./build.sh --release " .. filename
 	elseif filename:match("%.c$") then
-		command = "clang $(<.flags) " .. filename
+		command = "./build.sh --release " .. filename
 	elseif filename:match("%.vert$") then
 		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
 		command = "glslc " .. filename .. " -o " .. dir .. "vert.spv"
