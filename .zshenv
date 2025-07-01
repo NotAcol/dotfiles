@@ -24,7 +24,7 @@ export PASSWORD_STORE_GPG_OPTS='--no-throw-keyids'
 
 #colors
 alias cat=bat
-alias ls="eza -lhrMs size --hyperlink --classify=auto --smart-group --group-directories-first"
+alias ls="eza -lhrMs size --hyperlink --classify=auto --icons --smart-group"
 alias grep='rg' 
 alias tree='eza -T --group-directories-first '
 alias find="fd"
