@@ -34,7 +34,7 @@ alias tmux="tmux -2"
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i' #Better use trash
-alias rsync='rsync -Pahcv'
+alias rsync='rsync -rPavhc'
 
 # trash shortcuts
 alias t="gtrash"

@@ -88,11 +88,12 @@ neovide bat-extras man-pages jq poppler grim slurp satty aria2 \
 zathura-pdf-mupdf s fzf ffmpeg carapace-bin brightnessctl starship \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle waybar \
 freeze discord update-grub hyprpolkitagent polkit dolphin qt6ct \
-nomacs xdg-desktop-portal-hyprland uwsm libnewt zen-browser-bin \
-python-pygments spicetify-cli zip 7zip hyprland-qtutils clipse \
+nomacs xdg-desktop-portal-hyprland zip 7zip libnewt zen-browser-bin \
+python-pygments spicetify-cli hyprland-qtutils clipse uwsm runapp \
 ttf-jetbrains-mono-nerd rar zathura noto-fonts noto-fonts-emoji \
 qbittorrent rofi-wayland rofi-emoji wl-clipboard w3m onlyoffice-bin \
 tmux qt5-wayland qt6-wayland swww ddgr gnuplot hyprlock hyprcursor \
+mission-center
 ```
 
 > [!NOTE]
@@ -279,6 +280,17 @@ sudo mkinitcpio -P
 ```
 
 ## Zen Browser
+
+### about:config
+
+| setting | value |
+| :---: | :---: |
+| media.hardware-video-decoding.force-enabled | true |
+| media.ffmpeg.vaapi.enabled | true |
+| media.av1.enabled | false |
+| gfx.x11-egl.force-enabled | true |
+| widget.dmabuf.force-enabled | true |
+
 
 ### Add-ons
 
