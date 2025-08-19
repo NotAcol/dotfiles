@@ -5,7 +5,7 @@
     "modules-center": ["clock"],
     "modules-right": [ "pulseaudio", "network", 
         //"group/monitor",  
-        "temperature", "battery",
+        "temperature", "bat",
         "tray"],
 
     "hyprland/workspaces": {
@@ -68,9 +68,9 @@
     },
     "network": {
         "format-wifi": "{signalStrength}% ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
         "on-click": "nm-connection-editor",
         "on-click-right": "blueberry"
     },

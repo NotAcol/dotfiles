@@ -6,6 +6,7 @@ return {
 	opts = {
 		servers = {
 			lua_ls = {},
+			gopls = {},
 			clangd = {},
 			texlab = {},
 			glsl_analyzer = {},

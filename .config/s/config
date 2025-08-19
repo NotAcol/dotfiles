@@ -1,2 +1,0 @@
-provider: google
-whitelist: [aur, archwiki, github, stackoverflow, google]

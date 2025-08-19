@@ -1,23 +1,27 @@
 # theme
 theme = catppuccin-mocha
-window-decoration = false
+window-decoration = none
+gtk-titlebar = false
+#gtk-wide-tabs = false
+gtk-adwaita = false
+#adw-toolbar-style=flat
+
 cursor-invert-fg-bg = true
 cursor-style = block
 cursor-style-blink = false
-#shell-integration = zsh
-#shell-integration-features = cursor, sudo, title
-background-opacity = 0
-#background-blur-radius = 20
+shell-integration = fish
+shell-integration-features = cursor, sudo, title
 
 # font
 font-family="JetBrainsMono NF SemiBold"
-font-size = 10
+font-size = 13
 
 # misc
-initial-command = tmux -2
+#initial-command = tmux -2
 window-padding-x = 0
 window-padding-y = 0
+clipboard-trim-trailing-spaces = true
 
-# keybinds
-#keybind="ctrl+space>r=reload_config"
-#keybind="ctrl+space>t=new_tab"
+config-file = ./keybinds.conf
+#gtk-custom-css = tab-style.css
+custom-shader = ./cursor_trail.glsl

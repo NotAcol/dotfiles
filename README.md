@@ -82,22 +82,71 @@ sudo update-desktop-database
 ## General
 
 ```bash 
-paru -S man tealdeer bat eza atuin udiskie pacman-contrib dunst \
-zsh neovim yazi gtrash-bin pass zoxide ripgrep fd duf rsync dua-cli \
+paru -S man tealdeer bat eza atuin pacman-contrib dunst fish \
+fisher neovim yazi gtrash-bin zoxide ripgrep fd duf rsync dua-cli \
 neovide bat-extras man-pages jq poppler grim slurp satty aria2 \
-zathura-pdf-mupdf s fzf ffmpeg carapace-bin brightnessctl starship \
+zathura-pdf-mupdf fzf ffmpeg carapace-bin brightnessctl starship \
 cava qalculate-gtk spotify-launcher ventoy fastfetch hypridle waybar \
 freeze discord update-grub hyprpolkitagent polkit dolphin qt6ct \
 nomacs xdg-desktop-portal-hyprland zip 7zip libnewt zen-browser-bin \
 python-pygments spicetify-cli hyprland-qtutils clipse uwsm runapp \
 ttf-jetbrains-mono-nerd rar zathura noto-fonts noto-fonts-emoji \
 qbittorrent rofi-wayland rofi-emoji wl-clipboard w3m onlyoffice-bin \
-tmux qt5-wayland qt6-wayland swww ddgr gnuplot hyprlock hyprcursor \
-mission-center
+tmux qt5-wayland qt6-wayland swww gnuplot hyprlock hyprcursor pass  \
+mission-center udiskie firewalld
 ```
 
 > [!NOTE]
 > if there are issues with missing font icons you can do `paru -S nerd-fonts-complete-mono-glyphs`
+
+## Systemd
+
+The persistent journal can get big enough (4GiB) to the point where it 
+slows down startup so change it to some smaller value
+```bash
+journalctl -b -u systemd-journald
+sudo nvim /etc/systemd/journald.conf
+```
+and add 
+```text
+SystemMaxUse=50M
+```
+
+## File System
+> [!NOTE]
+> Use btrfs for file system, maybe bcachefs later down the line. Snapchots on arch are a life saver
+
+```bash
+paru -S timeshift xorg-xhost grub-btrfs 
+```
+
+> [!NOTE]
+> xorg-xhost is there cause timeshift is retarded and cant open itself with root on wayland
+If it ever gets fixed remove it it's just a security risk 
+
+## Laptop Power Saving
+
+```bash
+paru -S tlp
+sudo nvim /etc/tlp.conf
+```
+Add 
+```text
+# Do not suspend USB devices
+USB_AUTOSUSPEND=0
+```
+If you are on prime laptop do lspci | grep NVIDIA and 
+add the result to the comf file
+```text
+RUNTIME_PM_ENABLE="01:00.0"
+```
+
+## Shell
+
+```fish
+fisher update
+fish_config theme save "Catppuccin Mocha"
+```
 
 ## Audio
 
@@ -150,50 +199,8 @@ sudo systemctl enable --now bluetooth.service
 paru -S kdeconnect sshfs
 ```
 > [!NOTE]
-> This app goes fucking hard works with iphone and on every from what I can tell
+> This app goes fucking hard works with iphone and on every os from what I can tell
  There is some permissions you have to set on phone side but it's great.
-
-## Snapshots
-> [!NOTE]
-> Use btrfs for file system, maybe bcachefs 
-
-```bash
-paru -S timeshift
-```
-
-> [!WARNING]
-> As of now this has an issue with opening the gui so I made a snapshot alias 
-for `sudo -E timeshift-launcher` which is goofy as hell but whatever, 
-should keep an eye on it for when it gets fixed
-
-## Obs 
-
-```bash 
-paru -S obs-studio obs-vaapi obs-vkcapture lib32-obs-vkcapture \
-obs-gstreamer
-```
-
-## Zsh with zap
-
-In zsh terminal
-
-```bash 
-zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
-```
-
->This might back up and replace .zshrc if it does switch them back to this repo's version
-
-```bash 
-zap update all
-chsh -s /usr/bin/zsh
-atuin import auto
-```
-
-Better use trashy instead of rm
-
-zsh is set to vi key binds if you want emacs change it at ~/.zshrc line 48
-
-If you want to sync search history across machines you can trivially do it [here](https://docs.atuin.sh/guide/sync/)
 
 ## tmux
 
@@ -223,7 +230,7 @@ nvim
 ```
 
 - :Lazy sync
-- :MasonToolsInstallsync
+- :MasonToolsUpdate
 
 ## Update tealdeer manpages
 
@@ -344,6 +351,14 @@ sudo nvim /etc/hosts
 127.0.0.1 104.154.126.8
 ```
 
+## Obs 
+
+```bash 
+paru -S obs-studio obs-vaapi obs-vkcapture lib32-obs-vkcapture \
+obs-gstreamer
+```
+
+
 ## Rice
 
 ```bash 
@@ -415,7 +430,7 @@ sudo nvim /etc/default/grub
 ```
 
 ```text
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.modeset=1 nvidia_drm.fbdev=1 amd_pstate=active"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia_drm.modeset=1 amd_pstate=active"
 ```
 
 >Remove amd_pstate=active if no amd cpu
@@ -424,7 +439,6 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia.NVreg_PreserveVideoMemoryAll
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo nvim /etc/mkinitcpio.conf
 ```
-
 
 ```text
 MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
@@ -436,7 +450,7 @@ sudo nvim /etc/modprobe.d/nvidia.conf
 ```
 
 ```text
-options nvidia_drm modeset=1 fbdev=1
+options nvidia_drm modeset=1
 ```
 
 ```bash 
@@ -547,7 +561,7 @@ cat ~/key_name.pub >> ~/.ssh/authorized_keys
 rm ~/key_name.pub
 ```
 
-After you have connected with the client and gotten a key go force auth_key loggin with
+After you have connected with the client and gotten a key force auth_key loggin with
 ```text
 PasswordAuthentication no
 PubkeyAuthentication yes
@@ -605,7 +619,7 @@ paru -S sagemath sagemath-doc
 
 ## Misc
 ```bash 
-paru -S obsidian
+paru -S obsidian pandoc
 ```
 
 put this in obsidian vault .obsidian/snippets/erm.css

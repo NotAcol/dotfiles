@@ -1,0 +1,188 @@
+@import "mocha.css";
+
+* {
+    border: none;
+    border-radius: 0px;
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12px;
+    font-weight: bold;
+}
+
+window#waybar {
+    color: @text;
+    background: @base00;
+    transition-property: background-color;
+}
+
+window#waybar.empty {
+}
+
+.modules-left {
+    border: none;
+}
+
+.modules-right {
+    border: none;
+}
+
+.modules-center {
+    border: none;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: @base;
+    border-radius: 90px;
+}
+
+#workspaces {
+    margin-left: 10px;
+    padding: 3px 8px;
+    border-radius: 90px;
+    background: @crust;
+    /*border: 1.5px solid @rosewater;*/
+}
+
+#workspaces button {
+    color: @text;
+    margin: 0px;
+    padding: 0px 5px;
+}
+
+#workspaces button.urgent {
+    color: @maroon;
+}
+
+#workspaces button.empty {
+    color: @surface2;
+}
+
+#workspaces button.visible {
+    color: @rosewater;
+}
+
+#workspaces button.active {
+    color: @rosewater;
+}
+
+#workspaces button.focused {
+    color: @rosewater;
+}
+
+#cpu,
+#memory,
+#disk {
+    padding: 0px 8px;
+}
+
+#perf {
+    color: @rosewater;
+    /*border: 1.5px solid @rosewater;*/
+    margin-right: 10px;
+    padding: 0px 7px;
+    border-radius: 90px;
+    background: @crust;
+}
+
+#menu {
+    color: @rosewater;
+    /*border: 1.5px solid @rosewater;*/
+    padding: 0px 7px;
+    border-radius: 90px;
+    background: @crust;
+}
+
+#menu .drawer-child {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#menu:hover .drawer-child {
+    opacity: 1;
+}
+    
+#custom-icon {
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 4px;
+}
+
+#power {
+    color: @surface2;
+    border-radius: 90px;
+    background: @crust;
+    padding: 0px 7px;
+}
+
+#custom-logout,
+#custom-lock,
+#custom-reboot,
+#custom-power {
+    padding: 0px 8px;
+}
+
+#custom-logout:hover,
+#custom-lock:hover,
+#custom-reboot:hover,
+#custom-power:hover {
+    color: @rosewater;
+}
+
+#bluetooth {
+    font-size: 15px;
+    padding-right: 8px;
+    padding-left: 3px;
+}
+#bluetooth.off {
+    color: @maroon;
+}
+#bluetooth.disabled {
+    color: @maroon;
+}
+
+#pulseaudio,
+#network {
+    padding: 0px 8px;
+}
+
+
+#network.disconnected {
+    color: @maroon;
+}
+
+
+#ns{
+    color: @rosewater;
+    /*border: 1.5px solid @rosewater;*/
+    margin-right: 10px;
+    padding: 0px 7px;
+    border-radius: 90px;
+    background: @crust;
+}
+
+#tray {
+    color: @text;
+    /*border: 1.5px solid @rosewater;*/
+    padding: 0px 12px;
+    border-radius: 90px;
+    background: @crust;
+}
+
+#clock {
+    color: @rosewater;
+    margin-right: 10px;
+    padding: 6px 15px;
+    border-radius: 90px;
+    background: @crust;
+    /*border: 1.5px solid @rosewater;*/
+}
+
+#custom-sepp {
+    color: @surface2;
+    font-size: 20px;
+}

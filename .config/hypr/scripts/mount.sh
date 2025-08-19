@@ -18,8 +18,10 @@ device=$(udiskie-info -a -o "{ui_label} {is_mounted}" |  awk '{
 
 if [ -n "$device" ]; then
     if mount | grep -q "$device"; then
+        echo "$device"
         udisksctl unmount -b "$device"
     else
+        echo "$device"
         udisksctl mount -b "$device"
     fi
 fi

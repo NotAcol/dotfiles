@@ -6,18 +6,7 @@ format = "[$symbol$branch(:$remote_branch)]($style)"
 success_symbol = "[:❯ ](bold green)"
 error_symbol = "[:❮ ](bold red)"
 vimcmd_symbol = "[:❯ ](bold yellow)"
-
-[git_branch]
-format = "[$symbol$branch(:$remote_branch)]($style) "
-style = "bold mauve"
-symbol = "󰘬 "
-
-[directory]
-truncation_length = 4
-style = "bold lavender"
-
-[package]
-disabled = true
+vimcmd_visual_symbol = "[:❯ ](bold mauve)"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -46,3 +35,231 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+format = "[$symbol]($style)"
+
+[bun]
+symbol = " "
+format = "[$symbol]($style)"
+
+[c]
+symbol = "[ ](bold blue)"
+format = "[$symbol]($style)"
+
+[cpp]
+symbol = "[ ](bold blue)"
+format = "[$symbol]($style)"
+
+[cmake]
+symbol = " "
+format = "[$symbol]($style)"
+
+[conda]
+symbol = " "
+format = "[$symbol]($style)"
+
+[crystal]
+symbol = " "
+format = "[$symbol]($style)"
+
+[dart]
+symbol = " "
+format = "[$symbol]($style)"
+
+[deno]
+symbol = " "
+format = "[$symbol]($style)"
+
+[directory]
+style = "bold lavender"
+
+[docker_context]
+symbol = " "
+format = "[$symbol]($style)"
+
+[elixir]
+symbol = " "
+format = '[$symbol]($style)'
+
+[elm]
+symbol = " "
+format = '[$symbol]($style)'
+
+[fennel]
+symbol = " "
+format = '[$symbol]($style)'
+
+[fossil_branch]
+symbol = " "
+
+[gcloud]
+symbol = "  "
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "bold mauve"
+symbol = "󰘬 "
+
+[git_commit]
+tag_symbol = '  '
+
+[golang]
+symbol = " "
+format = '[$symbol]($style)'
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+format = "[$symbol]($style)"
+
+[haxe]
+symbol = " "
+format = '[$symbol]($style)'
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+format = '[$symbol]($style)'
+
+[julia]
+symbol = " "
+format = '[$symbol]($style)'
+
+[kotlin]
+symbol = " "
+format = '[$symbol]($style)'
+
+[lua]
+symbol = " "
+format = '[$symbol]($style)'
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+format = '[$symbol]($style)'
+
+[nim]
+symbol = "󰆥 "
+format = '[$symbol]($style)'
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+format = '[$symbol]($style)'
+
+[ocaml]
+symbol = " "
+format = '[$symbol(\($switch_indicator$switch_name\) )]($style)'
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[perl]
+symbol = " "
+format = '[$symbol]($style)'
+
+[php]
+symbol = " "
+format = '[$symbol]($style)'
+
+[pijul_channel]
+symbol = " "
+
+[pixi]
+symbol = "󰏗 "
+format = '[$symbol($environment )]($style)'
+
+[python]
+symbol = " "
+format = '[$symbol]($style)'
+
+[rlang]
+symbol = "󰟔 "
+format = '[$symbol]($style)'
+
+[ruby]
+symbol = " "
+format = '[$symbol]($style)'
+
+[rust]
+symbol = "󱘗 "
+format = '[$symbol]($style)'
+
+[scala]
+symbol = " "
+format = "[$symbol]($style)"
+
+[swift]
+symbol = " "
+format = '[$symbol]($style)'
+
+[zig]
+symbol = " "
+format = '[$symbol]($style)'
+
+[gradle]
+symbol = " "
+format = '[$symbol]($style)'

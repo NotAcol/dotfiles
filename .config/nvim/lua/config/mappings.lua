@@ -8,20 +8,16 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 
-map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+local nvim_tmux_nav = require("nvim-tmux-navigation")
+map("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+map("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+map("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+map("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
 
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
-
-map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Window left" })
-map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Window right" })
-map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Window down" })
-map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Window up" })
 
 map("n", "<tab>", "<cmd>bnext<cr>")
 map("n", "<S-tab>", "<cmd>bprev<cr>")
@@ -34,46 +30,46 @@ map({ "n", "v" }, "<C-p>", '"0p', { noremap = true, silent = true, desc = "Paste
 
 --------------- Compilation mode --------------------------------
 
-local compile_mode = require("compile-mode")
-map("n", "<leader>cd", function()
-	local filename = vim.api.nvim_buf_get_name(0)
-	local command
-	if filename:match("%.cpp$") then
-		command = "./build.sh --debug " .. filename
-	elseif filename:match("%.c$") then
-		command = "./build.sh --debug " .. filename
-	elseif filename:match("%.vert$") then
-		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
-		command = "glslc " .. filename .. " -o " .. dir .. "vert.spv"
-	elseif filename:match("%.frag$") then
-		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
-		command = "glslc " .. filename .. " -o " .. dir .. "frag.spv"
-	end
-	compile_mode.compile({ args = command })
-end, { desc = "Compile debug mode" })
+-- quickfix list
+vim.keymap.set("n", "<A-j>", vim.cmd.cnext, { silent = true, desc = "Next quickfix entry" })
+vim.keymap.set("n", "<A-k>", vim.cmd.cprevious, { silent = true, desc = "Previous quickfix entry" })
 
-map("n", "<leader>cr", function()
-	local filename = vim.api.nvim_buf_get_name(0)
-	local command
-	if filename:match("%.cpp$") then
-		command = "./build.sh --release " .. filename
-	elseif filename:match("%.c$") then
-		command = "./build.sh --release " .. filename
-	elseif filename:match("%.vert$") then
-		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
-		command = "glslc " .. filename .. " -o " .. dir .. "vert.spv"
-	elseif filename:match("%.frag$") then
-		local dir = filename:match("^(.*[/\\])") or vim.fn.getcwd() .. "/"
-		command = "glslc " .. filename .. " -o " .. dir .. "frag.spv"
-	end
-	compile_mode.compile({ args = command })
-end, { desc = "Compile release mode" })
+-- build and open quickfix list
+local function run_build(opts)
+	local qf_width = 20 -- Size of the qfix list, putting it here as a switch
 
-map("n", "<leader>cs", function()
 	local filename = vim.api.nvim_buf_get_name(0)
-	local command = "./build.sh " .. filename
-	compile_mode.compile({ args = command })
-end, { desc = "Compile using build.sh script" })
+	if not filename or filename == "" then
+		print("Cannot build, no file name.")
+		return
+	end
+
+	local command
+
+	-- Check if the current file is a GLSL shader
+	if filename:match("%.vert$") then
+		local dir = vim.fn.fnamemodify(filename, ":h")
+		command = "glslc " .. vim.fn.shellescape(filename) .. " -o " .. vim.fn.shellescape(dir .. "/vert.spv")
+	elseif filename:match("%.frag$") then
+		local dir = vim.fn.fnamemodify(filename, ":h")
+		command = "glslc " .. vim.fn.shellescape(filename) .. " -o " .. vim.fn.shellescape(dir .. "/frag.spv")
+	else
+		-- Fallback to the build.sh command, now including the filename
+		command = opts.build_command .. " " .. vim.fn.shellescape(filename)
+	end
+
+	vim.cmd('cexpr system("' .. command .. '")')
+
+	vim.cmd("copen" .. qf_width)
+end
+
+vim.keymap.set("n", "<leader>cd", function()
+	run_build({ build_command = "bash build.sh -d" })
+end, { noremap = true, silent = true, desc = "Build debug or compile shader" })
+
+vim.keymap.set("n", "<leader>cr", function()
+	run_build({ build_command = "bash build.sh -r" })
+end, { noremap = true, silent = true, desc = "Build release or compile shader" })
 
 ----------------------------- file browser ---------------------
 

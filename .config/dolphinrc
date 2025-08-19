@@ -1,3 +1,5 @@
+MenuBar=Disabled
+
 [CompactMode]
 PreviewSize=32
 
@@ -13,20 +15,14 @@ Version=202
 ViewPropsTimestamp=2025,3,8,14,20,23.376
 
 [IconsMode]
-PreviewSize=32
+IconSize=64
 
 [KFileDialog Settings]
 Places Icons Auto-resize=false
 Places Icons Static Size=22
 
-[MainWindow]
-MenuBar=Disabled
-
 [PreviewSettings]
-Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,exe-thumbnailer,ebookthumbnail,exrthumbnail,directorythumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail,gdk-pixbuf-thumbnailer,gsf-office
+Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail,gdk-pixbuf-thumbnailer
 
 [UiSettings]
 ColorScheme=Catppuccin-Mocha
-
-[VersionControl]
-enabledPlugins=Git

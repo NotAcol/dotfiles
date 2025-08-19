@@ -1,5 +1,5 @@
-set font                    "monospace 12"
-et selection-notification	"true"
+set font                    "monospace normal 12"
+set selection-notification	"true"
 set selection-clipboard		"clipboard"
 set guioptions			    "sv"
 set scroll-page-aware		"true"
